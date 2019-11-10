@@ -18,9 +18,10 @@ MemoryStage::MemoryStage(QObject* parent) : Stage (parent)
 
     // ******** Same Path **********
     this->paths["EXMEM_Memory_From_ALU_Result"] = newPath( { "466,27" ,"534,27" });
-    this->paths["EXMEM_Back_EX_MUX_line"] = newPath( { "504,26" ,"504,489" ,"63,489" , "63,115"  });
-    this->paths["EXMEM_Back_EX_MUX_1"] = newPath( {"63,115", "63,-3" ,"178,-3" });
-    this->paths["EXMEM_Back_EX_MUX_2"] = newPath( { "63,115" ,"178,116" });
+    this->paths["middle_dataMem_ALU"] = newPath({ "504,27" ,"504,261" });
+    this->paths["EXMEM_Back_EX_MUX_line"] = newPath( {"504,261" ,"504,489" ,"62,489" , "62,152"  });
+    this->paths["EXMEM_Back_EX_MUX_1"] = newPath( {"62,152", "63,-3" ,"178,-3" });
+    this->paths["EXMEM_Back_EX_MUX_2"] = newPath( {"62,152" ,"177,152"  });
     this->paths["EXMEM_MEMWB_Middle"] = newPath( { "504,262" ,"709,262" });
     // *****************************
 

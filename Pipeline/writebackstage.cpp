@@ -20,7 +20,7 @@ WriteBackStage::WriteBackStage(QObject* parent) : Stage (parent)
     // ************** Same Path ***************
     this->paths["MUX_Write_RegFile"] = newPath( {"863,56" ,"879,56" ,"879,516" ,"-471,516" ,"-471,112" ,"-326,112"  });
     this->paths["MUX_ExecutionMUX_1"] = newPath( {"82,515","82,-40" ,"176,-40" });
-    this->paths["MUX_ExecutionMUX_2"] = newPath( {"82,515" , "82,154" ,"178,154"  });
+    this->paths["MUX_ExecutionMUX_2"] = newPath( {"82,515" , "82,111" ,"177,111"  });
     //    this->paths[""] = newPath( {  });
 
     // Text
