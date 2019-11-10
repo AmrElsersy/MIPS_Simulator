@@ -50,15 +50,22 @@ void filesTester:: check_reg()
 
     string s;
 
+
+
     while(getline(file1,s)) // read line by line
     {
         if (s == "")
             continue;
         try {
-        vector<string> address_value = split_string(s,",");
-        int address =  stoi(address_value[0]);
-        int value    = stoi(address_value[1]);
-        this -> correct_values[address] =  value;}
+        vector<string> k = split_string(s," ");
+        for (uint i =0 ; i <k.size(); i++)
+        {
+                vector<string> address_value = split_string(k[i],","); if (address_value.size() == 1) {continue;}
+                int address =  stoi(address_value[0]);
+                int value    = stoi(address_value[1]);
+                this -> correct_values[address] =  value;
+        }
+        }
         catch (...) {}
 
     }
@@ -70,10 +77,15 @@ void filesTester:: check_reg()
         if (s == "")
             continue;
         try {
-        vector<string> address_value = split_string(s,",");
-        int address =  stoi(address_value[0]) ;
-        int value    = stoi(address_value[1]);
-        this -> new_values[address] =  value;}
+            vector<string> k = split_string(s," ");
+            for (uint i =0 ; i <k.size(); i++)
+            {
+                    vector<string> address_value = split_string(k[i],","); if (address_value.size() == 1) {continue;}
+                    int address =  stoi(address_value[0]);
+                    int value    = stoi(address_value[1]);
+                    this -> new_values[address] =  value;
+            }
+        }
         catch (...) {}
 
     }
@@ -109,10 +121,15 @@ void filesTester::check_data()
         if (s == "")
             continue;
         try {
-        vector<string> address_value = split_string(s,",");
-        int address =  stoi(address_value[0]);
-        int value    = stoi(address_value[1]);
-        this -> correct_data[address] = value; }
+        vector<string> k = split_string(s," ");
+        for (uint i =0 ; i <k.size(); i++)
+        {
+            vector<string> address_value = split_string(k[i],","); if (address_value.size() == 1) {continue;}
+            int address =  stoi(address_value[0]);
+            int value    = stoi(address_value[1]);
+            this -> correct_data[address] = value;
+        }
+        }
         catch (...) {}
     }
 
@@ -123,10 +140,14 @@ void filesTester::check_data()
         if (s == "")
             continue;
         try {
-        vector<string> address_value = split_string(s,",");
-        int address =  stoi(address_value[0]) ;
-        int value    = stoi(address_value[1]);
-        this -> new_data[address] =  value;}
+        vector<string> k = split_string(s," ");
+        for (uint i =0 ; i <k.size(); i++)
+        {
+            vector<string> address_value = split_string(k[i],","); if (address_value.size() == 1) {continue;}
+            int address =  stoi(address_value[0]) ;
+            int value    = stoi(address_value[1]);
+            this -> new_data[address] =  value;
+         }}
         catch (...) {}
 
     }

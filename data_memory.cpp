@@ -41,7 +41,10 @@ void Data_Memory::file_read_data_mem(string path)
     string s ;
     while(getline(this->file,s)) // read line by line
     {
-        vector<string> address_value = split_string(s,",");
+        vector<string> k = split_string(s," ");
+        for (uint i =0 ; i <k.size(); i++)
+        {
+            vector<string> address_value = split_string(k[i],","); if (address_value.size() == 1) {continue;}
         if(address_value.size() != 2)
         {
             cout << "ERROR in Reading Data of Data_Mem_File (not the openning) " << endl;
@@ -52,7 +55,7 @@ void Data_Memory::file_read_data_mem(string path)
         uint address = uint( stoi(address_value[0]) );
         int value    = stoi (address_value[1] );
         this->write_memory(address,value);
-        emit update_dataMemory_GUI(address);
+        emit update_dataMemory_GUI(address);}
     }
 
     file.close();

@@ -1,2 +1,1 @@
-addi $s0,$s0,1
-addi $s1,$s0,30
+addi $t0,$t0,5

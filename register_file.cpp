@@ -121,7 +121,10 @@ void Register_File::read_regFile_data(string path)
     string s ;
     while(getline(this->file,s)) // read line by line
     {
-        vector<string> address_value = split_string(s,",");
+        vector<string> k = split_string(s," ");
+        for (uint i =0 ; i <k.size(); i++)
+        {
+            vector<string> address_value = split_string(k[i],","); if (address_value.size() == 1) {continue;}
         if(address_value.size() != 2)
         {
             cout << "ERROR in Reading Data of RegFile (not the openning) " << endl;
@@ -131,6 +134,7 @@ void Register_File::read_regFile_data(string path)
         uint address = uint( stoi(address_value[0]) );
         int value    = stoi (address_value[1] );
         this->write_register(address,value);
+        }
     }
     file.close();
 }
