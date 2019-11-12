@@ -126,8 +126,6 @@ void Simulator::Simulate()
     this->Modelsim();
     this->update_GUI();
 }
-<<<<<<< HEAD
-=======
 void Simulator::debugg_pc()
 {
     this->PCs.clear();
@@ -145,7 +143,6 @@ void Simulator::debugg_pc()
     }
     file_pc.close();
 }
->>>>>>> ae099184cfda045257ff6d7142363fe50b94ce8d
 
 void Simulator::updateState(int direction)
 {
