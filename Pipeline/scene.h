@@ -80,9 +80,10 @@ private:
     vector<string> clocks_verilog;
     vector<string> regfile_clocks;
     vector<string> datamemory_clocks;
+    vector<string> pipeline_regs_clocks;
     uint max_clocks;
-    ifstream verilog_file, regfile_file,dataMem_file;
-    string   verilogPath , regfilePath,dataMemPath;
+    ifstream verilog_file, regfile_file,dataMem_file,pipeline_regs_file ;
+    string   verilogPath , regfilePath,dataMemPath,pipeline_regsPath;
 
 
     vector< vector<state> > states;
@@ -125,7 +126,7 @@ private:
     void ReadClocks();
     void ReadRegFile();
     void ReadDataMem();
-
+    void Readpipeline_regs();
     vector<string> split_string(string s,string splitter);
     QString parasePC_Text(string pc);
 protected:
@@ -138,6 +139,7 @@ protected:
 signals:
     void updateDataMem(string); // it updates data memory and data_mem table
     void updateRegFile(string);
+    void updatepipeline_regs(string);
     void updateRegistersGUI();
 
 public slots:

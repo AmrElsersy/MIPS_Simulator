@@ -184,13 +184,7 @@ void Register_File::updateRegFilePipeline(string regFileClock)
     }
 }
 /*
-void Register_File::updateRegsPipeline(string regFileClock)
-{
-    if (regFileClock == "" || regFileClock == " ")
-        return;
-    vector<string> values = split_string(s[i],",");
-    for(int i=0; i< values.size();i++)
-        regs[i] = stoi(values[i]);
+void Register_File::updateRegsPipeline
 }
 */
 

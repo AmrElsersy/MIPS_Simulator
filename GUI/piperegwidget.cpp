@@ -35,8 +35,15 @@ PipeRegWidget::PipeRegWidget(QWidget *parent) : Tree_Widget(parent)
 
 }
 
-void PipeRegWidget::updatePipeRegistersWidget(vector<string> clocks)
+void PipeRegWidget::updatePipeRegistersWidget(string s)
 {
+    vector<string> clocks;
+    if (s == "" || s == " ")
+        return;
+    vector<string> values = split_string(s,",");
+    for(uint i=0; i< values.size();i++)
+        clocks.push_back(values[i]);
+
     for (uint i = 0; i < clocks.size(); ++i)
     {
         try {
@@ -46,3 +53,18 @@ void PipeRegWidget::updatePipeRegistersWidget(vector<string> clocks)
         }
     }
 }
+vector<string> PipeRegWidget:: split_string(string s,string splitter)
+{
+    vector<string> splitted;
+    uint n = s.length();
+    int pos = 0;
+    int start = pos;
+    while (pos != string::npos)
+    {
+        pos = s.find_first_of(splitter,pos+1);
+        string splitted_string = s.substr(start,pos-start);
+        splitted.push_back(splitted_string);
+        start = pos+1;
+    }
+
+    return splitted;}

@@ -30,6 +30,7 @@ myScene::myScene(QWidget *parent) : QGraphicsScene(MAX_TOP_LEFT_CORNER,1900,1000
     // code reading
     this->verilogPath = "C:\\Pipeline\\pc.txt";
     this->regfilePath = "C:\\Pipeline\\regFile.txt";
+    this->pipeline_regsPath = "C:\\Pipeline\\regs.txt";
     this->dataMemPath = "C:\\Pipeline\\dataMemory.txt";
     // directions
     this->index = 0;
@@ -83,6 +84,10 @@ void myScene::updateStagesColors(int direction)
     {
         emit updateDataMem(this->datamemory_clocks[this->index]); // updates both data memory and data_mem table
         emit updateRegFile(this->regfile_clocks[this->index]);   // updates only register file
+        if(this->index == 0)
+        emit updatepipeline_regs(this->pipeline_regs_clocks[(this->index)]);
+        else
+        emit updatepipeline_regs(this->pipeline_regs_clocks[(this->index)-1]);
         emit updateRegistersGUI();                              // updates only regfile table
     }
 }
@@ -96,6 +101,7 @@ void myScene::INIT_Scene(vector<string> Code)
     this->clocks_verilog.clear();
     this->regfile_clocks.clear();
     this->datamemory_clocks.clear();
+    this->pipeline_regs_clocks.clear();
     this->code.clear();
 
     // get instruction code
@@ -107,7 +113,7 @@ void myScene::INIT_Scene(vector<string> Code)
     this->ReadClocks(); // read pc.txt
     this->ReadRegFile(); // read regFile.txt
     this->ReadDataMem(); // read dataMemory.txt
-    // fill the states
+    this->Readpipeline_regs();// fill the states
     this->initStates();
 
     this->index = 0;
@@ -281,13 +287,17 @@ void myScene::ReadRegFile()
     string s;
     while (getline(this->regfile_file,s))
         this->regfile_clocks.push_back(s);
-
-    for (uint i =0 ; i< this->regfile_clocks.size() ; i++ )
-        cout << this->regfile_clocks[i] << "   " ;
-    cout << endl;
-    cout << "regFile size=" << regfile_clocks.size() << endl;
     this->regfile_file.close();
 }
+void myScene::Readpipeline_regs()
+{
+    this->pipeline_regs_file.open(this->pipeline_regsPath);if (!this->pipeline_regs_file.is_open()) { cout << "cannot open regfile.txt Pipeline" << endl;}
+    string s;
+    while (getline(this->pipeline_regs_file,s))
+        this->pipeline_regs_clocks.push_back(s);
+
+}
+
 void myScene::ReadDataMem()
 {
     this->dataMem_file.open(this->dataMemPath); if (!this->dataMem_file.is_open()) { cout << "cannot open dataMemory.txt Pipeline" << endl; }

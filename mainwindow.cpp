@@ -12,7 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent)
     connect(this->pipeline_gui->my_scene,SIGNAL(updateRegFile(string)),this->gui->simulator->register_file,SLOT(updateRegFilePipeline(string)));
     connect(this->pipeline_gui->my_scene,SIGNAL(updateDataMem(string)),this->gui->simulator->data_memory,SLOT(updateDataMemPipeline(string)));
     connect( this->pipeline_gui->my_scene, SIGNAL(updateRegistersGUI() )    , this->gui->Registers_Table , SLOT( updateRegisters() ) );
-
+    connect (this->pipeline_gui->my_scene, SIGNAL(updatepipeline_regs(string)), this->gui->Pipeline_Registers,SLOT(updatePipeRegistersWidget(string)));
     // to show the pipeline GUI
     connect(this->gui,SIGNAL(pipeline_GUI()),this,SLOT(show_pipeline_gui()));
 }
