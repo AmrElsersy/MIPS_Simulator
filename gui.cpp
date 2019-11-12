@@ -110,15 +110,19 @@ void GUI::init_horizontal_layout()
     this->right_btn = new QPushButton("");
     this->left_btn = new QPushButton("");
     this->play_btn = new QPushButton("");
+    this->left_btn->setStyleSheet("border: 0px; color: white; font-size:30px; width:50px; height:50px");
+    this->play_btn->setStyleSheet("border: 0px; color: white; font-size:30px; width:50px; height:50px");
+    this->right_btn->setStyleSheet("border: 0px; color: white; font-size:30px; width:50px; height:50px");
 
-    right_btn->setIcon(QIcon("C:\\MIPS_Simulator\\right_icon.png"));
-    left_btn->setIcon(QIcon("C:\\MIPS_Simulator\\left_icon.png"));
-    play_btn->setIcon(QIcon("C:\\MIPS_Simulator\\play_icon.png"));
-
-
-    this->horizontalLayout->addWidget(this->right_btn);
-    this->horizontalLayout->addWidget(this->play_btn);
+    right_btn->setIcon(QIcon("C:\\MIPS_Simulator\\forward.png"));
+    left_btn->setIcon(QIcon("C:\\MIPS_Simulator\\backward.png"));
+    play_btn->setIcon(QIcon("C:\\MIPS_Simulator\\spidy.png"));
+    play_btn->setIconSize(QSize(50,150));
+    right_btn->setIconSize(QSize(50,150));
+    left_btn->setIconSize(QSize(50,150));
     this->horizontalLayout->addWidget(this->left_btn);
+    this->horizontalLayout->addWidget(this->play_btn);
+    this->horizontalLayout->addWidget(this->right_btn);
 
     this->horizontalLayout->addWidget(this->lineEdit);
     this->horizontalLayout->addWidget(this->includeBtn);

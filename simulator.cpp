@@ -124,6 +124,7 @@ void Simulator::Simulate()
     this->Modelsim();
     this->update_GUI();
 }
+
 void Simulator::updateState(int direction)
 {
     cout << "index  " << index << " clocks " << max_clocks <<endl;
