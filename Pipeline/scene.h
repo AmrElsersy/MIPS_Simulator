@@ -129,7 +129,7 @@ private:
     vector<string> split_string(string s,string splitter);
     QString parasePC_Text(string pc);
 protected:
-    void mousePressEvent(QGraphicsSceneMouseEvent *event);
+//    void mousePressEvent(QGraphicsSceneMouseEvent *event);
     void mouseMoveEvent(QGraphicsSceneMouseEvent *event);
     void keyPressEvent(QKeyEvent *event) override;
 //    void drawBackground(QPainter *painter, const QRectF &rect) override;

@@ -36,7 +36,6 @@ myScene::myScene(QWidget *parent) : QGraphicsScene(MAX_TOP_LEFT_CORNER,1900,1000
 
     this->timer = new QTimer();
     this->timer->setInterval(700);
-//    this->timer->setSingleShot(true);
     connect(this->timer,SIGNAL(timeout()),this,SLOT(continuous_play()));
 
     this->setBackgroundBrush(QBrush(QColor(Qt::black)));
@@ -217,7 +216,10 @@ void myScene::leftButton()
 }
 void myScene::playButton()
 {
-    this->timer->start();
+    if(!this->timer->isActive())
+        this->timer->start();
+    else
+        this->timer->stop();
 }
 
 void myScene::continuous_play()
@@ -236,17 +238,17 @@ void myScene::initButtons()
     QWidget* buttons_widget = new QWidget();
     QHBoxLayout* layout = new QHBoxLayout();
 
-    QPushButton* right_btn = new QPushButton();
-    QPushButton* left_btn = new QPushButton();
-    QPushButton* play_btn = new QPushButton();
+    QPushButton* right_btn = new QPushButton("");
+    QPushButton* left_btn = new QPushButton("");
+    QPushButton* play_btn = new QPushButton("");
 
     right_btn->setIcon(QIcon("C:\\MIPS_Simulator\\right_icon.png"));
     left_btn->setIcon(QIcon("C:\\MIPS_Simulator\\left_icon.png"));
     play_btn->setIcon(QIcon("C:\\MIPS_Simulator\\play_icon.png"));
 
-    connect(right_btn,SIGNAL(clicked()),this,SLOT(rightButton()));
-    connect(left_btn,SIGNAL(clicked()),this,SLOT(leftButton()));
-    connect(play_btn,SIGNAL(clicked()),this,SLOT(playButton()));
+    connect(right_btn,SIGNAL(pressed()),this,SLOT(rightButton()));
+    connect(left_btn,SIGNAL(pressed()),this,SLOT(leftButton()));
+    connect(play_btn,SIGNAL(pressed()),this,SLOT(playButton()));
 
     layout->addWidget(left_btn);
     layout->addWidget(play_btn);
@@ -384,16 +386,16 @@ void myScene::initText()
         this->addItem(this->MUX_txt[i]);
     // ====================================
 }
-void myScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
-{
-    QPointF point = event->scenePos();
-    // string the point
-    QString s = QString::number(point.x()) + "," + QString :: number(point.y()) ;
-    this->cursor->setPlainText(s);
-    // print the QGraphicText Item on the Scene
-    //    this->cursor->setPos(QPointF(point.x()+10,point.y())); // +10 for visualization only
-    cout << "\"" << point.x() << "," << point.y() << "\" ," ;
-}
+//void myScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
+//{
+//    QPointF point = event->scenePos();
+//    // string the point
+//    QString s = QString::number(point.x()) + "," + QString :: number(point.y()) ;
+//    this->cursor->setPlainText(s);
+//    // print the QGraphicText Item on the Scene
+//    //    this->cursor->setPos(QPointF(point.x()+10,point.y())); // +10 for visualization only
+//    cout << "\"" << point.x() << "," << point.y() << "\" ," ;
+//}
 void myScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 {
     QPointF point = event->scenePos();
