@@ -72,6 +72,9 @@ private:
     QPushButton* includeBtn;
     QPushButton* RunBtn;
     QPushButton* PipelineBtn;
+    QPushButton* right_btn ;
+    QPushButton* left_btn;
+    QPushButton* play_btn;
 
     QFileDialog* file_dialog;
     QFileDialog* include_file_dialog;
@@ -103,6 +106,11 @@ public slots:
     void Output_Screen(string);
     void file_paths_selected_dialog(QStringList);
     void Browse_file();
+
+    void Right_btn();
+    void Left_btn();
+    void Play_btn();
+
 
 };
 

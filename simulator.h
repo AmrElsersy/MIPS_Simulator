@@ -50,6 +50,9 @@ private:
     QString python_path;
     QString mode;
 
+    uint index;
+    uint max_clocks;
+
     vector<string> code;
     vector<vector<string>> instructions;
     map<string,uint> Lables;
@@ -58,6 +61,7 @@ private:
 
 
 public:
+    void updateState(int);
     Simulator();
     ~Simulator();
     void Simulate();
@@ -81,6 +85,10 @@ private:
     void print_all();
 
 signals:
+    void regfile_lines(string );
+    void data_memory_lines(string);
+    void updateDataMem(int); // updates both data memory and data_mem table
+    void updateRegFile(int);
     vector<string> getInstruction_Editor();
     void Assemble_Instruction(vector<string>);
     void ALU_Instruction(vector<string>);

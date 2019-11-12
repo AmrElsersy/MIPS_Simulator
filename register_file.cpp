@@ -49,7 +49,6 @@ void Register_File::clear()
     for (auto it = Registers.begin();it != Registers.end();it ++) {
         it->second->clear();
     }
-    lines.clear();
     this->Registers["$sp"]->setValue(STACK_SIZE);
 }
 
@@ -111,6 +110,7 @@ void Register_File::stack_read(string name)
 }
 void Register_File::set_lines(string path)
 {
+    lines.clear();
     this->file.open(path);
     if (!file.is_open())
     {
@@ -124,7 +124,9 @@ void Register_File::set_lines(string path)
     }
     file.close();
 }
-
+int Register_File::get_regClocks(){
+    return lines.size();
+}
 void Register_File::read_regFile_data()
 {
 

@@ -23,6 +23,7 @@ public:
     Register_File(QObject *parent = nullptr);
     void add_register(string Name,uint Num , int Value = 0 );
     void clear();
+    int get_regClocks();
     vector<string> split_string(string s,string splitter);
 
 public slots:

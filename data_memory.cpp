@@ -30,6 +30,7 @@ int* Data_Memory::get_Memory_Access()
 }
 void Data_Memory::set_lines(string path)
 {
+    lines.clear();
     this->file.open(path);
     if (!file.is_open())
     {

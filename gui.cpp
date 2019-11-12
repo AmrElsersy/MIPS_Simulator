@@ -107,6 +107,18 @@ void GUI::init_horizontal_layout()
                                  "color: rgb(0,0,128);"
                                 "border-radius: 5%;"
                                  "font-weight: 400;");
+    this->right_btn = new QPushButton("");
+    this->left_btn = new QPushButton("");
+    this->play_btn = new QPushButton("");
+
+    right_btn->setIcon(QIcon("C:\\MIPS_Simulator\\right_icon.png"));
+    left_btn->setIcon(QIcon("C:\\MIPS_Simulator\\left_icon.png"));
+    play_btn->setIcon(QIcon("C:\\MIPS_Simulator\\play_icon.png"));
+
+
+    this->horizontalLayout->addWidget(this->right_btn);
+    this->horizontalLayout->addWidget(this->play_btn);
+    this->horizontalLayout->addWidget(this->left_btn);
 
     this->horizontalLayout->addWidget(this->lineEdit);
     this->horizontalLayout->addWidget(this->includeBtn);
@@ -129,6 +141,11 @@ void GUI::Signals_Slots()
     connect( this->includeBtn , SIGNAL(clicked() )     , this , SLOT( Browse_file() ) );
     connect( this->include_file_dialog     , SIGNAL(filesSelected(QStringList) )     , this , SLOT( Start_Simulation_File(QStringList) ) );
     connect( this->file_dialog             , SIGNAL(filesSelected(QStringList) )     , this , SLOT( file_paths_selected_dialog(QStringList) ) );
+
+    connect(this->left_btn,SIGNAL(clicked()),this,SLOT(Left_btn()));
+    connect(this->right_btn,SIGNAL(clicked()),this,SLOT(Right_btn()));
+    connect(this->play_btn,SIGNAL(clicked()),this,SLOT(Play_btn()));
+
 
     connect( this->simulator, SIGNAL(getInstruction_Editor()), this->Code_Editor,SLOT(Read_Code_Text_Editor() ));
     connect( this->simulator, SIGNAL(update_assembled_instruction() ) , this->Execution , SLOT( updateInstructions() ) );
@@ -226,6 +243,22 @@ void GUI::file_paths_selected_dialog(QStringList files_pahts)
 void GUI:: Browse_file()
 {
     this->include_file_dialog->show();
+}
+
+void GUI::Right_btn()
+{
+    this->simulator->updateState(1);
+}
+
+void GUI::Left_btn()
+{
+    this->simulator->updateState(-1);
+}
+
+void GUI::Play_btn()
+{
+    this->simulator->mode = "Debugger";
+    this->simulator->Simulate();
 }
 
 

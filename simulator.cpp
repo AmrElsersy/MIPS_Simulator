@@ -93,6 +93,19 @@ void Simulator::Modelsim()
         this->modelsim_pipeline_process->waitForFinished();
         emit updatePipelineAssemblyCode(this->code);
     }
+    else if (this->mode == "Debugger")
+    {
+        emit file_assembled_instructions(this->file_assembly_path); // write file with assembledd instructions
+        this->modelsim_process->start(this->modelsim_command);// run modelsim to read the assembly file and write in the dataMemory and regFile files
+        this->modelsim_process->waitForStarted();
+        this->modelsim_process->terminate();
+        this->modelsim_process->waitForFinished();
+        this->index = 2; //anwar b2ol kda
+        emit file_regFile_lines(this->file_regFile_path);
+        emit file_dataMemory_lines(this->file_dataMemory_path);
+        this->max_clocks = register_file->get_regClocks();
+        this->updateState(index);
+    }
 }
 
 void Simulator::Simulate()
@@ -111,7 +124,31 @@ void Simulator::Simulate()
     this->Modelsim();
     this->update_GUI();
 }
-
+void Simulator::updateState(int direction)
+{
+    cout << "index  " << index << " clocks " << max_clocks <<endl;
+    if(direction == 1) // right
+    {
+        if (this->index == (this->max_clocks -1)) // if index is the last index in clocks vector
+        {
+            cout << "End of Execution" << endl;
+            return;
+        }
+        this->index++;
+    }
+    else if (direction == -1) // backward
+    {
+        if(this->index == 2) // if it is the first state
+        {
+            cout << "First State cannot go backword" << endl;
+            return;
+        }
+        this->index --;
+    }
+    emit updateDataMem(this->index); // updates both data memory and data_mem table
+    emit updateRegFile(this->index);
+    emit update_registers();
+}
 void Simulator::Simulate(string path)
 {
     this->code_path = path;
@@ -298,6 +335,9 @@ bool Simulator::check_for_specials(string s)
 
 void Simulator::Observer_Pattern()
 {
+
+    connect(this,           SIGNAL(updateDataMem(int) ),                    this->data_memory , SLOT( file_read_data_mem(int) ) );
+    connect(this,           SIGNAL(updateRegFile(int) ),                    this->register_file , SLOT( read_regFile_data(int) ) );
     connect(this,           SIGNAL(Assemble_Instruction(vector<string>)),   this-> assembler,SLOT(Assemble(vector<string>)) );
     connect(this,           SIGNAL(print_assembled_instruction()) ,         this-> assembler,SLOT(print_all() ) );
     connect(this,           SIGNAL(ALU_Instruction(vector<string>)),        this-> Alu,SLOT(ALU_Operation(vector<string>) ) );

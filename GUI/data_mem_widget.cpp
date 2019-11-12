@@ -72,7 +72,6 @@ void Data_Mem_Widget::update_memory(uint address)
     string text = convert_int_to_hex_string(this->memory[address])  ;
     uint row = address / (COLOMN_SIZE-1);
     uint colomn = address % (COLOMN_SIZE-1);
-    cout << "row= " << row << "colomn= " << colomn << endl;
     // colomn + 1 because of first colomn is for base address
     this->Items[row]->setText( colomn+1,  QString::fromStdString( text ) )  ;
 }
