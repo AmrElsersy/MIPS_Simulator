@@ -30,6 +30,7 @@ SOURCES += \
     GUI/editor.cpp \
     GUI/execute_widget.cpp \
     GUI/filestester.cpp \
+    GUI/piperegwidget.cpp \
     GUI/regfile_widget.cpp \
     GUI/testcase.cpp \
     GUI/testwidget.cpp \
@@ -60,6 +61,7 @@ HEADERS += \
     GUI/editor.h \
     GUI/execute_widget.h \
     GUI/filestester.h \
+    GUI/piperegwidget.h \
     GUI/regfile_widget.h \
     GUI/testcase.h \
     GUI/testwidget.h \

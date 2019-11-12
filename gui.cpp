@@ -10,14 +10,18 @@ GUI::GUI(QWidget *parent) :   QWidget (parent)
 
     this->tabWidget       = new QTabWidget();
     this->tabWidget->setStyleSheet("background-color:rgb(0,0,128);");
-    this->Registers_Table = new regFile_Widget();
-    this->Registers_Table->setStyleSheet("background: white;");
     this->Execution       = new Execute_Widget();
     this->Execution->setStyleSheet("background: white;");
     this->Data_Memory     = new Data_Mem_Widget();
     this->Data_Memory->setStyleSheet("background: white;");
     this->testWidget      = new TestWidget();
     this->testWidget->setStyleSheet("background: white;");
+
+    this->Right_TabWidget = new QTabWidget();
+    this->Registers_Table = new regFile_Widget();
+    this->Registers_Table->setStyleSheet("background: white;");
+    this->Pipeline_Registers = new PipeRegWidget();
+    this->Pipeline_Registers->setStyleSheet("background:white;");
 
     // set colors of highlight
     QColor Code_highlight_color; Code_highlight_color.setRgb(Code_color);
@@ -52,13 +56,19 @@ void GUI::Design()
     this->tabWidget->addTab(this->Data_Memory,DATA_MEM);
     this->tabWidget->addTab(this->testWidget,TEST);
     this->tabWidget->setMovable(true);
+    this->tabWidget->setUsesScrollButtons(true);
+
+
+    this->Right_TabWidget->addTab(this->Registers_Table,"Registers");
+    this->Right_TabWidget->addTab(this->Pipeline_Registers,"Pipeline");
 
     this->IO_Screen_Container->addTab(this->IO_Screen,"Output");
+
 
     // Grid Design
     this->grid->addLayout(this->horizontalLayout,0,0,1,-1);
     this->grid->addWidget(this->tabWidget,1,0,3,3);
-    this->grid->addWidget(this->Registers_Table,1,3,-1,1);
+    this->grid->addWidget(this->Right_TabWidget,1,3,-1,1);
     this->grid->addWidget(this->IO_Screen_Container,4,0,1,3);
 
     // for resizing

@@ -386,26 +386,6 @@ void myScene::initText()
         this->addItem(this->MUX_txt[i]);
     // ====================================
 }
-//void myScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
-//{
-//    QPointF point = event->scenePos();
-//    // string the point
-//    QString s = QString::number(point.x()) + "," + QString :: number(point.y()) ;
-//    this->cursor->setPlainText(s);
-//    // print the QGraphicText Item on the Scene
-//    //    this->cursor->setPos(QPointF(point.x()+10,point.y())); // +10 for visualization only
-//    cout << "\"" << point.x() << "," << point.y() << "\" ," ;
-//}
-void myScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
-{
-    QPointF point = event->scenePos();
-    // string the point
-    QString s = QString::number(point.x()) + "," + QString :: number(point.y()) ;
-    this->cursor->setPlainText(s);
-    // print the QGraphicText Item on the Scene
-    //    this->cursor->setPos(QPointF(point.x()+10,point.y())); // +10 for visualization only
-    //    cout << "Scene(" << point.x() << "," << point.y() << ")" << endl;
-}
 void myScene::keyPressEvent(QKeyEvent *event)
 {
     if (event->key() == Qt::Key_Space)
@@ -438,7 +418,35 @@ QString myScene::parasePC_Text(string pc)
         return QString("xxxx");
     }
 }
+void myScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
+{
+    QPointF point = event->scenePos();
+    // string the point
+    QString s = QString::number(point.x()) + "," + QString :: number(point.y()) ;
+    this->cursor->setPlainText(s);
+    // print the QGraphicText Item on the Scene
+    //    this->cursor->setPos(QPointF(point.x()+10,point.y())); // +10 for visualization only
+    //    cout << "Scene(" << point.x() << "," << point.y() << ")" << endl;
+}
+void myScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *mouseEvent)
+{
+        QPointF point = mouseEvent->scenePos();
+        QString s = QString::number(point.x()) + "," + QString :: number(point.y()) ;
+        this->cursor->setPlainText(s);
+        this->cursor->setPos(QPointF(point.x()+10,point.y())); // +10 for visualization only
+        cout << point.x() << "," << point.y() << endl ;
+}
 //void myScene::drawBackground(QPainter *painter, const QRectF &rect)
 //{
 //    painter->drawImage(QRectF(-1000,-475,1800,1000),this->image);
+//}
+//void myScene::mousePressEvent(QGraphicsSceneMouseEvent *event)
+//{
+//    QPointF point = event->scenePos();
+//    // string the point
+//    QString s = QString::number(point.x()) + "," + QString :: number(point.y()) ;
+//    this->cursor->setPlainText(s);
+//    // print the QGraphicText Item on the Scene
+//    //    this->cursor->setPos(QPointF(point.x()+10,point.y())); // +10 for visualization only
+//    cout << "\"" << point.x() << "," << point.y() << "\" ," ;
 //}

@@ -6,6 +6,7 @@
 #include "GUI/data_mem_widget.h"
 #include "GUI/tree_widget.h"
 #include "GUI/editor.h"
+#include "GUI/piperegwidget.h"
 
 #include "simulator.h"
 #include <bits/stdc++.h>
@@ -65,6 +66,7 @@ private:
     Execute_Widget* Execution;
     Data_Mem_Widget* Data_Memory;
     TestWidget* testWidget;
+
     QHBoxLayout* horizontalLayout;
     QLineEdit *  lineEdit;
     QPushButton* includeBtn;
@@ -76,7 +78,9 @@ private:
 
     Editor* IO_Screen;
     QTabWidget* IO_Screen_Container;
+    QTabWidget* Right_TabWidget;
     regFile_Widget* Registers_Table;
+    PipeRegWidget* Pipeline_Registers;
 public:
     explicit GUI(QWidget *parent = nullptr);
     ~GUI();
