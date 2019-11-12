@@ -49,6 +49,7 @@ void Register_File::clear()
     for (auto it = Registers.begin();it != Registers.end();it ++) {
         it->second->clear();
     }
+    lines.clear();
     this->Registers["$sp"]->setValue(STACK_SIZE);
 }
 
@@ -108,8 +109,7 @@ void Register_File::stack_read(string name)
 {
     this->Registers[name]->setValue( this->Stack_Pointer.top());
 }
-
-void Register_File::read_regFile_data(string path)
+void Register_File::set_lines(string path)
 {
     this->file.open(path);
     if (!file.is_open())
@@ -117,26 +117,53 @@ void Register_File::read_regFile_data(string path)
         cout << "Cannot open RegFile" << endl;
         return;
     }
-
-    string s ;
+    string s;
     while(getline(this->file,s)) // read line by line
     {
+        this->lines.push_back(s);
+    }
+    file.close();
+}
+
+void Register_File::read_regFile_data()
+{
+
+        if(lines.size() == 0)
+        {
+            cout << "error in entered file";
+            return;
+        }
+        string s = lines[lines.size()-1];
+        if (s == "" || s == " ")
+            return;
         vector<string> k = split_string(s," ");
         for (uint i =0 ; i <k.size(); i++)
         {
-            vector<string> address_value = split_string(k[i],","); if (address_value.size() == 1) {continue;}
-        if(address_value.size() != 2)
-        {
-            cout << "ERROR in Reading Data of RegFile (not the openning) " << endl;
-            file.close();
-            return;
-        }
+         vector<string> address_value = split_string(k[i],","); if (address_value.size() == 1) {continue;}
         uint address = uint( stoi(address_value[0]) );
         int value    = stoi (address_value[1] );
         this->write_register(address,value);
         }
-    }
-    file.close();
+}
+
+void Register_File::read_regFile_data(int i)
+{
+        if(lines.size() == 0)
+        {
+            cout << "error in entered file";
+            return;
+        }
+        string s = lines[i];
+        if (s == "" || s == " ")
+            return;
+        vector<string> k = split_string(s," ");
+        for (uint i =0 ; i <k.size(); i++)
+        {
+         vector<string> address_value = split_string(k[i],","); if (address_value.size() == 1) {continue;}
+        uint address = uint( stoi(address_value[0]) );
+        int value    = stoi (address_value[1] );
+        this->write_register(address,value);
+        }
 }
 
 void Register_File::updateRegFilePipeline(string regFileClock)
@@ -156,7 +183,16 @@ void Register_File::updateRegFilePipeline(string regFileClock)
         }
     }
 }
-
+/*
+void Register_File::updateRegsPipeline(string regFileClock)
+{
+    if (regFileClock == "" || regFileClock == " ")
+        return;
+    vector<string> values = split_string(s[i],",");
+    for(int i=0; i< values.size();i++)
+        regs[i] = stoi(values[i]);
+}
+*/
 
 int Register_File::read_register(string name)
 {

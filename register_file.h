@@ -16,6 +16,7 @@ class Register_File : public QObject
 
 private:
     map<string,Register*> Registers;
+    vector<string> lines;
     stack<int> Stack_Pointer;
     ifstream file ;
 public:
@@ -31,14 +32,15 @@ public slots:
     void write_register(string name,int Value=0);
     void write_register(uint address , int value= 0);
     void print_all();
-
+    void set_lines(string);
     // mlhosh 3aza
     void push(string name);
     void pop (string name);
     void stack_write(string name);
     void stack_read (string name);
     //
-    void read_regFile_data(string);
+    void read_regFile_data();
+    void read_regFile_data(int);
     void updateRegFilePipeline(string);
 
 signals:

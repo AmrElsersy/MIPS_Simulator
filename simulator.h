@@ -92,8 +92,10 @@ signals:
     void clear_data_memory();
     void ERROR_Output(string);
     void file_assembled_instructions(string path);
-    void file_regFile_data(string path);
-    void file_dataMemory_data(string path);
+    void file_regFile_lines(string path);
+    void file_regFile_data();
+    void file_dataMemory_lines(string path);
+    void file_dataMemory_data();
     void update_Text_Editor(vector<string>);
     void clearTextEditor();
     void show(vector<string>);

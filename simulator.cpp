@@ -79,8 +79,10 @@ void Simulator::Modelsim()
         this->modelsim_process->waitForStarted();
         this->modelsim_process->terminate();
         this->modelsim_process->waitForFinished();
-        emit file_regFile_data(this->file_regFile_path); // read regFile and load it into reg File Widget
-        emit file_dataMemory_data(this->file_dataMemory_path); // read dataMemory and load it into Data Memory Widget
+        emit file_regFile_lines(this->file_regFile_path);
+        emit file_dataMemory_lines(this->file_dataMemory_path); // read dataMemory and load it into Data Memory Widget
+        emit file_regFile_data();// read regFile and load it into reg File Widget
+        emit file_dataMemory_data(); // read dataMemory and load it into Data Memory Widget
     }
     else if (this->mode == "Pipeline")
     {
@@ -301,9 +303,10 @@ void Simulator::Observer_Pattern()
     connect(this,           SIGNAL(ALU_Instruction(vector<string>)),        this-> Alu,SLOT(ALU_Operation(vector<string>) ) );
     connect(this,           SIGNAL(print_registers()) ,                     this->register_file, SLOT(print_all()) );
     connect(this,           SIGNAL(file_assembled_instructions(string)),    this->assembler, SLOT(File_assembled_instructions(string)) );
-    connect(this,           SIGNAL(file_regFile_data(string)),              this->register_file, SLOT(read_regFile_data(string)) );
-    connect(this,           SIGNAL(file_dataMemory_data(string)),           this->data_memory, SLOT(file_read_data_mem(string)) );
-
+    connect(this,           SIGNAL(file_regFile_lines(string)),              this->register_file, SLOT(set_lines(string)) );
+    connect(this,           SIGNAL(file_regFile_data()),              this->register_file, SLOT(read_regFile_data()) );
+    connect(this,           SIGNAL(file_dataMemory_lines(string)),           this->data_memory, SLOT(set_lines(string)) );
+    connect(this,           SIGNAL(file_dataMemory_data()),           this->data_memory, SLOT(file_read_data_mem()) );
     connect(this->assembler,SIGNAL(get_register_num(string)),               this->register_file,SLOT(get_register_num(string)));
     connect(this->assembler,SIGNAL(get_PC()),                               this->Program_Counter,SLOT(getValue()));
     connect(this->assembler,SIGNAL(get_label_address(string)),              this,SLOT(get_Label(string)));

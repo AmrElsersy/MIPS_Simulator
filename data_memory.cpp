@@ -28,39 +28,61 @@ int* Data_Memory::get_Memory_Access()
 {
     return this->memory;
 }
-
-void Data_Memory::file_read_data_mem(string path)
+void Data_Memory::set_lines(string path)
 {
     this->file.open(path);
     if (!file.is_open())
     {
-        cout << "Cannot open Data_MemoryFile" << endl;
+        cout << "Cannot open RegFile" << endl;
         return;
     }
-
-    string s ;
+    string s;
     while(getline(this->file,s)) // read line by line
     {
+        this->lines.push_back(s);
+    }
+    file.close();
+}
+void Data_Memory::file_read_data_mem()
+{
+    if(lines.size() == 0)
+    {
+        cout << "error in entered file";
+        return;
+    }
+    string s = lines[lines.size()-1];
+    if (s == "" || s == " ")
+        return;
         vector<string> k = split_string(s," ");
         for (uint i =0 ; i <k.size(); i++)
         {
             vector<string> address_value = split_string(k[i],","); if (address_value.size() == 1) {continue;}
-        if(address_value.size() != 2)
-        {
-            cout << "ERROR in Reading Data of Data_Mem_File (not the openning) " << endl;
-            file.close();
-            return;
-        }
 
         uint address = uint( stoi(address_value[0]) );
         int value    = stoi (address_value[1] );
         this->write_memory(address,value);
         emit update_dataMemory_GUI(address);}
-    }
-
-    file.close();
 }
+void Data_Memory::file_read_data_mem(int i)
+{
+    if(lines.size() == 0)
+    {
+        cout << "error in entered file";
+        return;
+    }
+    string s = lines[i];
+    if (s == "" || s == " ")
+        return;
+        vector<string> k = split_string(s," ");
+        for (uint i =0 ; i <k.size(); i++)
+        {
+            vector<string> address_value = split_string(k[i],","); if (address_value.size() == 1) {continue;}
 
+        uint address = uint( stoi(address_value[0]) );
+        int value    = stoi (address_value[1] );
+        this->write_memory(address,value);
+        emit update_dataMemory_GUI(address);}
+}
 void Data_Memory::updateDataMemPipeline(string dataMemClock)
 {
     if (dataMemClock == "" || dataMemClock == " ")
