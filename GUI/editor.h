@@ -44,6 +44,7 @@ private slots:
     void updateLineNumberAreaWidth(int newBlockCount);
     void highlightCurrentLine();
     void updateLineNumberArea(const QRect &, int);
+    void highlight(uint);
 };
 
 vector<string> split_string(string s,string splitter);

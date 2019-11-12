@@ -16,7 +16,7 @@
 #define SYSCALL "syscall"
 #define DELAY 5
 
-
+#define PATH_PC_DEBUG ""
 using namespace std;
 class GUI;
 
@@ -54,6 +54,8 @@ private:
     uint max_clocks;
 
     vector<string> code;
+    vector<uint> lines;
+    vector<uint> PCs;
     vector<vector<string>> instructions;
     map<string,uint> Lables;
     map<string,string> data_asciiz;
@@ -61,12 +63,14 @@ private:
 
 
 public:
+
+    void debugg_pc();
     void updateState(int);
     Simulator();
     ~Simulator();
     void Simulate();
     void Simulate(string path);
-    void Split_Instruction(string s);
+    void Split_Instruction(string s, uint i);
     uint Read_Data_Editor(vector<string>);
     void Read_Instruction_Editor();
     void Observer_Pattern();
@@ -108,6 +112,8 @@ signals:
     void clearTextEditor();
     void show(vector<string>);
     void updatePipelineAssemblyCode(vector<string>);
+    void highlight(uint);
+
 public slots:
     void set_Program_Counter(string label);
     void set_Program_Counter(int adress);

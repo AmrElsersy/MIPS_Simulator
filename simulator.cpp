@@ -105,8 +105,10 @@ void Simulator::Modelsim()
         emit file_dataMemory_lines(this->file_dataMemory_path);
         this->max_clocks = register_file->get_regClocks();
         this->updateState(index);
+        emit highlight(0);
     }
 }
+
 
 void Simulator::Simulate()
 {
@@ -124,6 +126,26 @@ void Simulator::Simulate()
     this->Modelsim();
     this->update_GUI();
 }
+<<<<<<< HEAD
+=======
+void Simulator::debugg_pc()
+{
+    this->PCs.clear();
+    ifstream file_pc;
+    file_pc.open( (this->modelsim_path+"\\pc.txt").toStdString());
+    if (!file_pc.is_open())
+    {
+        cout << "Cannot open Debug PC" << endl;
+        return;
+    }
+    string s;
+    while(getline(file_pc,s)) // read line by line
+    {
+        this->PCs.push_back(stoi(s));
+    }
+    file_pc.close();
+}
+>>>>>>> ae099184cfda045257ff6d7142363fe50b94ce8d
 
 void Simulator::updateState(int direction)
 {
@@ -146,6 +168,7 @@ void Simulator::updateState(int direction)
         }
         this->index --;
     }
+    emit highlight(this->lines[PCs[this->index]]);
     emit updateDataMem(this->index); // updates both data memory and data_mem table
     emit updateRegFile(this->index);
     emit update_registers();
@@ -185,7 +208,7 @@ void Simulator::Read_Instruction_Editor()
         if(check_for_Lable(s,address))
             continue;
 
-        Split_Instruction(s);
+        Split_Instruction(s,i);
         this->instructions[address].push_back( to_string(address*4) ) ; // add adress to the instruction (for just the address)
         address++;
     }
@@ -194,13 +217,14 @@ void Simulator::Read_Instruction_Editor()
 
 }
 
-void Simulator::Split_Instruction(string s)
+void Simulator::Split_Instruction(string s,uint i)
 {
     if(check_for_specials(s))
         return;
 
     vector<string> x;
     this->code.push_back(s);
+    this->lines.push_back(i);
 
     // get the first operand
     uint pos = s.find_first_of(" ");

@@ -36,6 +36,7 @@ GUI::GUI(QWidget *parent) :   QWidget (parent)
     this->init_files_dialog();
     this->Design();
     this->Signals_Slots();
+
 }
 
 GUI::~GUI()
@@ -162,6 +163,7 @@ void GUI::Signals_Slots()
     connect( this->simulator->Alu, SIGNAL(Info_Output(string)), this,SLOT(Output_Screen(string) ));
     connect( this->simulator->Alu , SIGNAL (update_memory_gui(uint)) , this->Data_Memory , SLOT(update_memory(uint)) );
     connect( this->simulator->data_memory , SIGNAL (update_dataMemory_GUI(uint)) , this->Data_Memory , SLOT(update_memory(uint)) );
+    connect( this->simulator, SIGNAL (highlight(uint)) , this, SLOT(highlight(uint)) );
 
     connect(this->testWidget,SIGNAL(output_screen(vector<string>)),this->IO_Screen,SLOT(Write_Code_Text_Editor(vector<string>)));
     connect(this->testWidget,SIGNAL(start_simulation(string)), this,SLOT(Start_Simulation_File(string)));
@@ -263,6 +265,11 @@ void GUI::Play_btn()
 {
     this->simulator->mode = "Debugger";
     this->simulator->Simulate();
+}
+
+void GUI::highlight(uint pos)
+{
+    this->Code_Editor->highlight(pos);
 }
 
 

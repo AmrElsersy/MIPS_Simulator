@@ -110,6 +110,7 @@ public slots:
     void Right_btn();
     void Left_btn();
     void Play_btn();
+    void highlight(uint);
 
 
 };

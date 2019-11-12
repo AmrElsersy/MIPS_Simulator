@@ -93,6 +93,22 @@ void Editor::updateLineNumberArea(const QRect &rect, int dy)
 
     if (rect.contains(viewport()->rect()))
         updateLineNumberAreaWidth(0);}
+
+void Editor::highlight(uint pos)
+{
+    QList<QTextEdit::ExtraSelection> extraSelections;
+    if (!isReadOnly()) {
+        QTextEdit::ExtraSelection selection;
+        selection.format.setBackground(this->color);
+        selection.format.setProperty(QTextFormat::FullWidthSelection, true);
+
+        selection.cursor = QTextCursor(this->document());
+        selection.cursor.setPosition(pos,QTextCursor::KeepAnchor);
+        selection.cursor.clearSelection();
+        extraSelections.append(selection);
+    }
+    this->setExtraSelections(extraSelections);
+}
 void Editor::resizeEvent(QResizeEvent *e)
 {
     QPlainTextEdit::resizeEvent(e);
@@ -105,10 +121,9 @@ void Editor::highlightCurrentLine()
 
     if (!isReadOnly()) {
         QTextEdit::ExtraSelection selection;
-
         selection.format.setBackground(this->color);
         selection.format.setProperty(QTextFormat::FullWidthSelection, true);
-        selection.cursor = textCursor();
+        selection.cursor = this->textCursor();
         selection.cursor.clearSelection();
         extraSelections.append(selection);
     }
