@@ -17,7 +17,7 @@
 #define PC_POS 0
 #define STALL 1
 #define FLUSH 2
-
+#include <QCoreApplication>
 #include <QObject>
 #include <QWidget>
 #include <QPen>
@@ -49,6 +49,10 @@
 #include <stack>
 #include <QStack>
 #include <fstream>
+#include <QPushButton>
+#include <QGraphicsProxyWidget>
+#include <QHBoxLayout>
+#include <QTimer>
 
 using namespace std;
 class state {
@@ -64,6 +68,8 @@ class myScene : public QGraphicsScene
     Q_OBJECT
 private:
     QGraphicsTextItem* cursor; // printing coordinates
+    QTimer* timer;
+    bool play;
 
     vector<QColor> colors;
     int index_color;  // fetch color
@@ -88,9 +94,6 @@ private:
     MemoryStage* MEM;
     WriteBackStage* WB;
 
-
-
-
     QGraphicsRectItem* IF_ID;
     QGraphicsRectItem* ID_EX;
     QGraphicsRectItem* EX_MEM;
@@ -107,6 +110,7 @@ private:
     int stall;
 
     QImage image;
+    QIcon icon;
 
 public:
     explicit myScene(QWidget *parent = nullptr);
@@ -117,6 +121,7 @@ private:
     void initColors();
     void initText();
     void initStates();
+    void initButtons();
     void ReadClocks();
     void ReadRegFile();
     void ReadDataMem();
@@ -138,6 +143,10 @@ public slots:
     void addNewItem(QGraphicsItem*);
     void UpdatePipeline(int direction);
     void INIT_Scene(vector<string>);
+    void rightButton();
+    void leftButton();
+    void playButton();
+    void continuous_play();
 
 };
 

@@ -34,7 +34,15 @@ myScene::myScene(QWidget *parent) : QGraphicsScene(MAX_TOP_LEFT_CORNER,1900,1000
     // directions
     this->index = 0;
 
+    this->timer = new QTimer();
+    this->timer->setInterval(700);
+//    this->timer->setSingleShot(true);
+    connect(this->timer,SIGNAL(timeout()),this,SLOT(continuous_play()));
+
     this->setBackgroundBrush(QBrush(QColor(Qt::black)));
+    this->initButtons();
+
+
 
     //    this->image = QImage("C:\\MIPS_Simulator\\pipeline.jpg");
 }
@@ -105,6 +113,8 @@ void myScene::INIT_Scene(vector<string> Code)
 
     this->index = 0;
 }
+
+
 void myScene::initStates()
 {
     for (uint i = 0 ; i < this->clocks_verilog.size() ; i++)
@@ -192,6 +202,58 @@ void myScene::initStates()
             this->index_color = 0;
 
     }
+}
+void myScene::rightButton()
+{
+    if(this->timer->isActive())
+        this->timer->stop();
+    this->UpdatePipeline(1);
+}
+void myScene::leftButton()
+{
+    if(this->timer->isActive())
+        this->timer->stop();
+    this->UpdatePipeline(-1);
+}
+void myScene::playButton()
+{
+    this->timer->start();
+}
+
+void myScene::continuous_play()
+{
+    if(this->index == this->max_clocks)
+    {
+        this->timer->stop();
+        return;
+    }
+    this->UpdatePipeline(1);
+}
+
+
+void myScene::initButtons()
+{
+    QWidget* buttons_widget = new QWidget();
+    QHBoxLayout* layout = new QHBoxLayout();
+
+    QPushButton* right_btn = new QPushButton();
+    QPushButton* left_btn = new QPushButton();
+    QPushButton* play_btn = new QPushButton();
+
+    right_btn->setIcon(QIcon("C:\\MIPS_Simulator\\right_icon.png"));
+    left_btn->setIcon(QIcon("C:\\MIPS_Simulator\\left_icon.png"));
+    play_btn->setIcon(QIcon("C:\\MIPS_Simulator\\play_icon.png"));
+
+    connect(right_btn,SIGNAL(clicked()),this,SLOT(rightButton()));
+    connect(left_btn,SIGNAL(clicked()),this,SLOT(leftButton()));
+    connect(play_btn,SIGNAL(clicked()),this,SLOT(playButton()));
+
+    layout->addWidget(left_btn);
+    layout->addWidget(play_btn);
+    layout->addWidget(right_btn);
+
+    buttons_widget->setLayout(layout);
+    this->addWidget(buttons_widget)->setPos(-893,460);
 }
 void myScene::ReadClocks()
 {
