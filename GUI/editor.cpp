@@ -96,18 +96,16 @@ void Editor::updateLineNumberArea(const QRect &rect, int dy)
 
 void Editor::highlight(uint pos)
 {
-    QList<QTextEdit::ExtraSelection> extraSelections;
-    if (!isReadOnly()) {
-        QTextEdit::ExtraSelection selection;
-        selection.format.setBackground(this->color);
-        selection.format.setProperty(QTextFormat::FullWidthSelection, true);
+    // you cant acess the widget's cursor directly you must create a new cursor then set the cursor
+    QTextCursor cursor = QTextCursor(this->textCursor());
+    // there is no functions that moves you to a specific line position so
+    // move the cursor to the first pos in the Editor ... then go down pos times
+    cursor.movePosition(QTextCursor::Start);
+    cursor.movePosition(QTextCursor::Down,QTextCursor::KeepAnchor,pos);
+    // when you go down n times it selects all the text in the way
+    cursor.clearSelection();
 
-        selection.cursor = QTextCursor(this->document());
-        selection.cursor.setPosition(pos,QTextCursor::KeepAnchor);
-        selection.cursor.clearSelection();
-        extraSelections.append(selection);
-    }
-    this->setExtraSelections(extraSelections);
+    this->setTextCursor(cursor);
 }
 void Editor::resizeEvent(QResizeEvent *e)
 {
@@ -120,6 +118,7 @@ void Editor::highlightCurrentLine()
     QList<QTextEdit::ExtraSelection> extraSelections;
 
     if (!isReadOnly()) {
+//        cout << "pos from highlight=" << this->textCursor().position() << " vertical=" <<this->textCursor().verticalMovementX() << endl;
         QTextEdit::ExtraSelection selection;
         selection.format.setBackground(this->color);
         selection.format.setProperty(QTextFormat::FullWidthSelection, true);

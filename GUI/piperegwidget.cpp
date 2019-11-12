@@ -3,36 +3,35 @@
 PipeRegWidget::PipeRegWidget(QWidget *parent) : Tree_Widget(parent)
 {
     this->setColumnCount(3);
-    this->setHeaderLabels({"  PipelineRegister","Name","Value"});
+    this->setHeaderLabels({"PipelineRegister","Name","Value"});
     this->addItem({"IF_ID","Instruction","0"});
-    this->addItem({"ID_EX","register write","0"});
-    this->addItem({"ID_EX","memory to register","0"});
-    this->addItem({"ID_EX","memory write","0"});
-    this->addItem({"ID_EX","memory read","0"});
-    this->addItem({"ID_EX","alu source","0"});
-    this->addItem({"ID_EX","register destination","0"});
-    this->addItem({"ID_EX","alu op","0"});
-    this->addItem({"ID_EX","read data 1","0"});
-    this->addItem({"ID_EX","read data 2","0"});
-    this->addItem({"ID_EX","shift amount","0"});
-    this->addItem({"ID_EX","sign extend","0"});
-    this->addItem({"ID_EX","rs","0"});
-    this->addItem({"ID_EX","rt","0"});
-    this->addItem({"ID_EX","rd","0"});
-    this->addItem({"ID_EX","function field","0"});
-    this->addItem({"EX_MEM","register write","0"});
-    this->addItem({"EX_MEM","memort to register","0"});
-    this->addItem({"EX_MEM","memory write","0"});
-    this->addItem({"EX_MEM","memory read","0"});
-    this->addItem({"EX_MEM","alun result","0"});
-    this->addItem({"EX_MEM","lower mux output","0"});
-    this->addItem({"EX_MEM","register destination","0"});
-    this->addItem({"MEM_WB","register write","0"});
-    this->addItem({"MEM_WB","memory to register","0"});
-    this->addItem({"MEM_WB","read data","0"});
-    this->addItem({"MEM_WB","alu result","0"});
-    this->addItem({"MEM_WB","register destination","0"});
-
+    this->addItem({"ID_EX","Reg Write","0"});
+    this->addItem({"ID_EX","MEM to Reg","0"});
+    this->addItem({"ID_EX","MEM Write","0"});
+    this->addItem({"ID_EX","MEM Read","0"});
+    this->addItem({"ID_EX","ALU Src","0"});
+    this->addItem({"ID_EX","Reg dest","0"});
+    this->addItem({"ID_EX","ALU Op","0"});
+    this->addItem({"ID_EX","Read Data1","0"});
+    this->addItem({"ID_EX","Read Data2","0"});
+    this->addItem({"ID_EX","Shift Amount","0"});
+    this->addItem({"ID_EX","Sign Extend","0"});
+    this->addItem({"ID_EX","Rs","0"});
+    this->addItem({"ID_EX","Rt","0"});
+    this->addItem({"ID_EX","Rd","0"});
+    this->addItem({"ID_EX","Func Field","0"});
+    this->addItem({"EX_MEM","Reg Write","0"});
+    this->addItem({"EX_MEM","MEM to Reg","0"});
+    this->addItem({"EX_MEM","MEM Write","0"});
+    this->addItem({"EX_MEM","MEM Read","0"});
+    this->addItem({"EX_MEM","ALU Result","0"});
+    this->addItem({"EX_MEM","Lower mux","0"});
+    this->addItem({"EX_MEM","Reg Dest","0"});
+    this->addItem({"MEM_WB","Reg write","0"});
+    this->addItem({"MEM_WB","MEM to Register","0"});
+    this->addItem({"MEM_WB","Read Data","0"});
+    this->addItem({"MEM_WB","ALU Result","0"});
+    this->addItem({"MEM_WB","Reg Dest","0"});
 }
 
 void PipeRegWidget::updatePipeRegistersWidget(string s)

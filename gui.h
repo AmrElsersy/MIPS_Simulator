@@ -58,6 +58,7 @@ class GUI : public QWidget
 private:
     Simulator* simulator ;
     string path;
+    int i ;
 
     QGridLayout* grid ;
 

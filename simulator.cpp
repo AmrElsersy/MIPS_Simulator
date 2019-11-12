@@ -103,9 +103,10 @@ void Simulator::Modelsim()
         this->index = 2; //anwar b2ol kda
         emit file_regFile_lines(this->file_regFile_path);
         emit file_dataMemory_lines(this->file_dataMemory_path);
+        this->debugg_pc();
         this->max_clocks = register_file->get_regClocks();
         this->updateState(index);
-        emit highlight(0);
+       emit highlight(0);
     }
 }
 
@@ -165,7 +166,8 @@ void Simulator::updateState(int direction)
         }
         this->index --;
     }
-    emit highlight(this->lines[PCs[this->index]]);
+//    cout << this->lines[PCs[this->index-2]] << endl;
+    emit highlight(this->lines[PCs[this->index-2]]);
     emit updateDataMem(this->index); // updates both data memory and data_mem table
     emit updateRegFile(this->index);
     emit update_registers();
