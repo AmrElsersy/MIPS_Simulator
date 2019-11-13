@@ -50,6 +50,7 @@ void Register_File::clear()
         it->second->clear();
     }
     this->Registers["$sp"]->setValue(STACK_SIZE);
+    this->lines.clear();
 }
 
 map<string,Register*> Register_File::registers_reading()

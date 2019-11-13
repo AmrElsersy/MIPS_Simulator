@@ -62,6 +62,9 @@ void Simulator::clear()
     this->data_memory->clear();
     this->address = 0;   // pc = 0
     emit clear_data_memory(); // clear the data memory
+
+    this->lines.clear();
+
 }
 
 void Simulator::update_GUI()
@@ -106,10 +109,9 @@ void Simulator::Modelsim()
         this->debugg_pc();
         this->max_clocks = register_file->get_regClocks();
         this->updateState(index);
-       emit highlight(0);
+        emit highlight(0);
     }
 }
-
 
 void Simulator::Simulate()
 {
@@ -118,7 +120,6 @@ void Simulator::Simulate()
     Assemble_Instructions();
     //    ALU_Logic();
 
-    //    emit print_registers();
     print(this->Lables);
     print(this->assembler->get_assembled_strings());
     for(uint i =0 ; i<instructions.size();i++)

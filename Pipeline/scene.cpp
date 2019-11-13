@@ -42,8 +42,6 @@ myScene::myScene(QWidget *parent) : QGraphicsScene(MAX_TOP_LEFT_CORNER,1900,1000
     this->setBackgroundBrush(QBrush(QColor(Qt::black)));
     this->initButtons();
 
-
-
     //    this->image = QImage("C:\\MIPS_Simulator\\pipeline.jpg");
 }
 
@@ -85,9 +83,9 @@ void myScene::updateStagesColors(int direction)
         emit updateDataMem(this->datamemory_clocks[this->index]); // updates both data memory and data_mem table
         emit updateRegFile(this->regfile_clocks[this->index]);   // updates only register file
         if(this->index == 0)
-        emit updatepipeline_regs(this->pipeline_regs_clocks[(this->index)]);
+            emit updatepipeline_regs(this->pipeline_regs_clocks[(this->index)]);
         else
-        emit updatepipeline_regs(this->pipeline_regs_clocks[(this->index)-1]);
+            emit updatepipeline_regs(this->pipeline_regs_clocks[(this->index)-1]);
         emit updateRegistersGUI();                              // updates only regfile table
     }
 }
@@ -440,11 +438,11 @@ void myScene::mouseMoveEvent(QGraphicsSceneMouseEvent *event)
 }
 void myScene::mouseDoubleClickEvent(QGraphicsSceneMouseEvent *mouseEvent)
 {
-        QPointF point = mouseEvent->scenePos();
-        QString s = QString::number(point.x()) + "," + QString :: number(point.y()) ;
-        this->cursor->setPlainText(s);
-        this->cursor->setPos(QPointF(point.x()+10,point.y())); // +10 for visualization only
-        cout << point.x() << "," << point.y() << endl ;
+    QPointF point = mouseEvent->scenePos();
+    QString s = QString::number(point.x()) + "," + QString :: number(point.y()) ;
+    this->cursor->setPlainText(s);
+    this->cursor->setPos(QPointF(point.x()+10,point.y())); // +10 for visualization only
+    cout << point.x() << "," << point.y() << endl ;
 }
 //void myScene::drawBackground(QPainter *painter, const QRectF &rect)
 //{
