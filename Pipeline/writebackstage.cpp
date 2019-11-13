@@ -20,8 +20,8 @@ WriteBackStage::WriteBackStage(QObject* parent) : Stage (parent)
     // ************** Same Path ***************
     this->paths["MUX_Write_RegFile"] = newPath( {"863,56" ,"879,56" ,"879,516" ,"-471,516" ,"-471,112" ,"-326,112"  });
     this->paths["MUX_ExecutionMUX_1"] = newPath( {"82,515","82,-40" ,"176,-40" });
-    this->paths["MUX_ExecutionMUX_2"] = newPath( {"82,515" , "82,111" ,"177,111"  });
-    //    this->paths[""] = newPath( {  });
+    this->paths["el_3saya_ely_fl_nos"] = newPath( { "82,515","82,111" });
+    this->paths["MUX_ExecutionMUX_2"] = newPath( { "82,111" ,"177,111"  });
 
     // Text
     this->text_instruction->setPlainText("WriteBack");
@@ -60,15 +60,20 @@ void WriteBackStage::setStageColor(QColor clr,vector<string> muxs)
             this->paths["MEMWB_MUX_input2"]->setColor(OFF_COLOR);
         else if (mux == "x")
             this->paths["MUX_Write_RegFile"]->setColor(OFF_COLOR);
+
         // ALU MUX1
         // it may have over write colors
         if (alu_mux1 != "1")
         {
             this->paths["MUX_ExecutionMUX_1"]->setColor(OFF_COLOR);
+            if(alu_mux2 != "1")
+                this->paths["el_3saya_ely_fl_nos"]->setColor(OFF_COLOR);
         }
         if (alu_mux2 != "1")
         {
             this->paths["MUX_ExecutionMUX_2"]->setColor(OFF_COLOR);
+            if(alu_mux1 != "1")
+                this->paths["el_3saya_ely_fl_nos"]->setColor(OFF_COLOR);
         }
     }
 }
