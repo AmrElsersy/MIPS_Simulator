@@ -130,6 +130,8 @@ void Simulator::Simulate()
 void Simulator::debugg_pc()
 {
     this->PCs.clear();
+    this->PCs.push_back(11); //dummy
+    this->PCs.push_back(11); //dummy
     ifstream file_pc;
     file_pc.open( (this->modelsim_path+"\\pc.txt").toStdString());
     if (!file_pc.is_open())
@@ -167,7 +169,10 @@ void Simulator::updateState(int direction)
         this->index --;
     }
 //    cout << this->lines[PCs[this->index-2]] << endl;
-    emit highlight(this->lines[PCs[this->index-2]]);
+    for(int l=0; l < lines.size();l++)
+        cout << lines[l] << " ";
+    cout << endl;
+    emit highlight(this->lines[PCs[this->index]]);
     emit updateDataMem(this->index); // updates both data memory and data_mem table
     emit updateRegFile(this->index);
     emit update_registers();
