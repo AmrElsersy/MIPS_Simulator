@@ -70,7 +70,6 @@ private:
 
     QGridLayout* grid ;
 
-    QTabWidget* tabWidget;
     QStackedWidget* stackedWidget;
     QToolBar* stackedBar;
 
@@ -78,8 +77,6 @@ private:
     Execute_Widget* Execution;
     Data_Mem_Widget* Data_Memory;
     TestWidget* testWidget;
-
-
 
     QToolBar* toolBar;
     QString hover_color , press_color;
@@ -98,9 +95,7 @@ private:
     QIcon TestWidgetBtn; QString TestWidgetBtnText;
 
 
-
-
-    QFileDialog* file_dialog;
+    QFileDialog* save_file_dialog;
     QFileDialog* include_file_dialog;
     Editor* IO_Screen;
     QTabWidget* IO_Screen_Container;
@@ -126,10 +121,11 @@ public slots:
     void Start_Simulation();
     void Start_Pipeline_Simulation();
     void Start_Simulation_File(QStringList);
-    void Start_Simulation_File(string);
     void Output_Screen(string);
     void file_paths_selected_dialog(QStringList);
+    void Start_Simulation_File(string);
     void Browse_file();
+    void Browse_Save_File();
 
     void Right_btn();
     void Left_btn();

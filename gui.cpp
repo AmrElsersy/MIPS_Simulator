@@ -12,8 +12,6 @@ GUI::GUI(QWidget *parent) :   QWidget (parent)
     this->stackedBar = new QToolBar(this);
     this->toolBar = new QToolBar(this);
 
-    this->tabWidget       = new QTabWidget();
-    this->tabWidget->setStyleSheet("background-color:rgb(0,0,128);");
     this->Execution       = new Execute_Widget();
     this->Execution->setStyleSheet("background: white;");
     this->Data_Memory     = new Data_Mem_Widget();
@@ -46,7 +44,7 @@ GUI::~GUI()
 {
     delete this->grid;
     delete this->simulator;
-    delete this->tabWidget;
+    delete this->stackedWidget;
     delete this->Code_Editor;
     delete this->IO_Screen;
     delete this->Registers_Table;
@@ -54,14 +52,6 @@ GUI::~GUI()
 }
 void GUI::Design()
 {
-    //    this->tabWidget->addTab(this->Code_Editor,EDIT);
-    //    this->tabWidget->addTab(this->Execution,EXECUTE);
-    //    this->tabWidget->addTab(this->Data_Memory,DATA_MEM);
-    //    this->tabWidget->addTab(this->testWidget,TEST);
-    //    this->tabWidget->setMovable(true);
-    //    this->tabWidget->setUsesScrollButtons(true);
-//    this->tabWidget->addAction()
-
     this->stackedWidget->addWidget(this->Code_Editor);
     this->stackedWidget->addWidget(this->Execution);
     this->stackedWidget->addWidget(this->Data_Memory);
@@ -157,8 +147,8 @@ void GUI::handle_toolBar_Buttons(QAction* action)
         this->Start_Simulation();
     else if(Button_pressed == this->OpenBtnText)
         this->Browse_file();
-    else if(Button_pressed == this->SaveBtnText) //  need to be implemented
-        this->Browse_file();
+    else if(Button_pressed == this->SaveBtnText)
+        this->Browse_Save_File();
     else if(Button_pressed == this->PipelineBtnText)
         this->Start_Pipeline_Simulation();
     else if(Button_pressed == this->DebugBtnText)
@@ -218,6 +208,11 @@ void GUI::init_files_dialog()
     this->include_file_dialog->setNameFilter("*.txt");                  // show only txt extentions
     this->include_file_dialog->setOption(QFileDialog::ReadOnly);        // readonly mode dosn't support deleting or writing
     this->include_file_dialog->setStyleSheet("background: white");
+
+    this->save_file_dialog = new QFileDialog(this);
+    this->save_file_dialog ->setDirectory("C:\\MIPS_Simulator\\TestCases"); // set the open directory
+    this->save_file_dialog->setAcceptMode(QFileDialog::AcceptSave);
+    this->save_file_dialog ->setFileMode(QFileDialog::AnyFile); // for "save as" mode
 }
 void GUI::keyPressEvent(QKeyEvent *event)
 {
@@ -275,6 +270,27 @@ void GUI::file_paths_selected_dialog(QStringList files_pahts)
 void GUI:: Browse_file()
 {
     this->include_file_dialog->show();
+}
+void GUI::Browse_Save_File()
+{
+    // open the file dialog in save mode and return the selected path
+    string path = this->save_file_dialog->getSaveFileName().toStdString();
+    // fix the path to be suitable with c++ strings
+    for (uint i = 0;i<path .length();i++)
+        if (path[i] == '/')
+            path.replace(i,1,"\\");
+
+    // read the editor
+    vector<string> code_editor = this->Code_Editor->Read_Code_Text_Editor();
+    // one string = code_editor line + \n .... and iterate over all lines
+    string total_code;
+    for (uint i =0 ; i<code_editor.size(); i++)
+        total_code += code_editor[i] + "\n";
+
+    // write the one peace string in the file
+    ofstream file ; file.open(path);
+    file << total_code ;
+
 }
 void GUI::Right_btn()
 {
