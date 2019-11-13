@@ -98,13 +98,13 @@ void GUI::Design()
 void GUI::init_toolBar()
 {
     // init Actions Icons and Text
-    this->OpenBtn = QIcon("C:\\MIPS_Simulator\\spidy.png");     this->OpenBtnText = "Open";
-    this->SaveBtn = QIcon("C:\\MIPS_Simulator\\left_icon.png"); this->SaveBtnText = "Save";
-    this->RunBtn =  QIcon("C:\\MIPS_Simulator\\warning-icon.png"); this->RunBtnText  = "Run";
-    this->PipelineBtn = QIcon("C:\\MIPS_Simulator\\bugy.png");  this->PipelineBtnText="Pipeline";
-    this->leftBtn =QIcon("C:\\MIPS_Simulator\\backward.png");   this->leftBtnText  = "Backword";
-    this->DebugBtn =QIcon("C:\\MIPS_Simulator\\play_icon.png"); this->DebugBtnText  = "Debug";
-    this->rightBtn =QIcon("C:\\MIPS_Simulator\\forward.png");   this->rightBtnText = "Forward";
+    this->OpenBtn = QIcon("C:\\MIPS_Simulator\\icons\\debug.png");     this->OpenBtnText = "Open";
+    this->SaveBtn = QIcon("C:\\MIPS_Simulator\\icons\\left_icon.png"); this->SaveBtnText = "Save";
+    this->RunBtn =  QIcon("C:\\MIPS_Simulator\\icons\\warning-icon.png"); this->RunBtnText  = "Run";
+    this->PipelineBtn = QIcon("C:\\MIPS_Simulator\\icons\\bugy.png");  this->PipelineBtnText="Pipeline";
+    this->leftBtn =QIcon("C:\\MIPS_Simulator\\icons\\backward.png");   this->leftBtnText  = "Backword";
+    this->DebugBtn =QIcon("C:\\MIPS_Simulator\\icons\\debug.png"); this->DebugBtnText  = "Debug";
+    this->rightBtn =QIcon("C:\\MIPS_Simulator\\icons\\forward.png");   this->rightBtnText = "Forward";
     // init ToolBar
     this->toolBar->setMovable(false);
     this->toolBar->setIconSize(QSize(40,40));
@@ -130,10 +130,10 @@ void GUI::init_toolBar()
 void GUI::init_stackedBar()
 {
     // init Buttons
-    this->codeEditorToolBtn =  QIcon("C:\\MIPS_Simulator\\warning-icon.png"); this->codeEditorToolBtnText  = "Editor";
-    this->ExectutionToolBtn = QIcon("C:\\MIPS_Simulator\\left_icon.png"); this->ExectutionToolBtnText = "Execute";
-    this->DataMemToolBtn =  QIcon("C:\\MIPS_Simulator\\warning-icon.png"); this->DataMemToolBtnText  = "DataMemory";
-    this->TestWidgetBtn = QIcon("C:\\MIPS_Simulator\\left_icon.png"); this->TestWidgetBtnText = "Test";
+    this->codeEditorToolBtn =  QIcon("C:\\MIPS_Simulator\\icons\\editor.png"); this->codeEditorToolBtnText  = "Editor";
+    this->ExectutionToolBtn = QIcon("C:\\MIPS_Simulator\\icons\\left_icon.png"); this->ExectutionToolBtnText = "Execute";
+    this->DataMemToolBtn =  QIcon("C:\\MIPS_Simulator\\icons\\warning-icon.png"); this->DataMemToolBtnText  = "DataMemory";
+    this->TestWidgetBtn = QIcon("C:\\MIPS_Simulator\\icons\\left_icon.png"); this->TestWidgetBtnText = "Test";
     // init stacked toolBar
     this->stackedBar->setMovable(false);
     this->stackedBar->setIconSize(QSize(80,80));
