@@ -150,6 +150,8 @@ void Simulator::debugg_pc()
 
 void Simulator::updateState(int direction)
 {
+    if (this->max_clocks == 2)
+        return;
     cout << "index  " << index << " clocks " << max_clocks <<endl;
     if(direction == 1) // right
     {
