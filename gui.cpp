@@ -34,6 +34,7 @@ GUI::GUI(QWidget *parent) :   QWidget (parent)
     this->IO_Screen_Container->setStyleSheet("background:rgb(0,0,128);");
     this->IO_Screen->setReadOnly(true);
     this->IO_Screen->setStyleSheet("background: white;");
+
     this->init_toolBar();
     this->init_stackedBar();
     this->init_files_dialog();
@@ -227,28 +228,23 @@ void GUI::keyPressEvent(QKeyEvent *event)
 }
 void GUI::Start_Simulation()
 {
-    this->IO_Screen->clear();
     this->simulator->mode = "MIPS";
     this->simulator->Simulate();
 }
 void GUI::Start_Pipeline_Simulation()
 {
-    this->IO_Screen->clear();
     this->simulator->mode = "Pipeline";
     this->simulator->Simulate();
     emit pipeline_GUI();
 }
 void GUI::Start_Simulation_File(QStringList code_file_path)
 {
-
     this->Code_Editor->clear();
-    for (int i =0 ; i< code_file_path.size(); i++)
-        cout << code_file_path[i].toStdString() << endl;
-
     this->IO_Screen->clear();
     string path = code_file_path[0].toStdString();
     this->simulator->Simulate(path);
-    //    this->lineEdit->setText(QString::fromStdString(path));
+    this->IO_Screen->Write_Code_Text_Editor({"Open is done"});
+
 }
 void GUI::Start_Simulation_File(string test_assembly_path)
 {
@@ -260,12 +256,6 @@ void GUI::Output_Screen(string syscall_msg)
     x.push_back(syscall_msg);
     this->IO_Screen->Write_Code_Text_Editor(x);
     x.clear();
-}
-void GUI::file_paths_selected_dialog(QStringList files_pahts)
-{
-    // when the files is selected (then accepted by "enter" or "open") the file dialog emits signal with paths to that files
-    for (int i =0 ; i< files_pahts.size(); i++)
-        cout << files_pahts[i].toStdString() << endl;
 }
 void GUI:: Browse_file()
 {

@@ -122,7 +122,6 @@ public slots:
     void Start_Pipeline_Simulation();
     void Start_Simulation_File(QStringList);
     void Output_Screen(string);
-    void file_paths_selected_dialog(QStringList);
     void Start_Simulation_File(string);
     void Browse_file();
     void Browse_Save_File();

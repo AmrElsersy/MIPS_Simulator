@@ -115,7 +115,6 @@ void Simulator::Modelsim()
 
 void Simulator::Simulate()
 {
-    clear();
     Read_Instruction_Editor();
     Assemble_Instructions();
     //    ALU_Logic();
@@ -182,6 +181,7 @@ void Simulator::updateState(int direction)
 }
 void Simulator::Simulate(string path)
 {
+    this->clear();
     this->code_path = path;
     file.open(code_path);
     if (!file.is_open())
@@ -194,6 +194,7 @@ void Simulator::Simulate(string path)
     while( getline(file,s) )
         all_code_to_copy_in_editor.push_back(s);
 
+    file.close();
     emit clearTextEditor();
     emit update_Text_Editor(all_code_to_copy_in_editor);
 }

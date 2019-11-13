@@ -85,7 +85,6 @@ private:
     ifstream verilog_file, regfile_file,dataMem_file,pipeline_regs_file ;
     string   verilogPath , regfilePath,dataMemPath,pipeline_regsPath;
 
-
     vector< vector<state> > states;
 
 
