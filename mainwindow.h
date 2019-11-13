@@ -6,7 +6,7 @@
 #include <QEvent>
 #include <QKeyEvent>
 #include "Pipeline/scene.h"
-
+#include <QSpinBox>
 using namespace  std;
 class View :public QGraphicsView
 {
@@ -28,10 +28,12 @@ class MainWindow : public QMainWindow
 private:
     GUI* gui ;
     View* pipeline_gui;
-
+    void ray2();
 public:
     explicit MainWindow(QWidget *parent = nullptr);
 public slots:
     void show_pipeline_gui();
+    void slot_ray2(QAction*);
 };
+
 #endif // MAINWINDOW_H

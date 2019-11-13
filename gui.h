@@ -32,6 +32,8 @@
 #include <QTreeWidgetItem>
 #include <QStringList>
 #include "GUI/testwidget.h"
+#include <QToolBar>
+
 
 #define RUN "Run"
 #define PIPELINE "Pipeline"

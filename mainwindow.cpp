@@ -15,12 +15,44 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent)
     connect (this->pipeline_gui->my_scene, SIGNAL(updatepipeline_regs(string)), this->gui->Pipeline_Registers,SLOT(updatePipeRegistersWidget(string)));
     // to show the pipeline GUI
     connect(this->gui,SIGNAL(pipeline_GUI()),this,SLOT(show_pipeline_gui()));
+
+    ray2();
 }
 void MainWindow ::show_pipeline_gui()
 {
     this->pipeline_gui->show();
 }
 
+void MainWindow::slot_ray2(QAction * action)
+{
+    cout << action->text().toStdString() << " ispressed" << endl;
+}
+void MainWindow::ray2()
+{
+    QIcon spidy("C:\\MIPS_Simulator\\spidy.png");
+    QIcon warning_icon("C:\\MIPS_Simulator\\warning-icon.png");
+    QIcon play_icon("C:\\MIPS_Simulator\\play_icon.png");
+    QIcon bugy("C:\\MIPS_Simulator\\bugy.png");
+    QIcon left_icon("C:\\MIPS_Simulator\\left_icon.png");
+    QToolBar* toolBar = new QToolBar("Ray2");
+//    toolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
+//    toolBar->setToolButtonStyle(Qt::ToolButtonTextOnly);
+//    toolBar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    toolBar->setMovable(false);
+    toolBar->setIconSize(QSize(100,100));
+    toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    toolBar->setOrientation(Qt::Vertical);
+
+    QAction* spidy_action = toolBar->addAction(spidy,"spidy");  toolBar->addSeparator();
+    QAction* warning_action = toolBar->addAction(warning_icon,"warning_icon");  toolBar->addSeparator();
+    QAction* play_action = toolBar->addAction(play_icon,"play_icon");  toolBar->addSeparator();
+    QAction* bugy_action = toolBar->addAction(bugy,"bugy");  toolBar->addSeparator();
+    QAction* left = toolBar->addAction(left_icon,"left");  toolBar->addSeparator();
+
+    connect(toolBar,SIGNAL(actionTriggered(QAction*)),this,SLOT(slot_ray2(QAction*)));
+
+    this->setCentralWidget(toolBar);
+}
 
 View :: View(QWidget* parent) : QGraphicsView(parent)
 {
