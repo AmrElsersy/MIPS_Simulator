@@ -5,8 +5,12 @@ GUI::GUI(QWidget *parent) :   QWidget (parent)
     this->path = "/home/amrelsersy/MIPS/dummy.txt";
     // memory allocation
     this->simulator = new Simulator();
-//    this->simulator->Simulate(this->path);11
+    //    this->simulator->Simulate(this->path);11
     this->grid    = new QGridLayout();
+
+    this->stackedWidget = new QStackedWidget();
+    this->stackedBar = new QToolBar(this);
+    this->toolBar = new QToolBar(this);
 
     this->tabWidget       = new QTabWidget();
     this->tabWidget->setStyleSheet("background-color:rgb(0,0,128);");
@@ -32,13 +36,12 @@ GUI::GUI(QWidget *parent) :   QWidget (parent)
     this->IO_Screen_Container->setStyleSheet("background:rgb(0,0,128);");
     this->IO_Screen->setReadOnly(true);
     this->IO_Screen->setStyleSheet("background: white;");
-    this->init_horizontal_layout();
+    this->init_toolBar();
+    this->init_stackedBar();
     this->init_files_dialog();
     this->Design();
     this->Signals_Slots();
-    i = 0;
 }
-
 GUI::~GUI()
 {
     delete this->grid;
@@ -49,16 +52,20 @@ GUI::~GUI()
     delete this->Registers_Table;
     delete this->Execution;
 }
-
 void GUI::Design()
 {
-    this->tabWidget->addTab(this->Code_Editor,EDIT);
-    this->tabWidget->addTab(this->Execution,EXECUTE);
-    this->tabWidget->addTab(this->Data_Memory,DATA_MEM);
-    this->tabWidget->addTab(this->testWidget,TEST);
-    this->tabWidget->setMovable(true);
-    this->tabWidget->setUsesScrollButtons(true);
+    //    this->tabWidget->addTab(this->Code_Editor,EDIT);
+    //    this->tabWidget->addTab(this->Execution,EXECUTE);
+    //    this->tabWidget->addTab(this->Data_Memory,DATA_MEM);
+    //    this->tabWidget->addTab(this->testWidget,TEST);
+    //    this->tabWidget->setMovable(true);
+    //    this->tabWidget->setUsesScrollButtons(true);
+//    this->tabWidget->addAction()
 
+    this->stackedWidget->addWidget(this->Code_Editor);
+    this->stackedWidget->addWidget(this->Execution);
+    this->stackedWidget->addWidget(this->Data_Memory);
+    this->stackedWidget->addWidget(this->testWidget);
 
     this->Right_TabWidget->addTab(this->Registers_Table,"Registers");
     this->Right_TabWidget->addTab(this->Pipeline_Registers,"Pipeline");
@@ -67,90 +74,124 @@ void GUI::Design()
 
 
     // Grid Design
-    this->grid->addLayout(this->horizontalLayout,0,0,1,-1);
-    this->grid->addWidget(this->tabWidget,1,0,3,3);
-    this->grid->addWidget(this->Right_TabWidget,1,3,-1,1);
-    this->grid->addWidget(this->IO_Screen_Container,4,0,1,3);
+    this->grid->addWidget(this->toolBar,0,0,1,-1);
+    this->grid->addWidget(this->stackedBar,1,0,-1,1);
+    this->grid->addWidget(this->stackedWidget,1,1,3,3);
+    this->grid->addWidget(this->Right_TabWidget,1,4,-1,1);
+    this->grid->addWidget(this->IO_Screen_Container,4,0,1,4);
 
     // for resizing
-    this->grid->setColumnStretch(0,1); // TabWidget
+    this->grid->setColumnStretch(1,1); // TabWidget
     this->grid->setRowStretch(1,3); // TabWidget also
     this->grid->setRowStretch(2,3); // TabWidget also
     this->grid->setRowStretch(4,2); // IO_Screen
 
     // Set Min Size
-    this->grid->setColumnMinimumWidth(0,Width_Editor); // TabWidget and IO_Screen
+    this->grid->setColumnMinimumWidth(1,Width_Editor); // TabWidget and IO_Screen
     this->grid->setRowMinimumHeight(1,Hight_Editor);   // TabWidget
-    this->grid->setColumnMinimumWidth(3,Registers_Width); // Registers Table
+    this->grid->setColumnMinimumWidth(4,Registers_Width); // Registers Table
     this->grid->setRowMinimumHeight(4,O_Screen_Hight);   // IO_Screen
 
     this->setLayout(this->grid);
 }
 
-void GUI::init_horizontal_layout()
+void GUI::init_toolBar()
 {
-    this->horizontalLayout = new QHBoxLayout();
-    this->lineEdit         = new QLineEdit();
-    this->lineEdit->setStyleSheet("background-color: white;");
-    this->includeBtn       = new QPushButton(INCLUDE);
-    this->includeBtn->setStyleSheet("background-color: white;"
-                                    "color: rgb(0,0,128);"
-                                   "border-radius: 5%;"
-                                    "font-weight: 400;");
-    this->RunBtn           = new QPushButton(RUN);
-    this->RunBtn->setStyleSheet("background-color: white;"
-                                "color: rgb(0,0,128);"
-                               "border-radius: 5%;"
-                                "font-weight: 400;");
-    this->PipelineBtn         = new QPushButton(PIPELINE);
-    this->PipelineBtn->setMinimumWidth(200);
-    this->PipelineBtn->setStyleSheet("background-color: white;"
-                                 "color: rgb(0,0,128);"
-                                "border-radius: 5%;"
-                                 "font-weight: 400;");
-    this->right_btn = new QPushButton("");
-    this->left_btn = new QPushButton("");
-    this->play_btn = new QPushButton("");
-    this->left_btn->setStyleSheet("border: 0px; color: white; font-size:30px; width:50px; height:50px");
-    this->play_btn->setStyleSheet("border: 0px; color: white; font-size:30px; width:50px; height:50px");
-    this->right_btn->setStyleSheet("border: 0px; color: white; font-size:30px; width:50px; height:50px");
+    // init Actions Icons and Text
+    this->OpenBtn = QIcon("C:\\MIPS_Simulator\\spidy.png");     this->OpenBtnText = "Open";
+    this->SaveBtn = QIcon("C:\\MIPS_Simulator\\left_icon.png"); this->SaveBtnText = "Save";
+    this->RunBtn =  QIcon("C:\\MIPS_Simulator\\warning-icon.png"); this->RunBtnText  = "Run";
+    this->PipelineBtn = QIcon("C:\\MIPS_Simulator\\bugy.png");  this->PipelineBtnText="Pipeline";
+    this->leftBtn =QIcon("C:\\MIPS_Simulator\\backward.png");   this->leftBtnText  = "Backword";
+    this->DebugBtn =QIcon("C:\\MIPS_Simulator\\play_icon.png"); this->DebugBtnText  = "Debug";
+    this->rightBtn =QIcon("C:\\MIPS_Simulator\\forward.png");   this->rightBtnText = "Forward";
+    // init ToolBar
+    this->toolBar->setMovable(false);
+    this->toolBar->setIconSize(QSize(40,40));
+    this->toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    this->toolBar->setOrientation(Qt::Horizontal);
+    this->toolBar->layout()->setAlignment(Qt::AlignRight);
 
-    right_btn->setIcon(QIcon("C:\\MIPS_Simulator\\forward.png"));
-    left_btn->setIcon(QIcon("C:\\MIPS_Simulator\\backward.png"));
-    play_btn->setIcon(QIcon("C:\\MIPS_Simulator\\spidy.png"));
-    play_btn->setIconSize(QSize(50,150));
-    right_btn->setIconSize(QSize(50,150));
-    left_btn->setIconSize(QSize(50,150));
-    this->horizontalLayout->addWidget(this->left_btn);
-    this->horizontalLayout->addWidget(this->play_btn);
-    this->horizontalLayout->addWidget(this->right_btn);
+    this->hover_color = "rgb(220,220,220)";
+    this->press_color = "white";
+    this->toolBar->setStyleSheet("QToolBar{background-color:grey}"
+                                 "QToolButton:hover{background-color:"+this->hover_color+"}"
+                                 "QToolButton:pressed{background-color:"+this->press_color+"}");
+    // add Buttons
+    this->toolBar->addAction(this->OpenBtn,this->OpenBtnText);  this->toolBar->addSeparator();
+    this->toolBar->addAction(this->SaveBtn,this->SaveBtnText);    this->toolBar->addSeparator();
+    this->toolBar->addAction(this->RunBtn,this->RunBtnText);    this->toolBar->addSeparator();
+    this->toolBar->addAction(this->PipelineBtn,this->PipelineBtnText);    this->toolBar->addSeparator();
+    this->toolBar->addAction(this->leftBtn,this->leftBtnText);    this->toolBar->addSeparator();
+    this->toolBar->addAction(this->DebugBtn,this->DebugBtnText);    this->toolBar->addSeparator();
+    this->toolBar->addAction(this->rightBtn,this->rightBtnText);    this->toolBar->addSeparator();
+}
 
-    this->horizontalLayout->addWidget(this->lineEdit);
-    this->horizontalLayout->addWidget(this->includeBtn);
-    this->horizontalLayout->addWidget(this->RunBtn);
-    this->horizontalLayout->addWidget(this->PipelineBtn);
+void GUI::init_stackedBar()
+{
+    // init Buttons
+    this->codeEditorToolBtn =  QIcon("C:\\MIPS_Simulator\\warning-icon.png"); this->codeEditorToolBtnText  = "Editor";
+    this->ExectutionToolBtn = QIcon("C:\\MIPS_Simulator\\left_icon.png"); this->ExectutionToolBtnText = "Execute";
+    this->DataMemToolBtn =  QIcon("C:\\MIPS_Simulator\\warning-icon.png"); this->DataMemToolBtnText  = "DataMemory";
+    this->TestWidgetBtn = QIcon("C:\\MIPS_Simulator\\left_icon.png"); this->TestWidgetBtnText = "Test";
+    // init stacked toolBar
+    this->stackedBar->setMovable(false);
+    this->stackedBar->setIconSize(QSize(80,80));
+    this->stackedBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+    this->stackedBar->setOrientation(Qt::Vertical);
+    this->stackedBar->setStyleSheet("QToolBar{background-color:grey}"
+                                 "QToolButton:hover{background-color:"+this->hover_color+"}"
+                                 "QToolButton:pressed{background-color:"+this->press_color+"}");
+    // add Actions Buttons
+    this->stackedBar->addAction(this->codeEditorToolBtn,this->codeEditorToolBtnText); this->stackedBar->addSeparator();
+    this->stackedBar->addAction(this->ExectutionToolBtn,this->ExectutionToolBtnText); this->stackedBar->addSeparator();
+    this->stackedBar->addAction(this->DataMemToolBtn,this->DataMemToolBtnText);       this->stackedBar->addSeparator();
+    this->stackedBar->addAction(this->TestWidgetBtn,this->TestWidgetBtnText);         this->stackedBar->addSeparator();
 
 }
 
+void GUI::handle_toolBar_Buttons(QAction* action)
+{
+    QString Button_pressed = action->text();
+    if(Button_pressed== this->RunBtnText)
+        this->Start_Simulation();
+    else if(Button_pressed == this->OpenBtnText)
+        this->Browse_file();
+    else if(Button_pressed == this->SaveBtnText) //  need to be implemented
+        this->Browse_file();
+    else if(Button_pressed == this->PipelineBtnText)
+        this->Start_Pipeline_Simulation();
+    else if(Button_pressed == this->DebugBtnText)
+        this->Play_btn();
+    else if(Button_pressed == this->rightBtnText)
+        this->Right_btn();
+    else if(Button_pressed == this->leftBtnText)
+        this->Left_btn();
+}
+void GUI::handle_stacked_Buttons(QAction* action)
+{
+    QString Button_pressed = action->text();
+    if(Button_pressed== this->codeEditorToolBtnText)
+        this->stackedWidget->setCurrentIndex(EDITOR_POS);
+    else if(Button_pressed == this->ExectutionToolBtnText)
+        this->stackedWidget->setCurrentIndex(EXECUTE_POS);
+    else if(Button_pressed == this->DataMemToolBtnText)
+        this->stackedWidget->setCurrentIndex(DATAMEM_POS);
+    else if(Button_pressed == this->TestWidgetBtnText)
+        this->stackedWidget->setCurrentIndex(TEST_POS);
+
+}
 void GUI::Signals_Slots()
 {
+    connect( this->toolBar,SIGNAL(actionTriggered(QAction*)),this,SLOT(handle_toolBar_Buttons(QAction*)));
+    connect( this->stackedBar,SIGNAL(actionTriggered(QAction*)),this,SLOT(handle_stacked_Buttons(QAction*)));
+    connect( this->include_file_dialog     , SIGNAL(filesSelected(QStringList) )     , this , SLOT( Start_Simulation_File(QStringList) ) );
+
     connect( this->Execution,SIGNAL(require_Instructions() ), this->simulator , SLOT ( get_instructions() ) );
     connect( this->Execution,SIGNAL(require_AssembledInstructions() ), this->simulator->assembler , SLOT ( get_assembled_strings() ) );
-
     connect( this->Data_Memory,SIGNAL(get_access_memory() ), this->simulator->data_memory, SLOT ( get_Memory_Access() ) );
     connect( this->Registers_Table,SIGNAL(get_registers() ), this->simulator->register_file , SLOT ( registers_reading() ) );
     connect( this->simulator->Alu ,SIGNAL( syscall(string) ) , this,SLOT( Output_Screen(string) ) );
-
-    connect( this->RunBtn     , SIGNAL(clicked() )      , this , SLOT( Start_Simulation() ) );
-    connect( this->PipelineBtn, SIGNAL(clicked())       , this,SLOT(Start_Pipeline_Simulation()) );
-    connect( this->includeBtn , SIGNAL(clicked() )     , this , SLOT( Browse_file() ) );
-    connect( this->include_file_dialog     , SIGNAL(filesSelected(QStringList) )     , this , SLOT( Start_Simulation_File(QStringList) ) );
-    connect( this->file_dialog             , SIGNAL(filesSelected(QStringList) )     , this , SLOT( file_paths_selected_dialog(QStringList) ) );
-
-    connect(this->left_btn,SIGNAL(clicked()),this,SLOT(Left_btn()));
-    connect(this->right_btn,SIGNAL(clicked()),this,SLOT(Right_btn()));
-    connect(this->play_btn,SIGNAL(clicked()),this,SLOT(Play_btn()));
-
 
     connect( this->simulator, SIGNAL(getInstruction_Editor()), this->Code_Editor,SLOT(Read_Code_Text_Editor() ));
     connect( this->simulator, SIGNAL(update_assembled_instruction() ) , this->Execution , SLOT( updateInstructions() ) );
@@ -169,15 +210,8 @@ void GUI::Signals_Slots()
     connect(this->testWidget,SIGNAL(start_simulation(string)), this,SLOT(Start_Simulation_File(string)));
 
 }
-
 void GUI::init_files_dialog()
 {
-    this->file_dialog = new QFileDialog(this);
-    this->file_dialog->setDirectory("C:\\MIPS"); // set the open directory
-    this->file_dialog->setFileMode(QFileDialog::ExistingFiles); // select existing file only
-    this->file_dialog->setNameFilter("*.txt");                  // show only txt extentions
-    this->file_dialog->setOption(QFileDialog::ReadOnly);        // readonly mode dosn't support deleting or writing
-
     this->include_file_dialog = new QFileDialog(this);
     this->include_file_dialog->setDirectory("C:\\MIPS_Simulator\\TestCases"); // set the open directory
     this->include_file_dialog->setFileMode(QFileDialog::ExistingFile); // select existing file (one file )only
@@ -185,7 +219,6 @@ void GUI::init_files_dialog()
     this->include_file_dialog->setOption(QFileDialog::ReadOnly);        // readonly mode dosn't support deleting or writing
     this->include_file_dialog->setStyleSheet("background: white");
 }
-
 void GUI::keyPressEvent(QKeyEvent *event)
 {
     if(event->key()== Qt::Key_L){
@@ -197,14 +230,12 @@ void GUI::keyPressEvent(QKeyEvent *event)
         cout << "R Pressed" << endl;
     }
 }
-
 void GUI::Start_Simulation()
 {
     this->IO_Screen->clear();
     this->simulator->mode = "MIPS";
     this->simulator->Simulate();
 }
-
 void GUI::Start_Pipeline_Simulation()
 {
     this->IO_Screen->clear();
@@ -212,7 +243,6 @@ void GUI::Start_Pipeline_Simulation()
     this->simulator->Simulate();
     emit pipeline_GUI();
 }
-
 void GUI::Start_Simulation_File(QStringList code_file_path)
 {
 
@@ -223,14 +253,12 @@ void GUI::Start_Simulation_File(QStringList code_file_path)
     this->IO_Screen->clear();
     string path = code_file_path[0].toStdString();
     this->simulator->Simulate(path);
-    this->lineEdit->setText(QString::fromStdString(path));
+    //    this->lineEdit->setText(QString::fromStdString(path));
 }
-
 void GUI::Start_Simulation_File(string test_assembly_path)
 {
     this->simulator->Simulate(test_assembly_path);
 }
-
 void GUI::Output_Screen(string syscall_msg)
 {
     vector<string> x ;
@@ -238,40 +266,36 @@ void GUI::Output_Screen(string syscall_msg)
     this->IO_Screen->Write_Code_Text_Editor(x);
     x.clear();
 }
-
 void GUI::file_paths_selected_dialog(QStringList files_pahts)
 {
     // when the files is selected (then accepted by "enter" or "open") the file dialog emits signal with paths to that files
     for (int i =0 ; i< files_pahts.size(); i++)
         cout << files_pahts[i].toStdString() << endl;
 }
-
 void GUI:: Browse_file()
 {
     this->include_file_dialog->show();
 }
-
 void GUI::Right_btn()
 {
-//    this->Code_Editor->highlight(i);
+    //    this->Code_Editor->highlight(i);
     this->simulator->updateState(1);
 }
-
 void GUI::Left_btn()
 {
     this->simulator->updateState(-1);
 }
-
 void GUI::Play_btn()
 {
     this->simulator->mode = "Debugger";
     this->simulator->Simulate();
 }
-
 void GUI::highlight(uint pos)
 {
     this->Code_Editor->highlight(pos);
 }
+
+
 
 
 

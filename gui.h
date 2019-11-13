@@ -33,6 +33,7 @@
 #include <QStringList>
 #include "GUI/testwidget.h"
 #include <QToolBar>
+#include <QStackedWidget>
 
 
 #define RUN "Run"
@@ -43,6 +44,11 @@
 #define TEST "Test"
 #define REGISTERS_TYPE "Registers"
 #define DATA_MEM "Memory"
+
+#define EDITOR_POS 0
+#define EXECUTE_POS 1
+#define DATAMEM_POS 2
+#define TEST_POS 3
 
 #define Width_Editor 900
 #define Hight_Editor 600
@@ -65,23 +71,37 @@ private:
     QGridLayout* grid ;
 
     QTabWidget* tabWidget;
+    QStackedWidget* stackedWidget;
+    QToolBar* stackedBar;
+
     Editor* Code_Editor;
     Execute_Widget* Execution;
     Data_Mem_Widget* Data_Memory;
     TestWidget* testWidget;
 
-    QHBoxLayout* horizontalLayout;
-    QLineEdit *  lineEdit;
-    QPushButton* includeBtn;
-    QPushButton* RunBtn;
-    QPushButton* PipelineBtn;
-    QPushButton* right_btn ;
-    QPushButton* left_btn;
-    QPushButton* play_btn;
+
+
+    QToolBar* toolBar;
+    QString hover_color , press_color;
+
+    QIcon OpenBtn; QString OpenBtnText;
+    QIcon RunBtn; QString RunBtnText;
+    QIcon SaveBtn; QString SaveBtnText;
+    QIcon PipelineBtn; QString PipelineBtnText;
+    QIcon rightBtn; QString rightBtnText;
+    QIcon leftBtn; QString leftBtnText;
+    QIcon DebugBtn; QString DebugBtnText;
+
+    QIcon codeEditorToolBtn; QString codeEditorToolBtnText;
+    QIcon ExectutionToolBtn; QString ExectutionToolBtnText;
+    QIcon DataMemToolBtn; QString DataMemToolBtnText;
+    QIcon TestWidgetBtn; QString TestWidgetBtnText;
+
+
+
 
     QFileDialog* file_dialog;
     QFileDialog* include_file_dialog;
-
     Editor* IO_Screen;
     QTabWidget* IO_Screen_Container;
     QTabWidget* Right_TabWidget;
@@ -92,11 +112,12 @@ public:
     ~GUI();
 
     void Design();
-    void init_horizontal_layout();
     void Signals_Slots();
     void init_files_dialog();
     void keyPressEvent(QKeyEvent * event);
 
+    void init_toolBar();
+    void init_stackedBar();
 signals:
     void update(vector<int>);
     void pipeline_GUI();
@@ -115,7 +136,8 @@ public slots:
     void Play_btn();
     void highlight(uint);
 
-
+    void handle_toolBar_Buttons(QAction*);
+    void handle_stacked_Buttons(QAction*);
 };
 
 vector<string> split_string(string s,string splitter);

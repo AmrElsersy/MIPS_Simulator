@@ -5,7 +5,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent)
     this->gui = new GUI();
     this->pipeline_gui = new View();
     this->setCentralWidget(this->gui);
-    this->setStyleSheet("background-color:rgb(0,0,128);""color: rgb(0,0,102);""font-weight: 400;");
+//    this->setStyleSheet("background-color:rgb(0,0,128);""color: rgb(0,0,102);""font-weight: 400;");
 
     connect(this->gui->simulator,SIGNAL(updatePipelineAssemblyCode(vector<string>)),this->pipeline_gui->my_scene,SLOT(INIT_Scene(vector<string>)));
     // Scene Signals and Slots regFile DataMemory
@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent)
     // to show the pipeline GUI
     connect(this->gui,SIGNAL(pipeline_GUI()),this,SLOT(show_pipeline_gui()));
 
-    ray2();
+    //    ray2();
 }
 void MainWindow ::show_pipeline_gui()
 {
@@ -27,6 +27,11 @@ void MainWindow::slot_ray2(QAction * action)
 {
     cout << action->text().toStdString() << " ispressed" << endl;
 }
+
+void MainWindow::spidy_slot()
+{
+
+}
 void MainWindow::ray2()
 {
     QIcon spidy("C:\\MIPS_Simulator\\spidy.png");
@@ -35,13 +40,16 @@ void MainWindow::ray2()
     QIcon bugy("C:\\MIPS_Simulator\\bugy.png");
     QIcon left_icon("C:\\MIPS_Simulator\\left_icon.png");
     QToolBar* toolBar = new QToolBar("Ray2");
-//    toolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
-//    toolBar->setToolButtonStyle(Qt::ToolButtonTextOnly);
-//    toolBar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    //    toolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
+    //    toolBar->setToolButtonStyle(Qt::ToolButtonTextOnly);
+    //    toolBar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    //    this->toolBar->setContentsMargins(100,100,300,200); // set the margin of the toolbar its self
+
     toolBar->setMovable(false);
     toolBar->setIconSize(QSize(100,100));
     toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     toolBar->setOrientation(Qt::Vertical);
+    //    toolBar->setStyleSheet("background-color:red");
 
     QAction* spidy_action = toolBar->addAction(spidy,"spidy");  toolBar->addSeparator();
     QAction* warning_action = toolBar->addAction(warning_icon,"warning_icon");  toolBar->addSeparator();
@@ -50,7 +58,7 @@ void MainWindow::ray2()
     QAction* left = toolBar->addAction(left_icon,"left");  toolBar->addSeparator();
 
     connect(toolBar,SIGNAL(actionTriggered(QAction*)),this,SLOT(slot_ray2(QAction*)));
-
+    connect(spidy_action,SIGNAL(hovered()),this,SLOT(spidy_slot()));
     this->setCentralWidget(toolBar);
 }
 
