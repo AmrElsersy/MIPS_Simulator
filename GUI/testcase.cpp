@@ -8,12 +8,14 @@ TestCase::TestCase(string Name,QWidget *parent) : QWidget (parent)
     this->setLayout(this->layout);
     this->label  = new QLabel();
     this->BtnDetails = new QPushButton("Details");
-    this -> BtnDetails->setStyleSheet("background-color: #035c70;"
+    this -> BtnDetails->setStyleSheet("background-color: #01333e;"
+                                      "padding: 2px 0;"
                                       "color: white;"
                                      "border-radius: 5%;"
                                       "font-weight: bold;");
     this->BtnTest    = new QPushButton("Test");
-    this->BtnTest->setStyleSheet("background-color: #035c70;"
+    this->BtnTest->setStyleSheet("background-color: #01333e;"
+                                 "padding: 2px 0;"
                                   "color: white;"
                                  "border-radius: 5%;"
                                  "font-weight: bold;");
@@ -21,8 +23,8 @@ TestCase::TestCase(string Name,QWidget *parent) : QWidget (parent)
     // label init
     this->name = Name;
     this->label->setText(QString::fromStdString (this->name) ) ;
-    this->label->setStyleSheet("background-color: #06c9f5;"
-                               "color: #01252d;"
+    this->label->setStyleSheet("background-color: #024e5f;"
+                               "color: white;"
                                "border-radius: 5%;"
                                "font-weight: 400;");
     this->label->setAlignment(Qt::AlignCenter);

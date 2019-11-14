@@ -7,7 +7,6 @@ Tree_Widget::Tree_Widget(QWidget *parent) : QTreeWidget(parent)
     this->flag_color = 1;
     this->centerAlign = false;
     this->warning = false;
-    this->setStyleSheet("QTreeWidget::item:selected{background-color:#000a0c; color:white;}");
     string icon_path = QCoreApplication::applicationDirPath().toStdString();
     icon_path.erase(icon_path.find("build")); icon_path += "MIPS_Simulator/warning-icon.png";
     this->warning_icon = QIcon(QString::fromStdString(icon_path) );

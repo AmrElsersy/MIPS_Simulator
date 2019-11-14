@@ -28,7 +28,7 @@ PipeRegWidget::PipeRegWidget(QWidget *parent) : Tree_Widget(parent)
     this->addItem({"EX_MEM","Lower mux","0"});
     this->addItem({"EX_MEM","Reg Dest","0"});
     this->addItem({"MEM_WB","Reg write","0"});
-    this->addItem({"MEM_WB","MEM to Register","0"});
+    this->addItem({"MEM_WB","MEM to Reg","0"});
     this->addItem({"MEM_WB","Read Data","0"});
     this->addItem({"MEM_WB","ALU Result","0"});
     this->addItem({"MEM_WB","Reg Dest","0"});

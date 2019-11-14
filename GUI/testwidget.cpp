@@ -21,11 +21,13 @@ TestWidget::TestWidget(QWidget *parent) : QWidget(parent)
     this->AssemblyBrowse= new BrowseFile ("Assembly Code:");
     this->AddTestBtn = new QPushButton("Add TestCase");
     this->AddTestBtn->setStyleSheet("background-color: #01333e;"
+                                    "padding: 2px 0;"
                                     "color: white;"
                                    "border-radius: 5%;"
                                     "font-weight: bold;");
     this->TestAllBtn = new QPushButton("Test All");
     this->TestAllBtn->setStyleSheet("background-color: #01333e;"
+                                    "padding: 2px 0;"
                                     "color: white;"
                                    "border-radius: 5%;"
                                     "font-weight: bold;");
