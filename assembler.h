@@ -24,6 +24,7 @@ private:
 
 public:
     Assembler();
+    void Assemble(vector<string> Instruction);
     int get_16bit_value(string s );
 public slots:
 
@@ -31,7 +32,6 @@ public slots:
     uint get_opcode(string Operand);
     uint get_fun(string Operand);
     void print(deque<int> x);
-    void Assemble(vector<string> Instruction);
     void convert_Assemble_to_String(deque<int>,uint);
     void print_all();
     void File_assembled_instructions(string);
