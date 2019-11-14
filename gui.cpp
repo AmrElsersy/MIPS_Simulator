@@ -200,6 +200,7 @@ void GUI::Signals_Slots()
     connect( this->simulator->Alu , SIGNAL (update_memory_gui(uint)) , this->Data_Memory , SLOT(update_memory(uint)) );
     connect( this->simulator->data_memory , SIGNAL (update_dataMemory_GUI(uint)) , this->Data_Memory , SLOT(update_memory(uint)) );
     connect( this->simulator, SIGNAL (highlight(uint)) , this, SLOT(highlight(uint)) );
+    connect( this->simulator, SIGNAL (Output_Print(string)) , this, SLOT(Output_Screen(string)) );
 
     connect(this->testWidget,SIGNAL(output_screen(vector<string>)),this->IO_Screen,SLOT(Write_Code_Text_Editor(vector<string>)));
     connect(this->testWidget,SIGNAL(start_simulation(string)), this,SLOT(Start_Simulation_File(string)));
@@ -244,7 +245,7 @@ void GUI::Start_Pipeline_Simulation()
 void GUI::Start_Simulation_File(QStringList code_file_path)
 {
     this->Code_Editor->clear();
-    this->IO_Screen->clear();
+//    this->IO_Screen->clear();
     string path = code_file_path[0].toStdString();
     this->simulator->Simulate(path);
     this->IO_Screen->Write_Code_Text_Editor({"Open is done"});
@@ -254,12 +255,11 @@ void GUI::Start_Simulation_File(string test_assembly_path)
 {
     this->simulator->Simulate(test_assembly_path);
 }
-void GUI::Output_Screen(string syscall_msg)
+void GUI::Output_Screen(string error)
 {
     vector<string> x ;
-    x.push_back(syscall_msg);
+    x.push_back(error);
     this->IO_Screen->Write_Code_Text_Editor(x);
-    x.clear();
 }
 void GUI:: Browse_file()
 {

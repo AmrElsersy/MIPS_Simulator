@@ -115,17 +115,36 @@ void Simulator::Modelsim()
 
 void Simulator::Simulate()
 {
-    Read_Instruction_Editor();
-    Assemble_Instructions();
+    try {
+        Read_Instruction_Editor();
+        emit Output_Print("Reading Editor is Done");
+    } catch (...) {
+        emit Output_Print("Error Reading Editor");
+        return;
+    }
+    try {
+        Assemble_Instructions();
+        emit Output_Print("Assembly is Done");
+    } catch (...) {
+        emit Output_Print("Assembly Faild\n................");
+        return;
+    }
     //    ALU_Logic();
 
     print(this->Lables);
     print(this->assembler->get_assembled_strings());
-    for(uint i =0 ; i<instructions.size();i++)
-        print(instructions[i]);
 
-    this->Modelsim();
+    emit Output_Print("Running ModelSim ...");
+    try {
+        this->Modelsim();
+    } catch (...) {
+        emit Output_Print("Error in ModelSim");
+        return;
+    }
+    emit Output_Print("ModelSim Finished.");
+
     this->update_GUI();
+    emit Output_Print("..................");
 }
 void Simulator::debugg_pc()
 {
@@ -187,7 +206,7 @@ void Simulator::Simulate(string path)
     if (!file.is_open())
     {
         cout << "file can't open ya ray2" << endl;
-        emit ERROR_Output("File Cannot Open");
+        emit Output_Print("File Cannot Open");
     }
     vector<string> all_code_to_copy_in_editor;
     string s;
@@ -323,7 +342,7 @@ void Simulator::Assemble_Instructions()
         // check for lables it has a size 2 ==== 1 for label + 1 for address
         if (instructions[i].size()<=2)
             continue;
-        emit Assemble_Instruction(instructions[i]);
+        this->assembler->Assemble(instructions[i]);
     }
     emit print_assembled_instruction();
     cout << "=============R=============" << endl;

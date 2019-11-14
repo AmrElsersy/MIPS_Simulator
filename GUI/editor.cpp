@@ -27,7 +27,6 @@ void Editor::Write_Code_Text_Editor(vector<string> s)
 
     // ================= Onther Approach =================
     for (int i =0 ; i<s.size();i++) {
-
         this->appendPlainText(QString::fromStdString( s[i] ) );
     }
 //    this->Code_TextEdit->undo();  // undo the previews change in text editor

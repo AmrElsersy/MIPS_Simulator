@@ -102,7 +102,7 @@ signals:
     void update_registers();
     void update_data_memory();
     void clear_data_memory();
-    void ERROR_Output(string);
+    void Output_Print(string);
     void file_assembled_instructions(string path);
     void file_regFile_lines(string path);
     void file_regFile_data();
