@@ -56,7 +56,7 @@ void TestCase::init_details_widget()
     // Memory Allocation
     this->DetailsWidget = new QTabWidget(); // don't put ("this" as parent) we want it hidden
     this->RegFile_Details = new Tree_Widget();
-    this->DetailsWidget->setStyleSheet("background: rgb(255, 51,85);"
+    this->DetailsWidget->setStyleSheet("background: rgb(1,51,62);"
                                        "color: rgb(128,0,0);"
                                        "font-weight: 400;"
                                        "border-radius: 5%");
@@ -64,16 +64,16 @@ void TestCase::init_details_widget()
     // Design of RegFile
     this->RegFile_Details->setColumnCount(2);
     this->RegFile_Details->setHeaderLabels ( {"    ID","Warnings"} );
-    this->RegFile_Details->setStyleSheet("QTreeView::item {padding: 15px; color: black; font-weight: bold;}");
-    this->RegFile_Details->setTreeColor(QColor(255,255,0));
+    this->RegFile_Details->setStyleSheet("QTreeView::item {padding: 15px; color: white; font-weight: bold;}");
+    this->RegFile_Details->setTreeColor(QColor(167,187,0));
     this->RegFile_Details->setWarning(true);
     this->RegFile_Details->headerItem()->setTextAlignment(0,Qt::AlignCenter);
     this->RegFile_Details->headerItem()->setTextAlignment(1,Qt::AlignCenter);
     // Design of DataMem
     this->DataMem_Details->setColumnCount(2);
     this->DataMem_Details->setHeaderLabels ( {"    ID","Warnings"} );
-    this->DataMem_Details->setStyleSheet("QTreeView::item {padding: 15px; color: black; font-weight: bold;}");
-    this->DataMem_Details->setTreeColor(QColor(255,255,0));
+    this->DataMem_Details->setStyleSheet("QTreeView::item {padding: 15px; color: white; font-weight: bold;}");
+    this->DataMem_Details->setTreeColor(QColor(167,187,0));
     this->DataMem_Details->setWarning(true);
     this->DataMem_Details->headerItem()->setTextAlignment(0,Qt::AlignCenter);
     this->DataMem_Details->headerItem()->setTextAlignment(1,Qt::AlignCenter);

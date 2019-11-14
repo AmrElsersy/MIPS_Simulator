@@ -3,7 +3,6 @@
 Tree_Widget::Tree_Widget(QWidget *parent) : QTreeWidget(parent)
 {
     this->color.setRgb(COLOR);
-
     this->flag_color = 1;
     this->centerAlign = false;
     this->warning = false;

@@ -19,6 +19,7 @@ GUI::GUI(QWidget *parent) :   QWidget (parent)
     this->testWidget->setStyleSheet("background-color:#FFFAE3; color: white; font-weight: 400;");
 
     this->Right_TabWidget = new QTabWidget();
+    this->Right_TabWidget->setStyleSheet("QTabWidget::tab-bar{padding: 2px 15px; margin-right:5px;}");
     this->Registers_Table = new regFile_Widget();
     this->Registers_Table->setStyleSheet("background: white;");
     this->Pipeline_Registers = new PipeRegWidget();
@@ -107,7 +108,7 @@ void GUI::init_toolBar()
     this->toolBar->setStyleSheet("QToolBar{background-color: #01333e; color: white;}"
                                  "QToolButton:hover{background-color:"+this->hover_color+"; color: black;}"
                                  "QToolButton:select{background-color:"+this->press_color+"; color: black;}"
-                                 "QToolButton{color:white; font-weight: 400; border-right: 1px solid white; padding-right: 5px; padding-left: 5px; border-radius: 0;}");
+                                 "QToolButton{color:white; font-weight: 400; border-right: 1px solid white; padding-right: 15px; padding-left: 15px; border-radius: 0;}");
 
     // add Buttons
     this->toolBar->addAction(this->OpenBtn,this->OpenBtnText);  this->toolBar->addSeparator();
