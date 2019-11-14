@@ -9,7 +9,7 @@
 #define INSTRUCTION 2
 #define RegisterValue 2
 #define RegisterName 0
-#define COLOR 104,229,255
+#define COLOR 3,92,112
 
 #include "register.h"
 #include <bits/stdc++.h>

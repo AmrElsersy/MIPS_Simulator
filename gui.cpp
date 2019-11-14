@@ -16,7 +16,7 @@ GUI::GUI(QWidget *parent) :   QWidget (parent)
     this->Data_Memory     = new Data_Mem_Widget();
     this->Data_Memory->setStyleSheet("background: white;");
     this->testWidget      = new TestWidget();
-    this->testWidget->setStyleSheet("background: #035c70; color: white; font-weight: 400;");
+    this->testWidget->setStyleSheet("background-color:#FFFAE3; color: white; font-weight: 400;");
 
     this->Right_TabWidget = new QTabWidget();
     this->Registers_Table = new regFile_Widget();
@@ -105,8 +105,8 @@ void GUI::init_toolBar()
     this->hover_color = "rgb(220,220,220)";
     this->press_color = "white";
     this->toolBar->setStyleSheet("QToolBar{background-color: #01333e; color: white;}"
-                                 "QToolButton:hover{background-color:"+this->hover_color+"}"
-                                 "QToolButton:select{background-color:"+this->press_color+"}"
+                                 "QToolButton:hover{background-color:"+this->hover_color+"; color: black;}"
+                                 "QToolButton:select{background-color:"+this->press_color+"; color: black;}"
                                  "QToolButton{color:white; font-weight: 400; border-right: 1px solid white; padding-right: 5px; padding-left: 5px; border-radius: 0;}");
 
     // add Buttons
@@ -124,22 +124,24 @@ void GUI::init_stackedBar()
     // init Buttons
     this->codeEditorToolBtn =  QIcon("C:\\MIPS_Simulator\\icons\\editor.png"); this->codeEditorToolBtnText  = "Editor";
     this->ExectutionToolBtn = QIcon("C:\\MIPS_Simulator\\icons\\execute.png"); this->ExectutionToolBtnText = "Execute";
-    this->DataMemToolBtn =  QIcon("C:\\MIPS_Simulator\\icons\\memory.png"); this->DataMemToolBtnText  = "DataMemory";
+    this->DataMemToolBtn =  QIcon("C:\\MIPS_Simulator\\icons\\memory.png"); this->DataMemToolBtnText  = "Memory";
     this->TestWidgetBtn = QIcon("C:\\MIPS_Simulator\\icons\\test.png"); this->TestWidgetBtnText = "Test";
     // init stacked toolBar
     this->stackedBar->setMovable(false);
-    this->stackedBar->setIconSize(QSize(80,80));
+    this->stackedBar->setIconSize(QSize(70,70));
     this->stackedBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     this->stackedBar->setOrientation(Qt::Vertical);
     this->stackedBar->setStyleSheet("QToolBar{background-color:#01333e;}"
-                                 "QToolButton:hover{background-color:"+this->hover_color+"}"
-                                 "QToolButton:pressed{background-color:"+this->press_color+"}"
+                                 "QToolButton:hover{background-color:"+this->hover_color+"; color: black;}"
+                                 "QToolButton:pressed{background-color:"+this->press_color+"; color: black;}"
                                  "QToolButton{color:white; font-weight: 400; border-bottom: 1px solid white; padding-bottom: 5px; padding-top: 5px; border-radius: 0;}");
     // add Actions Buttons
     this->stackedBar->addAction(this->codeEditorToolBtn,this->codeEditorToolBtnText); this->stackedBar->addSeparator();
     this->stackedBar->addAction(this->ExectutionToolBtn,this->ExectutionToolBtnText); this->stackedBar->addSeparator();
     this->stackedBar->addAction(this->DataMemToolBtn,this->DataMemToolBtnText);       this->stackedBar->addSeparator();
     this->stackedBar->addAction(this->TestWidgetBtn,this->TestWidgetBtnText);         this->stackedBar->addSeparator();
+
+    this->stackedBar->setFixedWidth(70);
 
 }
 

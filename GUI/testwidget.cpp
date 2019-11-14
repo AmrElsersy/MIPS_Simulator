@@ -2,13 +2,17 @@
 
 TestWidget::TestWidget(QWidget *parent) : QWidget(parent)
 {
+     this->setStyleSheet("border:0;");
     this->centralLayout = new QVBoxLayout();
     this->grid = new QGridLayout();
     this->grid_widget = new QWidget();
-    this->grid_widget->setStyleSheet("background-color:#035c70; "
-                                     "border-radius: 5%;");
+    this->grid_widget->setStyleSheet("border: 0;"
+                                     "background-color:#F6F4F3;"
+                                     "border-radius: 5%;"
+                                     "color: #01252d;");
     this->testcasesWidget = new QWidget();
-    this->testcasesWidget->setStyleSheet("background-color:#035c70; "
+    this->testcasesWidget->setStyleSheet("background-color:#F6F4F3;"
+                                         "border:0;"
                                          "border-radius: 10%;");
     this->testCasesLayout = new QVBoxLayout();
     this->scroll = new QScrollArea();
@@ -16,12 +20,12 @@ TestWidget::TestWidget(QWidget *parent) : QWidget(parent)
     this->DataMemBrowse = new BrowseFile ("Data Memory:");
     this->AssemblyBrowse= new BrowseFile ("Assembly Code:");
     this->AddTestBtn = new QPushButton("Add TestCase");
-    this->AddTestBtn->setStyleSheet("background-color: rgb(0,0,128);"
+    this->AddTestBtn->setStyleSheet("background-color: #01333e;"
                                     "color: white;"
                                    "border-radius: 5%;"
                                     "font-weight: bold;");
     this->TestAllBtn = new QPushButton("Test All");
-    this->TestAllBtn->setStyleSheet("background-color: rgb(0,0,128);"
+    this->TestAllBtn->setStyleSheet("background-color: #01333e;"
                                     "color: white;"
                                    "border-radius: 5%;"
                                     "font-weight: bold;");
