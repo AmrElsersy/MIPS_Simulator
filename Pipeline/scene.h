@@ -5,7 +5,7 @@
 #define WIDTH_MUX 1
 #define MUXs_SIZE 6
 #define REGISTERS_COLOR QColor(50,50,50)
-#define INITAIL_COLOR QColor(50,50,50)
+#define INITAIL_COLOR QColor(120,120,120)
 #define FLUSH_COLOR QColor(50,50,50)
 
 #define fetch 0

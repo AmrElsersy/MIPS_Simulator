@@ -123,7 +123,7 @@ void Simulator::Simulate()
         return;
     }
     try {
-        Assemble_Instructions();
+        this->Assemble_Instructions();
         emit Output_Print("Assembly is Done");
     } catch (...) {
         emit Output_Print("Assembly Faild\n................");

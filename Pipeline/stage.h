@@ -2,7 +2,7 @@
 #define STAGE_H
 #define PATH_WIDTH 4
 #define TEXT_COLOR Qt::white
-#define OFF_COLOR QColor(50,50,50)
+#define OFF_COLOR QColor(120,120,120)
 #define FONT_SIZE 12
 #include <QObject>
 #include <QPen>

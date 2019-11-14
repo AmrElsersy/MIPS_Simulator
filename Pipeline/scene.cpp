@@ -250,12 +250,12 @@ void myScene::initButtons()
 {
     QWidget* buttons_widget = new QWidget();
     QGridLayout* layout = new QGridLayout();
-    buttons_widget->setStyleSheet("background-color:rgb(20,20,20);border-radius:5px;");
+    buttons_widget->setStyleSheet("background-color:#035c70; border-radius:5px;");
 
     this->progressBar = new QProgressBar();
     this->progressBar->setRange(0,100);
-    this->progressBar->setStyleSheet("QProgressBar{border: 2px solid grey;border-radius: 5px;text-align: center;background-color:rgb(15,15,15);}"
-                                     "QProgressBar::chunk{background-color:#29e629;};");//#55cc00
+    this->progressBar->setStyleSheet("QProgressBar{border: 2px solid grey;border-radius: 5px;text-align: center;background-color:rgb(15,15,15); margin-bottom:5px;}"
+                                     "QProgressBar::chunk{background-color:#fff;};");//#55cc00
     this->progressBar->setValue(0);
     QPushButton* right_btn = new QPushButton("");
     QPushButton* left_btn = new QPushButton("");
@@ -263,15 +263,15 @@ void myScene::initButtons()
 
     right_btn->setIcon(QIcon("C:\\MIPS_Simulator\\icons\\right.png"));
     left_btn->setIcon(QIcon("C:\\MIPS_Simulator\\icons\\left.png"));
-    play_btn->setIcon(QIcon("C:\\MIPS_Simulator\\icons\\right1.png"));
+    play_btn->setIcon(QIcon("C:\\MIPS_Simulator\\icons\\play.png"));
 
-    right_btn->setStyleSheet("border:0");
-    left_btn->setStyleSheet("border:0");
-    play_btn->setStyleSheet("border:0");
+    right_btn->setStyleSheet("border:0; background:#01333e; padding: 5px;");
+    left_btn->setStyleSheet("border:0; background:#01333e; padding: 5px;");
+    play_btn->setStyleSheet("border:0; background:#01333e; padding: 5px;");
 
-    right_btn->setIconSize(QSize(40,40));
-    left_btn->setIconSize(QSize(40,40));
-    play_btn->setIconSize(QSize(40,40));
+    right_btn->setIconSize(QSize(30,30));
+    left_btn->setIconSize(QSize(30,30));
+    play_btn->setIconSize(QSize(30,30));
 
     connect(right_btn,SIGNAL(pressed()),this,SLOT(rightButton()));
     connect(left_btn,SIGNAL(pressed()),this,SLOT(leftButton()));
