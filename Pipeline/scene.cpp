@@ -92,7 +92,7 @@ void myScene::updateStagesColors(int direction)
     try {
 
         this->progressBar->setValue(this->index);
-        QCoreApplication::processEvents();
+//        QCoreApplication::processEvents();
     } catch (...) {
         cout << "ProgressBar is not Ray2..." << this->index << "/" << this->progressBar->value() << endl;
     }

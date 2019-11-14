@@ -15,7 +15,6 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent)
     // to show the pipeline GUI
     connect(this->gui,SIGNAL(pipeline_GUI()),this,SLOT(show_pipeline_gui()));
 
-    //    ray2();
 }
 void MainWindow ::show_pipeline_gui()
 {

@@ -2,7 +2,7 @@
 
 GUI::GUI(QWidget *parent) :   QWidget (parent)
 {
-    this->path = "/home/amrelsersy/MIPS/dummy.txt";
+//    this->path = "/home/amrelsersy/MIPS/dummy.txt";
     // memory allocation
     this->simulator = new Simulator();
     //    this->simulator->Simulate(this->path);11
@@ -210,14 +210,14 @@ void GUI::Signals_Slots()
 void GUI::init_files_dialog()
 {
     this->include_file_dialog = new QFileDialog(this);
-    this->include_file_dialog->setDirectory("C:\\MIPS_Simulator\\TestCases"); // set the open directory
+//    this->include_file_dialog->setDirectory("C:\\MIPS_Simulator\\TestCases"); // set the open directory
     this->include_file_dialog->setFileMode(QFileDialog::ExistingFile); // select existing file (one file )only
     this->include_file_dialog->setNameFilter("*.txt");                  // show only txt extentions
     this->include_file_dialog->setOption(QFileDialog::ReadOnly);        // readonly mode dosn't support deleting or writing
     this->include_file_dialog->setStyleSheet("background: white");
 
     this->save_file_dialog = new QFileDialog(this);
-    this->save_file_dialog ->setDirectory("C:\\MIPS_Simulator\\TestCases"); // set the open directory
+//    this->save_file_dialog ->setDirectory("C:\\MIPS_Simulator\\TestCases"); // set the open directory
     this->save_file_dialog->setAcceptMode(QFileDialog::AcceptSave);
     this->save_file_dialog ->setFileMode(QFileDialog::AnyFile); // for "save as" mode
 }
