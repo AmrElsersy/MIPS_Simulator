@@ -5,10 +5,10 @@ TestWidget::TestWidget(QWidget *parent) : QWidget(parent)
     this->centralLayout = new QVBoxLayout();
     this->grid = new QGridLayout();
     this->grid_widget = new QWidget();
-    this->grid_widget->setStyleSheet("background-color: white;"
+    this->grid_widget->setStyleSheet("background-color:#035c70; "
                                      "border-radius: 5%;");
     this->testcasesWidget = new QWidget();
-    this->testcasesWidget->setStyleSheet("background-color: white;"
+    this->testcasesWidget->setStyleSheet("background-color:#035c70; "
                                          "border-radius: 10%;");
     this->testCasesLayout = new QVBoxLayout();
     this->scroll = new QScrollArea();

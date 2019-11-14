@@ -4,7 +4,7 @@ BrowseFile::BrowseFile(string name ,QWidget *parent) : QWidget(parent)
 {
     this->layout = new QHBoxLayout();
     this->label = new QLabel();
-    this->label->setStyleSheet("background-color: white");
+    this->label->setStyleSheet("background-color:#035c70;");
     this->label->setText(QString::fromStdString(name));
     this->label->setMinimumWidth(MIN_WIDTH_LABEL);
     this->entry = new QLineEdit(this);

@@ -5,8 +5,7 @@ MainWindow::MainWindow(QWidget *parent) :QMainWindow(parent)
     this->gui = new GUI();
     this->pipeline_gui = new View();
     this->setCentralWidget(this->gui);
-//    this->setStyleSheet("background-color:rgb(0,0,128);""color: rgb(0,0,102);""font-weight: 400;");
-
+    this->setStyleSheet(" background-color: #01333e;");
     connect(this->gui->simulator,SIGNAL(updatePipelineAssemblyCode(vector<string>)),this->pipeline_gui->my_scene,SLOT(INIT_Scene(vector<string>)));
     // Scene Signals and Slots regFile DataMemory
     connect(this->pipeline_gui->my_scene,SIGNAL(updateRegFile(string)),this->gui->simulator->register_file,SLOT(updateRegFilePipeline(string)));

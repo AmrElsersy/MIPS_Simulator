@@ -11,13 +11,12 @@ GUI::GUI(QWidget *parent) :   QWidget (parent)
     this->stackedWidget = new QStackedWidget();
     this->stackedBar = new QToolBar(this);
     this->toolBar = new QToolBar(this);
-
     this->Execution       = new Execute_Widget();
     this->Execution->setStyleSheet("background: white;");
     this->Data_Memory     = new Data_Mem_Widget();
     this->Data_Memory->setStyleSheet("background: white;");
     this->testWidget      = new TestWidget();
-    this->testWidget->setStyleSheet("background: white;");
+    this->testWidget->setStyleSheet("background: #035c70; color: white; font-weight: 400;");
 
     this->Right_TabWidget = new QTabWidget();
     this->Registers_Table = new regFile_Widget();
@@ -61,6 +60,7 @@ void GUI::Design()
     this->Right_TabWidget->addTab(this->Registers_Table,"Registers");
     this->Right_TabWidget->addTab(this->Pipeline_Registers,"Pipeline");
 
+
     this->IO_Screen_Container->addTab(this->IO_Screen,"Output");
 
 
@@ -70,7 +70,6 @@ void GUI::Design()
     this->grid->addWidget(this->stackedWidget,1,1,3,3);
     this->grid->addWidget(this->Right_TabWidget,1,4,-1,1);
     this->grid->addWidget(this->IO_Screen_Container,4,0,1,4);
-
     // for resizing
     this->grid->setColumnStretch(1,1); // TabWidget
     this->grid->setRowStretch(1,3); // TabWidget also
@@ -89,13 +88,13 @@ void GUI::Design()
 void GUI::init_toolBar()
 {
     // init Actions Icons and Text
-    this->OpenBtn = QIcon("C:\\MIPS_Simulator\\icons\\debug.png");     this->OpenBtnText = "Open";
-    this->SaveBtn = QIcon("C:\\MIPS_Simulator\\icons\\left_icon.png"); this->SaveBtnText = "Save";
-    this->RunBtn =  QIcon("C:\\MIPS_Simulator\\icons\\warning-icon.png"); this->RunBtnText  = "Run";
-    this->PipelineBtn = QIcon("C:\\MIPS_Simulator\\icons\\bugy.png");  this->PipelineBtnText="Pipeline";
-    this->leftBtn =QIcon("C:\\MIPS_Simulator\\icons\\backward.png");   this->leftBtnText  = "Backword";
+    this->OpenBtn = QIcon("C:\\MIPS_Simulator\\icons\\open.png");     this->OpenBtnText = "Open";
+    this->SaveBtn = QIcon("C:\\MIPS_Simulator\\icons\\save.png"); this->SaveBtnText = "Save";
+    this->RunBtn =  QIcon("C:\\MIPS_Simulator\\icons\\run.png"); this->RunBtnText  = "Run";
+    this->PipelineBtn = QIcon("C:\\MIPS_Simulator\\icons\\pipe1.png");  this->PipelineBtnText="Pipeline";
+    this->leftBtn =QIcon("C:\\MIPS_Simulator\\icons\\left.png");   this->leftBtnText  = "Backword";
     this->DebugBtn =QIcon("C:\\MIPS_Simulator\\icons\\debug.png"); this->DebugBtnText  = "Debug";
-    this->rightBtn =QIcon("C:\\MIPS_Simulator\\icons\\forward.png");   this->rightBtnText = "Forward";
+    this->rightBtn =QIcon("C:\\MIPS_Simulator\\icons\\right.png");   this->rightBtnText = "Forward";
     // init ToolBar
     this->toolBar->setMovable(false);
     this->toolBar->setIconSize(QSize(40,40));
@@ -105,9 +104,11 @@ void GUI::init_toolBar()
 
     this->hover_color = "rgb(220,220,220)";
     this->press_color = "white";
-    this->toolBar->setStyleSheet("QToolBar{background-color:grey}"
+    this->toolBar->setStyleSheet("QToolBar{background-color: #01333e; color: white;}"
                                  "QToolButton:hover{background-color:"+this->hover_color+"}"
-                                 "QToolButton:pressed{background-color:"+this->press_color+"}");
+                                 "QToolButton:select{background-color:"+this->press_color+"}"
+                                 "QToolButton{color:white; font-weight: 400; border-right: 1px solid white; padding-right: 5px; padding-left: 5px; border-radius: 0;}");
+
     // add Buttons
     this->toolBar->addAction(this->OpenBtn,this->OpenBtnText);  this->toolBar->addSeparator();
     this->toolBar->addAction(this->SaveBtn,this->SaveBtnText);    this->toolBar->addSeparator();
@@ -122,17 +123,18 @@ void GUI::init_stackedBar()
 {
     // init Buttons
     this->codeEditorToolBtn =  QIcon("C:\\MIPS_Simulator\\icons\\editor.png"); this->codeEditorToolBtnText  = "Editor";
-    this->ExectutionToolBtn = QIcon("C:\\MIPS_Simulator\\icons\\left_icon.png"); this->ExectutionToolBtnText = "Execute";
-    this->DataMemToolBtn =  QIcon("C:\\MIPS_Simulator\\icons\\warning-icon.png"); this->DataMemToolBtnText  = "DataMemory";
-    this->TestWidgetBtn = QIcon("C:\\MIPS_Simulator\\icons\\left_icon.png"); this->TestWidgetBtnText = "Test";
+    this->ExectutionToolBtn = QIcon("C:\\MIPS_Simulator\\icons\\execute.png"); this->ExectutionToolBtnText = "Execute";
+    this->DataMemToolBtn =  QIcon("C:\\MIPS_Simulator\\icons\\memory.png"); this->DataMemToolBtnText  = "DataMemory";
+    this->TestWidgetBtn = QIcon("C:\\MIPS_Simulator\\icons\\test.png"); this->TestWidgetBtnText = "Test";
     // init stacked toolBar
     this->stackedBar->setMovable(false);
     this->stackedBar->setIconSize(QSize(80,80));
     this->stackedBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
     this->stackedBar->setOrientation(Qt::Vertical);
-    this->stackedBar->setStyleSheet("QToolBar{background-color:grey}"
+    this->stackedBar->setStyleSheet("QToolBar{background-color:#01333e;}"
                                  "QToolButton:hover{background-color:"+this->hover_color+"}"
-                                 "QToolButton:pressed{background-color:"+this->press_color+"}");
+                                 "QToolButton:pressed{background-color:"+this->press_color+"}"
+                                 "QToolButton{color:white; font-weight: 400; border-bottom: 1px solid white; padding-bottom: 5px; padding-top: 5px; border-radius: 0;}");
     // add Actions Buttons
     this->stackedBar->addAction(this->codeEditorToolBtn,this->codeEditorToolBtnText); this->stackedBar->addSeparator();
     this->stackedBar->addAction(this->ExectutionToolBtn,this->ExectutionToolBtnText); this->stackedBar->addSeparator();
