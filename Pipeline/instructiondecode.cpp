@@ -116,7 +116,7 @@ void InstructionDecode::setStageColor(QColor clr,vector<string> muxs)
         if (mux == "0")
         {
             this->paths["Control_pcMUX"]->setColor(OFF_COLOR);
-            cout << "ID MUX:" << mux << endl;
+//            cout << "ID MUX:" << mux << endl;
         }
     }
 

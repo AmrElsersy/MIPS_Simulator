@@ -53,6 +53,7 @@
 #include <QGraphicsProxyWidget>
 #include <QHBoxLayout>
 #include <QTimer>
+#include <QProgressBar>
 
 using namespace std;
 class state {
@@ -87,7 +88,6 @@ private:
 
     vector< vector<state> > states;
 
-
     InstructionFetch* IF;
     InstructionDecode* ID;
     Execution* EX;
@@ -112,9 +112,12 @@ private:
     QImage image;
     QIcon icon;
 
+    QProgressBar* progressBar;
+
 public:
     explicit myScene(QWidget *parent = nullptr);
     void updateStagesColors(int);
+    void updateProgressBar();
 
 private:
     void RegistersUnit();

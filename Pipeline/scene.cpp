@@ -88,6 +88,14 @@ void myScene::updateStagesColors(int direction)
             emit updatepipeline_regs(this->pipeline_regs_clocks[(this->index)-1]);
         emit updateRegistersGUI();                              // updates only regfile table
     }
+//    cout << "progress value= " << this->progressBar->value() << " min=" << this->progressBar->minimum() << " max=" << this->progressBar->maximum() << endl;
+    try {
+
+        this->progressBar->setValue(this->index);
+        QCoreApplication::processEvents();
+    } catch (...) {
+        cout << "ProgressBar is not Ray2..." << this->index << "/" << this->progressBar->value() << endl;
+    }
 }
 
 void myScene::INIT_Scene(vector<string> Code)
@@ -115,6 +123,7 @@ void myScene::INIT_Scene(vector<string> Code)
     this->initStates();
 
     this->index = 0;
+    this->progressBar->setRange(0,this->max_clocks-2);
 }
 
 
@@ -240,26 +249,41 @@ void myScene::continuous_play()
 void myScene::initButtons()
 {
     QWidget* buttons_widget = new QWidget();
-    QHBoxLayout* layout = new QHBoxLayout();
+    QGridLayout* layout = new QGridLayout();
+    buttons_widget->setStyleSheet("background-color:rgb(20,20,20);border-radius:5px;");
 
+    this->progressBar = new QProgressBar();
+    this->progressBar->setRange(0,100);
+    this->progressBar->setStyleSheet("QProgressBar{border: 2px solid grey;border-radius: 5px;text-align: center;background-color:rgb(15,15,15);}"
+                                     "QProgressBar::chunk{background-color:#29e629;};");//#55cc00
+    this->progressBar->setValue(0);
     QPushButton* right_btn = new QPushButton("");
     QPushButton* left_btn = new QPushButton("");
     QPushButton* play_btn = new QPushButton("");
 
-    right_btn->setIcon(QIcon("C:\\MIPS_Simulator\\right_icon.png"));
-    left_btn->setIcon(QIcon("C:\\MIPS_Simulator\\left_icon.png"));
-    play_btn->setIcon(QIcon("C:\\MIPS_Simulator\\play_icon.png"));
+    right_btn->setIcon(QIcon("C:\\MIPS_Simulator\\icons\\right.png"));
+    left_btn->setIcon(QIcon("C:\\MIPS_Simulator\\icons\\left.png"));
+    play_btn->setIcon(QIcon("C:\\MIPS_Simulator\\icons\\right1.png"));
+
+    right_btn->setStyleSheet("border:0");
+    left_btn->setStyleSheet("border:0");
+    play_btn->setStyleSheet("border:0");
+
+    right_btn->setIconSize(QSize(40,40));
+    left_btn->setIconSize(QSize(40,40));
+    play_btn->setIconSize(QSize(40,40));
 
     connect(right_btn,SIGNAL(pressed()),this,SLOT(rightButton()));
     connect(left_btn,SIGNAL(pressed()),this,SLOT(leftButton()));
     connect(play_btn,SIGNAL(pressed()),this,SLOT(playButton()));
 
-    layout->addWidget(left_btn);
-    layout->addWidget(play_btn);
-    layout->addWidget(right_btn);
+    layout->addWidget(this->progressBar,0,0,1,-1);
+    layout->addWidget(left_btn,1,0);
+    layout->addWidget(play_btn,1,1);
+    layout->addWidget(right_btn,1,2);
 
     buttons_widget->setLayout(layout);
-    this->addWidget(buttons_widget)->setPos(-893,460);
+    this->addWidget(buttons_widget)->setPos(-920,420);
 }
 void myScene::ReadClocks()
 {
