@@ -115,6 +115,7 @@ void Simulator::Modelsim()
 
 void Simulator::Simulate()
 {
+    this->clear();
     try {
         Read_Instruction_Editor();
         emit Output_Print("Reading Editor is Done");
@@ -129,7 +130,6 @@ void Simulator::Simulate()
         emit Output_Print("Assembly Faild\n................");
         return;
     }
-    //    ALU_Logic();
 
     print(this->Lables);
     print(this->assembler->get_assembled_strings());
@@ -390,7 +390,7 @@ void Simulator::Observer_Pattern()
 
     connect(this,           SIGNAL(updateDataMem(int) ),                    this->data_memory , SLOT( file_read_data_mem(int) ) );
     connect(this,           SIGNAL(updateRegFile(int) ),                    this->register_file , SLOT( read_regFile_data(int) ) );
-    connect(this,           SIGNAL(Assemble_Instruction(vector<string>)),   this-> assembler,SLOT(Assemble(vector<string>)) );
+//    connect(this,           SIGNAL(Assemble_Instruction(vector<string>)),   this-> assembler,SLOT(Assemble(vector<string>)) );
     connect(this,           SIGNAL(print_assembled_instruction()) ,         this-> assembler,SLOT(print_all() ) );
     connect(this,           SIGNAL(ALU_Instruction(vector<string>)),        this-> Alu,SLOT(ALU_Operation(vector<string>) ) );
     connect(this,           SIGNAL(print_registers()) ,                     this->register_file, SLOT(print_all()) );
