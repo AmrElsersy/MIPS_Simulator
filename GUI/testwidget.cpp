@@ -98,6 +98,7 @@ void TestWidget::TestAll()
     for (uint i = 0 ; i< TestCases.size() ; i++)
     {
         emit start_simulation(TestCases[i]->assembly_path);
+        emit Start_simulation();
         TestCases[i]->file_tester->StartTest();
     }
     emit output_screen({"Testing is Done"});

@@ -1,11 +1,14 @@
-addi $s1,$s1,10
-addi $s2,$s2,20
-addi $s3,$s3,30
-
-sw $s1,0($s0)
-sw $s2,4($s0)
-sw $s3,8($s0)
-
-lw $t0,0($s0)
-lw $t1,4($s0)
-lw $t2,8($s0)
+addi $s0,$zero,5
+add $s2,$s0,$zero
+ori $s1,$zero,7
+lui $s1,7
+addi $s3,$zero,5
+add $s4,$s3,$s1
+sgti $t0,$s4,40
+slti $t1,$s4,40
+beq $t0,$zero,L1
+addi $t0,$t0,1
+j exit
+L1:
+addi $s0,$s0,1
+exit:

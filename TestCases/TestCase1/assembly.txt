@@ -1,20 +1,28 @@
-addi $s0,$s0,1
-addi $s1,$s1,1
-addi $s2,$s2,1
-addi $s4,$s4,3
-for1:
-beq $s0,$s4,Exit
-addi $s0,$s0,1
-addi $s1,$zero,1
-for2:
-beq $s1,$s4,for1
-addi $s1,$s1,1
-addi $s2,$zero,1
-for3:
-addi $s3,$s3,1
-addi $s3,$s3,1
-addi $s3,$s3,1
-addi $s2,$s2,1
-beq $s2,$s4,for2
-j for3
-Exit:
+addi $s0,$zero,5
+addi $s1,$zero,10
+addi $s2,$zero,15
+addi $s3,$zero,5
+addi $s4,$zero,10
+addi $s5,$zero,16
+beq $s0,$s3,L1
+j exit
+L1:
+addi $t0,$zero,1
+beq $s1,$s4,L2
+j exit
+L2:
+addi $t1,$zero,1
+bne $s2,$s5,L3
+j exit
+L3:
+addi $t2,$zero,1
+and $t4,$t1,$t2
+and $t3,$t4,$t0
+beq $t3,$zero,exit
+addi $s0,$s0,-1
+addi $s0,$s0,-1
+addi $s0,$s0,-1
+addi $s0,$s0,-1
+addi $s0,$s0,-1
+addi $s0,$s0,-1
+exit:
