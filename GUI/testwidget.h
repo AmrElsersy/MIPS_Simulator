@@ -39,6 +39,7 @@ public:
     void addOriginalTestCases();
 signals:
     void start_simulation(string);
+    void Start_simulation();
     void output_screen(vector<string>);
 public slots:
     void addTestCase();

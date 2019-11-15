@@ -205,6 +205,7 @@ void GUI::Signals_Slots()
 
     connect(this->testWidget,SIGNAL(output_screen(vector<string>)),this->IO_Screen,SLOT(Write_Code_Text_Editor(vector<string>)));
     connect(this->testWidget,SIGNAL(start_simulation(string)), this,SLOT(Start_Simulation_File(string)));
+    connect(this->testWidget,SIGNAL(Start_simulation()), this,SLOT(Start_Simulation()));
 
 }
 void GUI::init_files_dialog()
@@ -255,6 +256,7 @@ void GUI::Start_Simulation_File(QStringList code_file_path)
 void GUI::Start_Simulation_File(string test_assembly_path)
 {
     this->simulator->Simulate(test_assembly_path);
+
 }
 void GUI::Output_Screen(string error)
 {

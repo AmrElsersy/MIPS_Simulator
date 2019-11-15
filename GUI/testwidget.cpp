@@ -90,6 +90,7 @@ void TestWidget::addTestCase()
 void TestWidget::oneShootTest(string Assembly)
 {
     emit start_simulation(Assembly);
+    emit Start_simulation();
 }
 
 void TestWidget::TestAll()
@@ -100,7 +101,6 @@ void TestWidget::TestAll()
         TestCases[i]->file_tester->StartTest();
     }
     emit output_screen({"Testing is Done"});
-
 }
 
 
@@ -120,6 +120,5 @@ void TestWidget::addOriginalTestCases()
         testcase->setPaths(path+assembly  ,path+regFie  ,path+datamem);
         connect(testcase,SIGNAL(startSimulationTestCase(string)),this,SLOT(oneShootTest(string)));
     }
-
 }
 
