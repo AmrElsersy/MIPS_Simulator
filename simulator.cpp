@@ -2,13 +2,9 @@
 
 Simulator::Simulator()
 {
-    // ===================== Linux ==================================
-    //    this->file_assembly_path   = "/home/amrelsersy/ins.txt";
-    //    this->file_regFile_path    = "/home/amrelsersy/regFile.txt";
-    //    this->file_dataMemory_path = "/home/amrelsersy/dataMemory.txt";
+    this->modelsim_path = QCoreApplication::applicationDirPath() + "\\MIPS";
+    this->modelsim_pipeline_path = QCoreApplication::applicationDirPath() + "\\Pipeline";
 
-    this->modelsim_path = "C:\\MIPS";
-    this->modelsim_pipeline_path = "C:\\Pipeline";
     this->file_assembly_path   = (this->modelsim_path + "\\ins.txt").toStdString();
     this->file_regFile_path    = (this->modelsim_path + "\\regFile.txt").toStdString();
     this->file_dataMemory_path = (this->modelsim_path + "\\dataMemory.txt").toStdString();

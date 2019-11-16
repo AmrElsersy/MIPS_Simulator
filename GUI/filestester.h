@@ -2,6 +2,7 @@
 #define FILESTESTER_H
 #include <bits/stdc++.h>
 #include <QObject>
+#include <QCoreApplication>
 using namespace std;
 class filesTester :public QObject
 {

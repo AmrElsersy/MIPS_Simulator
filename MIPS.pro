@@ -95,3 +95,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 DISTFILES += \
     GUI/warning-icon.png \
     dummy.txt
+
+INCLUDEPATH += $$PWD/icons

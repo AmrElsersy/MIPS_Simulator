@@ -65,6 +65,7 @@ class GUI : public QWidget
     friend class MainWindow;
 private:
     Simulator* simulator ;
+    QString ApplicationPath;
     string path;
     int i ;
 

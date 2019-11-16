@@ -10,6 +10,7 @@
 #include "data_memory.h"
 #include <QProcess>
 #include <QThread>
+#include <QCoreApplication>
 
 #define PC_         this->Program_Counter->getValue() /4
 #define Set_PC(x)  this->Program_Counter->setValue((x)*4)

@@ -68,6 +68,7 @@ class myScene : public QGraphicsScene
 {
     Q_OBJECT
 private:
+    QString Pipeline_Path;
     QGraphicsTextItem* cursor; // printing coordinates
     QTimer* timer;
     bool play;

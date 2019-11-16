@@ -28,10 +28,11 @@ myScene::myScene(QWidget *parent) : QGraphicsScene(MAX_TOP_LEFT_CORNER,1900,1000
     this->stall= 0;
 
     // code reading
-    this->verilogPath = "C:\\Pipeline\\pc.txt";
-    this->regfilePath = "C:\\Pipeline\\regFile.txt";
-    this->pipeline_regsPath = "C:\\Pipeline\\regs.txt";
-    this->dataMemPath = "C:\\Pipeline\\dataMemory.txt";
+    this->Pipeline_Path = QCoreApplication::applicationDirPath() + "\\Pipeline";
+    this->verilogPath = (this->Pipeline_Path +"\\pc.txt").toStdString();
+    this->regfilePath = (this->Pipeline_Path +"\\regFile.txt").toStdString();
+    this->pipeline_regsPath = (this->Pipeline_Path +"\\regs.txt").toStdString();
+    this->dataMemPath = (this->Pipeline_Path +"\\dataMemory.txt").toStdString();
     // directions
     this->index = 0;
 

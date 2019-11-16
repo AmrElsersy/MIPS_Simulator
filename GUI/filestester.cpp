@@ -2,8 +2,7 @@
 
 filesTester::filesTester(QObject *parent) : QObject (parent)
 {
-    this->path = "C:\\MIPS\\" ;  // windows
-//    this->path = "/home/amrelsersy/MIPS_Simulator/TestCases/" ;  // Linux
+    this->path = (QCoreApplication::applicationDirPath()+"\\MIPS\\").toStdString() ;
 }
 string filesTester::fixpath(string s1)
 {
