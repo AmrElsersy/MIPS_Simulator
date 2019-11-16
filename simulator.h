@@ -55,6 +55,7 @@ private:
     uint max_clocks;
 
     vector<string> code;
+    vector<string> code_from_editor;
     vector<uint> lines;
     vector<uint> PCs;
     vector<vector<string>> instructions;
@@ -82,7 +83,7 @@ public:
 
 private:
     bool check_for_specials(string);
-    bool check_for_Lable(string,uint);
+    bool check_for_Lable(string,uint,uint);
     vector<string> split_string(string s,string splitter);
     void print(vector<string>);
     void print(map<string,uint>);

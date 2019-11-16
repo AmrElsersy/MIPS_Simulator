@@ -58,7 +58,7 @@ void Simulator::clear()
     this->data_memory->clear();
     this->address = 0;   // pc = 0
     emit clear_data_memory(); // clear the data memory
-
+//    this->code_from_editor.clear();
     this->lines.clear();
 
 }
@@ -217,7 +217,7 @@ void Simulator::Simulate(string path)
 
 void Simulator::Read_Instruction_Editor()
 {
-    vector<string> code_from_editor = emit getInstruction_Editor();
+    this->code_from_editor = emit getInstruction_Editor();
 
     string s;
     uint address = 0;
@@ -226,9 +226,9 @@ void Simulator::Read_Instruction_Editor()
     for (uint i =start ;i< code_from_editor.size();i++)
     {
         s = code_from_editor[i];
-        if (s=="")
+        if (s=="" || s == " ")
             continue;
-        if(check_for_Lable(s,address))
+        if(check_for_Lable(s,address,i))
             continue;
 
         Split_Instruction(s,i);
@@ -236,28 +236,30 @@ void Simulator::Read_Instruction_Editor()
         address++;
     }
     this->instructions.push_back(vector<string> {"end"});
-
-
+    this->code_from_editor.clear();
 }
 
 void Simulator::Split_Instruction(string s,uint i)
 {
-    if(check_for_specials(s))
-        return;
-
     vector<string> x;
     this->code.push_back(s);
     this->lines.push_back(i);
 
+
     // get the first operand
-    uint pos = s.find_first_of(" ");
-    x.push_back(s.substr(0,pos));
+    int pos = s.find_first_of(" ");
+    // for operand cut
+    string ins_operand = s.substr(0,pos);
+    x.push_back(ins_operand);
     s.erase(0,pos);
 
     // remove space noise
-    for (int i =0 ;i<s.length();i++) {
+    for (uint i =0 ;i<s.length();i++) {
         if ( s[i] == ' ')
+        {
             s.erase(i,1);
+            i --;
+        }
     }
 
     //check if it is a special format
@@ -321,13 +323,27 @@ uint Simulator::Read_Data_Editor(vector<string> editor_code)
 }
 
 
-bool Simulator::check_for_Lable(string s,uint index)
+bool Simulator::check_for_Lable(string s,uint index,uint insert)
 {
     int pos = s.find_first_of(":");
     if (pos == -1)
         return false;
+
+    // remove space noise
+    for (uint i =0 ;i<pos;i++)
+    {
+        if ( s[i] == ' ')
+        {
+            s.erase(i,1);
+            i --;
+        }
+    }
+    pos = s.find_first_of(":");
     string Lable_name = s.substr(0,pos);
     this->Lables[Lable_name] = index;
+
+    if(s.length() > pos+1)
+        this->code_from_editor.insert(code_from_editor.begin()+insert+1,   s.substr(pos+1));
 
     return true;
 }
