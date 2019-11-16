@@ -19,10 +19,9 @@ QByteArray readTextFile(const QString &file_path) {
 }
 
 int main(int argc, char *argv[]) {
-  // qss.qss
-  QString style_sheet = readTextFile("C:\\MIPS_Simulator\\styles\\qss.qss");
 
   QApplication a(argc, argv);
+  QString style_sheet = readTextFile(QCoreApplication::applicationDirPath() +"\\Style\\qss.qss");
   MainWindow w;
   a.setStyleSheet(style_sheet);
   w.show();

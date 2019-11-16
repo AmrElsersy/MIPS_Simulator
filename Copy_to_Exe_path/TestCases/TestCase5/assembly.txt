@@ -1,0 +1,14 @@
+addi $s0,$zero,5
+add $s2,$s0,$zero
+ori $s1,$zero,7
+lui $s1,7
+addi $s3,$zero,5
+add $s4,$s3,$s1
+sgti $t0,$s4,40
+slti $t1,$s4,40
+beq $t0,$zero,L1
+addi $t0,$t0,1
+j exit
+L1:
+addi $s0,$s0,1
+exit:

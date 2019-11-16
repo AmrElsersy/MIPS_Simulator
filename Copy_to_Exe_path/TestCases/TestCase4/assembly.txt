@@ -1,0 +1,20 @@
+addi $s0,$s0,1
+addi $s1,$s1,1
+addi $s2,$s2,1
+addi $s4,$s4,3
+for1:
+beq $s0,$s4,Exit
+addi $s0,$s0,1
+addi $s1,$zero,1
+for2:
+beq $s1,$s4,for1
+addi $s1,$s1,1
+addi $s2,$zero,1
+for3:
+addi $s3,$s3,1
+addi $s3,$s3,1
+addi $s3,$s3,1
+addi $s2,$s2,1
+beq $s2,$s4,for2
+j for3
+Exit:

@@ -1,0 +1,6 @@
+addi $s0,$s0,5
+L:
+addi $s1,$s1,1
+sw $s1,0($s2)
+lw $t0,0($s2)
+bne $s0,$s1,L
