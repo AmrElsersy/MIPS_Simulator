@@ -198,6 +198,13 @@ int Register_File::read_register(string name)
 
 uint Register_File::get_register_num(string name)
 {
+    bool found = false;
+    for(auto i = this->Registers.begin() ; i!= this->Registers.end() ; i++)
+        if(i->first == name)
+            found = true;
+    if (!found)
+        throw invalid_argument("invalid register name :"+name);
+
     return this->Registers[name]->getNum();
 }
 

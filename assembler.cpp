@@ -1,6 +1,7 @@
 #include "assembler.h"
-Assembler::Assembler()
+Assembler::Assembler(Register_File* register_file_access)
 {
+    this->regFile = register_file_access;
     // ============ R-Format =============
     this->operands["add"] = {0,32};
     this->operands["sub"] = {0,34};
@@ -32,6 +33,14 @@ Assembler::Assembler()
     this->operands["push"]    = {200,J_Format_Fun};
     this->operands["pop"]     =  {201,J_Format_Fun};
     // ===================================
+
+}
+bool Assembler::verify_operand(string operand_ray2)
+{
+    for(auto i = this->operands.begin() ; i != this->operands.end() ; i++)
+        if (operand_ray2 == i->first)
+            return true;
+    throw invalid_argument("invalid operand : "+ operand_ray2);
 }
 
 int Assembler::get_16bit_value(string s)
@@ -58,13 +67,12 @@ uint Assembler::get_fun(string Operand)
     return this->operands[Operand].second;
 }
 
-void Assembler::Assemble(vector<string> Instruction)
+bool Assembler::Assemble(vector<string> Instruction)
 {
     deque<int> assembled_Instruction ;
     this->operand = Instruction[main_operand];
 
-    if (this->operand == "syscall")
-        return;
+    this->verify_operand(this->operand);
 
     assembled_Instruction.push_front(this->get_opcode(this->operand));
     uint Fun = this->get_fun(this->operand);
@@ -73,14 +81,14 @@ void Assembler::Assemble(vector<string> Instruction)
     {
         if (this->operand == "sw" || this->operand == "lw")
         {
-            assembled_Instruction.push_back( emit get_register_num(Instruction[3]) ) ;
-            assembled_Instruction.push_back( emit get_register_num(Instruction[1]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[3]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[1]) ) ;
             assembled_Instruction.push_back( get_16bit_value(Instruction[2]) /4) ;  // 16-bit address value / 4 because in verilog the addressing is words not byte addressing
         }
         else if (this->operand == "beq" || this->operand == "bne")
         {
-            assembled_Instruction.push_back( emit get_register_num(Instruction[1]) ) ;
-            assembled_Instruction.push_back( emit get_register_num(Instruction[2]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[1]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[2]) ) ;
             // label address in words mode - address = pc address(in bytes)/4 +1(because pc incremented automatically)
             int x = ( emit get_label_address(Instruction[3]) ) - ( stoi(Instruction[4])/4 +1) ;
             cout << "x= " <<  emit get_label_address(Instruction[3]) << " - " << stoi(Instruction[4])/4+1 << "=" << x << endl;
@@ -89,20 +97,20 @@ void Assembler::Assemble(vector<string> Instruction)
         else if (this->operand == "lui")
         {
             assembled_Instruction.push_back(0);
-            assembled_Instruction.push_back( emit get_register_num(Instruction[1]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[1]) ) ;
             assembled_Instruction.push_back( get_16bit_value(Instruction[2]) ) ;  // shift value
         }
 
         else if (this->operand == "li")
         {
             assembled_Instruction.push_back(0);
-            assembled_Instruction.push_back( emit get_register_num(Instruction[1]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[1]) ) ;
             assembled_Instruction.push_back( get_16bit_value(Instruction[2])) ;
         }
         else
         {
-            assembled_Instruction.push_back( emit get_register_num(Instruction[2]) ) ;
-            assembled_Instruction.push_back( emit get_register_num(Instruction[1]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[2]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[1]) ) ;
             assembled_Instruction.push_back( get_16bit_value(Instruction[3]) ) ;  // 16-bit value
         }
     }
@@ -110,7 +118,7 @@ void Assembler::Assemble(vector<string> Instruction)
     {
         if(this->operand == "push" || this->operand == "pop")
         {
-            assembled_Instruction.push_back(emit get_register_num(Instruction[1]));
+            assembled_Instruction.push_back(this->regFile->get_register_num(Instruction[1]));
         }
         else
             assembled_Instruction.push_back( emit get_label_address(Instruction[1]) ) ;
@@ -121,14 +129,14 @@ void Assembler::Assemble(vector<string> Instruction)
             // R-Format Instructions - Shift
         {
             assembled_Instruction.push_back(0); // for shift instructions there is no first register
-            assembled_Instruction.push_back( emit get_register_num(Instruction[2]) ) ;
-            assembled_Instruction.push_back( emit get_register_num(Instruction[1]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[2]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[1]) ) ;
             assembled_Instruction.push_back( stoul(Instruction[3]) ) ;  // shift value
         }
         else if (this->operand == "jr")
             // R-Format Instructions - Jump
         {
-            assembled_Instruction.push_back( emit get_register_num(Instruction[1]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[1]) ) ;
             assembled_Instruction.push_back( 0 ) ;
             assembled_Instruction.push_back( 0 ) ;
             assembled_Instruction.push_back( 0 ) ;
@@ -136,9 +144,9 @@ void Assembler::Assemble(vector<string> Instruction)
         else
             // R-Format Instructions - Arthamatic and Logic
         {
-            assembled_Instruction.push_back( emit get_register_num(Instruction[2]) ) ;
-            assembled_Instruction.push_back( emit get_register_num(Instruction[3]) ) ;
-            assembled_Instruction.push_back( emit get_register_num(Instruction[1]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[2]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[3]) ) ;
+            assembled_Instruction.push_back( this->regFile->get_register_num(Instruction[1]) ) ;
             assembled_Instruction.push_back(0); // for non shift instructions
         }
     }
@@ -149,6 +157,7 @@ void Assembler::Assemble(vector<string> Instruction)
 
     this->convert_Assemble_to_String(assembled_Instruction,Fun);
     this->assembled_Instructions.push_back(assembled_Instruction);
+    return true;
 }
 string assemble(int num , uint n)
 {

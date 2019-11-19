@@ -2,6 +2,7 @@
 
 Simulator::Simulator()
 {
+//    this->modelsim_path = QCoreApplication::applicationDirPath() + "\\Pipeline";
     this->modelsim_path = QCoreApplication::applicationDirPath() + "\\MIPS";
     this->modelsim_pipeline_path = QCoreApplication::applicationDirPath() + "\\Pipeline";
 
@@ -20,14 +21,17 @@ Simulator::Simulator()
     this->modelsim_pipeline_process->setWorkingDirectory(this->modelsim_pipeline_path);
     this->modelsim_command = "vsim -c -do \"run -all\" work.MIPS";
     this->modelsim_pipeline_command ="vsim -c -do \"run -all\" work.Pipeline_MIPS";
+    // ems777777777777777777777777777777
+//    this->modelsim_command = this->modelsim_pipeline_command;
+
 
     this->mode = "MIPS";
 
     this->Program_Counter = new Register("PC",100,0);
     this->Alu = new ALU(this->Program_Counter);
-    this->assembler = new Assembler();
     this->register_file = new Register_File();
     this->data_memory = new Data_Memory();
+    this->assembler = new Assembler(this->register_file);
     Observer_Pattern();
 }
 
@@ -119,11 +123,16 @@ void Simulator::Simulate()
         emit Output_Print("Error Reading Editor");
         return;
     }
-    try {
+    try
+    {
         this->Assemble_Instructions();
         emit Output_Print("Assembly is Done");
-    } catch (...) {
-        emit Output_Print("Assembly Faild\n................");
+    }
+    catch (const exception& e)
+    {
+        string error = e.what();
+        cout << error << endl;
+        emit Output_Print("Assembly Faild\nException: "+error+"\n...........");
         return;
     }
 

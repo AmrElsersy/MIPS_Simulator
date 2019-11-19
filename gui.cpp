@@ -97,6 +97,8 @@ void GUI::init_toolBar()
     this->leftBtn =QIcon(this->ApplicationPath + "\\icons\\left.png");   this->leftBtnText  = "Backword";
     this->DebugBtn =QIcon(this->ApplicationPath + "\\icons\\debug.png"); this->DebugBtnText  = "Debug";
     this->rightBtn =QIcon(this->ApplicationPath + "\\icons\\right.png");   this->rightBtnText = "Forward";
+    this->HelpBtn =QIcon(this->ApplicationPath + "\\icons\\help.png");   this->HelpBtnText = "Help";
+
     // init ToolBar
     this->toolBar->setMovable(false);
     this->toolBar->setIconSize(QSize(40,40));
@@ -119,6 +121,8 @@ void GUI::init_toolBar()
     this->toolBar->addAction(this->leftBtn,this->leftBtnText);    this->toolBar->addSeparator();
     this->toolBar->addAction(this->DebugBtn,this->DebugBtnText);    this->toolBar->addSeparator();
     this->toolBar->addAction(this->rightBtn,this->rightBtnText);    this->toolBar->addSeparator();
+    this->toolBar->addAction(this->HelpBtn,this->HelpBtnText);    this->toolBar->addSeparator();
+
 }
 
 void GUI::init_stackedBar()
@@ -164,6 +168,9 @@ void GUI::handle_toolBar_Buttons(QAction* action)
         this->Right_btn();
     else if(Button_pressed == this->leftBtnText)
         this->Left_btn();
+    else if(Button_pressed == this->HelpBtnText)
+        QDesktopServices::openUrl(QUrl("http://bahlool.000webhostapp.com/help.html"));
+
 }
 void GUI::handle_stacked_Buttons(QAction* action)
 {

@@ -2,6 +2,7 @@
 #define ASSEMBLER_H
 #include <QObject>
 #include <bits/stdc++.h>
+#include "register_file.h"
 using namespace std;
 
 #define opcode 6
@@ -15,16 +16,17 @@ class Assembler : public QObject
     Q_OBJECT
     friend class Simulator;
 private:
-
+    Register_File* regFile;
     vector<deque<int>> assembled_Instructions;
     vector<string> assembled_Instr_Strings;
     map<string,pair<uint,uint>> operands;
     string operand;
     ofstream file;
+    bool verify_operand(string operand_ray2);
 
 public:
-    Assembler();
-    void Assemble(vector<string> Instruction);
+    Assembler(Register_File*);
+    bool Assemble(vector<string> Instruction);
     int get_16bit_value(string s );
 public slots:
 

@@ -3,6 +3,7 @@
 filesTester::filesTester(QObject *parent) : QObject (parent)
 {
     this->path = (QCoreApplication::applicationDirPath()+"\\MIPS\\").toStdString() ;
+//    this->path = (QCoreApplication::applicationDirPath()+"\\Pipeline\\").toStdString() ;
 }
 string filesTester::fixpath(string s1)
 {

@@ -34,7 +34,8 @@
 #include "GUI/testwidget.h"
 #include <QToolBar>
 #include <QStackedWidget>
-
+#include <QDesktopServices>
+#include <QUrl>
 
 #define RUN "Run"
 #define PIPELINE "Pipeline"
@@ -89,6 +90,7 @@ private:
     QIcon rightBtn; QString rightBtnText;
     QIcon leftBtn; QString leftBtnText;
     QIcon DebugBtn; QString DebugBtnText;
+    QIcon HelpBtn ; QString HelpBtnText;
 
     QIcon codeEditorToolBtn; QString codeEditorToolBtnText;
     QIcon ExectutionToolBtn; QString ExectutionToolBtnText;

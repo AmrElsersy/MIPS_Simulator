@@ -262,9 +262,10 @@ void myScene::initButtons()
     QPushButton* left_btn = new QPushButton("");
     QPushButton* play_btn = new QPushButton("");
 
-    right_btn->setIcon(QIcon("C:\\MIPS_Simulator\\icons\\right.png"));
-    left_btn->setIcon(QIcon("C:\\MIPS_Simulator\\icons\\left.png"));
-    play_btn->setIcon(QIcon("C:\\MIPS_Simulator\\icons\\play.png"));
+
+    right_btn->setIcon(QIcon(QCoreApplication::applicationDirPath() +"\\icons\\right.png"));
+    left_btn->setIcon(QIcon(QCoreApplication::applicationDirPath()  +"\\icons\\left.png"));
+    play_btn->setIcon(QIcon(QCoreApplication::applicationDirPath()  +"\\icons\\play.png"));
 
     right_btn->setStyleSheet("border:0; background:#01333e; padding: 5px;");
     left_btn->setStyleSheet("border:0; background:#01333e; padding: 5px;");
