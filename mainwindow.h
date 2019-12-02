@@ -34,7 +34,6 @@ public:
 public slots:
     void show_pipeline_gui();
     void slot_ray2(QAction*);
-    void spidy_slot();
 };
 
 #endif // MAINWINDOW_H

@@ -1,0 +1,35 @@
+C:/Pipeline/Pipeline.v {1 {vlog -work work -stats=none C:/Pipeline/Pipeline.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module CLOCK
+-- Compiling module PC
+-- Compiling module PC_ADDER
+-- Compiling module INS_MEMORY
+-- Compiling module IF_ID_Reg
+-- Compiling module REG_FILE
+-- Compiling module Comparator
+-- Compiling module SIGN_EXTEND
+-- Compiling module HazardDetectionUnit
+-- Compiling module CONTROL
+-- Compiling module BR_ADDER
+-- Compiling module JUMP_ADDRESS
+-- Compiling module ID_Forwarding_Unit
+-- Compiling module ID_EX_reg
+-- Compiling module ALU
+-- Compiling module ALU_CONTROL
+-- Compiling module Forwarding_Unit_EX
+-- Compiling module EX_MemReg
+-- Compiling module DATA_MEMORY
+-- Compiling module Mem_WbReg
+-- Compiling module MUX_32_1
+-- Compiling module MUX_32_2
+-- Compiling module MUX_5_1
+-- Compiling module Hazard_MUX_10_1
+-- Compiling module Reg_Dst_MUX
+-- Compiling module stall_or_flush
+-- Compiling module Pipeline_MIPS
+
+Top level modules:
+	Reg_Dst_MUX
+	Pipeline_MIPS
+
+} {} {}}

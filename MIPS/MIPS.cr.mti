@@ -1,0 +1,135 @@
+C:/Users/user/Desktop/MIPS/control.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/control.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module CONTROL
+
+Top level modules:
+	CONTROL
+
+} {} {}} C:/Users/user/Desktop/MIPS/ALU.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/ALU.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module ALU
+
+Top level modules:
+	ALU
+
+} {} {}} C:/Users/user/Desktop/MIPS/data_memory.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/data_memory.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module DATA_MEMORY
+
+Top level modules:
+	DATA_MEMORY
+
+} {} {}} C:/Users/user/Desktop/MIPS/mux.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/mux.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Reg_Dst_MUX
+-- Compiling module MUX_32_1
+-- Compiling module MUX_32_2
+
+Top level modules:
+	Reg_Dst_MUX
+	MUX_32_1
+	MUX_32_2
+
+} {} {}} C:/Users/user/Desktop/MIPS/pc_adder.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/pc_adder.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module PC_ADDER
+
+Top level modules:
+	PC_ADDER
+
+} {} {}} C:/Users/user/Desktop/MIPS/pc.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/pc.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module PC
+
+Top level modules:
+	PC
+
+} {} {}} C:/Users/user/Desktop/MIPS/tempreg.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/tempreg.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module tempreg
+
+Top level modules:
+	tempreg
+
+} {} {}} C:/Users/user/Desktop/MIPS/clock.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/clock.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module CLOCK
+
+Top level modules:
+	CLOCK
+
+} {} {}} C:/Users/user/Desktop/MIPS/reg_file.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/reg_file.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module REG_FILE
+
+Top level modules:
+	REG_FILE
+
+} {} {}} C:/Users/user/Desktop/MIPS/inst_memory.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/inst_memory.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module INS_MEMORY
+
+Top level modules:
+	INS_MEMORY
+
+} {} {}} C:/Users/user/Desktop/MIPS/sign_extend.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/sign_extend.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module SIGN_EXTEND
+
+Top level modules:
+	SIGN_EXTEND
+
+} {} {}} C:/Users/user/Desktop/MIPS/shift_left.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/shift_left.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module Shift_Left_26
+-- Compiling module Shift_Left_32
+
+Top level modules:
+	Shift_Left_26
+	Shift_Left_32
+
+} {} {}} C:/Users/user/Desktop/MIPS/jump_address.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/jump_address.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module JUMP_ADDRESS
+
+Top level modules:
+	JUMP_ADDRESS
+
+} {} {}} C:/Users/user/Desktop/MIPS/alu_control.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/alu_control.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module ALU_CONTROL
+
+Top level modules:
+	ALU_CONTROL
+
+} {} {}} C:/Users/user/Desktop/MIPS/branch_adder.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/branch_adder.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module BR_ADDER
+
+Top level modules:
+	BR_ADDER
+
+} {} {}} C:/Users/user/Desktop/MIPS/full_house.v {1 {vlog -work work -stats=none C:/Users/user/Desktop/MIPS/full_house.v
+Model Technology ModelSim PE Student Edition vlog 10.4a Compiler 2015.03 Apr  7 2015
+-- Compiling module PC
+-- Compiling module PC_ADDER
+-- Compiling module INS_MEMORY
+-- Compiling module REG_FILE
+-- Compiling module CONTROL
+-- Compiling module ALU_CONTROL
+-- Compiling module ALU
+-- Compiling module DATA_MEMORY
+-- Compiling module BR_ADDER
+-- Compiling module SIGN_EXTEND
+-- Compiling module JUMP_ADDRESS
+-- Compiling module Reg_Dst_MUX
+-- Compiling module MUX_32_1
+-- Compiling module MUX_32_2
+-- Compiling module CLOCK
+-- Compiling module tempreg
+-- Compiling module MIPS
+
+Top level modules:
+	MIPS
+
+} {} {}}

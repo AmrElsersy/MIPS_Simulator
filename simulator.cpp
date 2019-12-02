@@ -2,17 +2,17 @@
 
 Simulator::Simulator()
 {
-//    this->modelsim_path = QCoreApplication::applicationDirPath() + "\\Pipeline";
-    this->modelsim_path = QCoreApplication::applicationDirPath() + "\\MIPS";
-    this->modelsim_pipeline_path = QCoreApplication::applicationDirPath() + "\\Pipeline";
+//    this->modelsim_path = QCoreApplication::applicationDirPath() + "/../../MIPS_Simulator/Pipeline";
+    this->modelsim_path = QCoreApplication::applicationDirPath() + "/../../MIPS_Simulator/MIPS";
+    this->modelsim_pipeline_path = QCoreApplication::applicationDirPath() + "/../../MIPS_Simulator/Pipeline";
 
-    this->file_assembly_path   = (this->modelsim_path + "\\ins.txt").toStdString();
-    this->file_regFile_path    = (this->modelsim_path + "\\regFile.txt").toStdString();
-    this->file_dataMemory_path = (this->modelsim_path + "\\dataMemory.txt").toStdString();
+    this->file_assembly_path   = (this->modelsim_path + "/ins.txt").toStdString();
+    this->file_regFile_path    = (this->modelsim_path + "/regFile.txt").toStdString();
+    this->file_dataMemory_path = (this->modelsim_path + "/dataMemory.txt").toStdString();
 
-    this->file_assembly_path_pipeline   = (this->modelsim_pipeline_path + "\\ins.txt").toStdString();
-    this->file_regFile_path_pipeline    = (this->modelsim_pipeline_path + "\\regFile.txt").toStdString();
-    this->file_dataMemory_path_pipeline = (this->modelsim_pipeline_path + "\\dataMemory.txt").toStdString();
+    this->file_assembly_path_pipeline   = (this->modelsim_pipeline_path + "/ins.txt").toStdString();
+    this->file_regFile_path_pipeline    = (this->modelsim_pipeline_path + "/regFile.txt").toStdString();
+    this->file_dataMemory_path_pipeline = (this->modelsim_pipeline_path + "/dataMemory.txt").toStdString();
 
     this->modelsim_process = new QProcess();
     this->modelsim_pipeline_process = new QProcess();
@@ -79,9 +79,10 @@ void Simulator::Modelsim()
     {
         emit file_assembled_instructions(this->file_assembly_path); // write file with assembledd instructions
         this->modelsim_process->start(this->modelsim_command);// run modelsim to read the assembly file and write in the dataMemory and regFile files
-        this->modelsim_process->waitForStarted();
-        this->modelsim_process->terminate();
-        this->modelsim_process->waitForFinished();
+//        this->modelsim_process->waitForStarted();
+//        this->modelsim_process->terminate();
+        this->modelsim_process->waitForFinished(-1);
+        this->modelsim_process->close();
         emit file_regFile_lines(this->file_regFile_path);
         emit file_dataMemory_lines(this->file_dataMemory_path); // read dataMemory and load it into Data Memory Widget
         emit file_regFile_data();// read regFile and load it into reg File Widget
@@ -91,18 +92,20 @@ void Simulator::Modelsim()
     {
         emit file_assembled_instructions(this->file_assembly_path_pipeline); // write file with assembledd instructions
         this->modelsim_pipeline_process->start(this->modelsim_pipeline_command);// run modelsim to read the assembly file and write in the dataMemory and regFile files
-        this->modelsim_pipeline_process->waitForStarted();
-        this->modelsim_pipeline_process->terminate();
-        this->modelsim_pipeline_process->waitForFinished();
+//        this->modelsim_pipeline_process->waitForStarted();
+//        this->modelsim_pipeline_process->terminate();
+        this->modelsim_pipeline_process->waitForFinished(-1);
+        this->modelsim_pipeline_process->close();
         emit updatePipelineAssemblyCode(this->code);
     }
     else if (this->mode == "Debugger")
     {
         emit file_assembled_instructions(this->file_assembly_path); // write file with assembledd instructions
         this->modelsim_process->start(this->modelsim_command);// run modelsim to read the assembly file and write in the dataMemory and regFile files
-        this->modelsim_process->waitForStarted();
-        this->modelsim_process->terminate();
-        this->modelsim_process->waitForFinished();
+//        this->modelsim_process->waitForStarted();
+//        this->modelsim_process->terminate();
+        this->modelsim_process->waitForFinished(-1);
+        this->modelsim_process->close();
         this->index = 2; //anwar b2ol kda
         emit file_regFile_lines(this->file_regFile_path);
         emit file_dataMemory_lines(this->file_dataMemory_path);

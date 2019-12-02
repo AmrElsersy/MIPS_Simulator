@@ -107,7 +107,7 @@ void TestWidget::TestAll()
 
 void TestWidget::addOriginalTestCases()
 {
-    string folder_path = (QCoreApplication::applicationDirPath() + "\\TestCases\\TestCase").toStdString() ;
+    string folder_path = (QCoreApplication::applicationDirPath() + "/../../MIPS_Simulator/TestCases//TestCase").toStdString() ;
     string assembly = "assembly.txt" , regFie = "regFile.txt" , datamem = "dataMemory.txt";
     for (int i =1 ; i <= TEST_CASES ; i++)
     {

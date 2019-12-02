@@ -28,7 +28,7 @@ myScene::myScene(QWidget *parent) : QGraphicsScene(MAX_TOP_LEFT_CORNER,1900,1000
     this->stall= 0;
 
     // code reading
-    this->Pipeline_Path = QCoreApplication::applicationDirPath() + "\\Pipeline";
+    this->Pipeline_Path = QCoreApplication::applicationDirPath() + "/../../MIPS_Simulator/Pipeline";
     this->verilogPath = (this->Pipeline_Path +"\\pc.txt").toStdString();
     this->regfilePath = (this->Pipeline_Path +"\\regFile.txt").toStdString();
     this->pipeline_regsPath = (this->Pipeline_Path +"\\regs.txt").toStdString();
@@ -263,9 +263,9 @@ void myScene::initButtons()
     QPushButton* play_btn = new QPushButton("");
 
 
-    right_btn->setIcon(QIcon(QCoreApplication::applicationDirPath() +"\\icons\\right.png"));
-    left_btn->setIcon(QIcon(QCoreApplication::applicationDirPath()  +"\\icons\\left.png"));
-    play_btn->setIcon(QIcon(QCoreApplication::applicationDirPath()  +"\\icons\\play.png"));
+    right_btn->setIcon(QIcon(QCoreApplication::applicationDirPath() +"/../../MIPS_Simulator/icons\\right.png"));
+    left_btn->setIcon(QIcon(QCoreApplication::applicationDirPath()  +"/../../MIPS_Simulator/icons\\left.png"));
+    play_btn->setIcon(QIcon(QCoreApplication::applicationDirPath()  +"/../../MIPS_Simulator/icons\\play.png"));
 
     right_btn->setStyleSheet("border:0; background:#01333e; padding: 5px;");
     left_btn->setStyleSheet("border:0; background:#01333e; padding: 5px;");

@@ -2,7 +2,7 @@
 
 GUI::GUI(QWidget *parent) :   QWidget (parent)
 {
-    this->ApplicationPath = QCoreApplication::applicationDirPath();
+    this->ApplicationPath = QCoreApplication::applicationDirPath() + "/../../MIPS_Simulator";
     // memory allocation
     this->simulator = new Simulator();
     //    this->simulator->Simulate(this->path);11

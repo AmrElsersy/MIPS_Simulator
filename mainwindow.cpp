@@ -26,38 +26,34 @@ void MainWindow::slot_ray2(QAction * action)
     cout << action->text().toStdString() << " ispressed" << endl;
 }
 
-void MainWindow::spidy_slot()
-{
-
-}
 void MainWindow::ray2()
 {
-    QIcon spidy("C:\\MIPS_Simulator\\spidy.png");
-    QIcon warning_icon("C:\\MIPS_Simulator\\warning-icon.png");
-    QIcon play_icon("C:\\MIPS_Simulator\\play_icon.png");
-    QIcon bugy("C:\\MIPS_Simulator\\bugy.png");
-    QIcon left_icon("C:\\MIPS_Simulator\\left_icon.png");
-    QToolBar* toolBar = new QToolBar("Ray2");
-    //    toolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    //    toolBar->setToolButtonStyle(Qt::ToolButtonTextOnly);
-    //    toolBar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    //    this->toolBar->setContentsMargins(100,100,300,200); // set the margin of the toolbar its self
+//    QIcon spidy("C:\\MIPS_Simulator\\spidy.png");
+//    QIcon warning_icon("C:\\MIPS_Simulator\\warning-icon.png");
+//    QIcon play_icon("C:\\MIPS_Simulator\\play_icon.png");
+//    QIcon bugy("C:\\MIPS_Simulator\\bugy.png");
+//    QIcon left_icon("C:\\MIPS_Simulator\\left_icon.png");
+//    QToolBar* toolBar = new QToolBar("Ray2");
+//    //    toolBar->setToolButtonStyle(Qt::ToolButtonIconOnly);
+//    //    toolBar->setToolButtonStyle(Qt::ToolButtonTextOnly);
+//    //    toolBar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+//    //    this->toolBar->setContentsMargins(100,100,300,200); // set the margin of the toolbar its self
 
-    toolBar->setMovable(false);
-    toolBar->setIconSize(QSize(100,100));
-    toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
-    toolBar->setOrientation(Qt::Vertical);
-    //    toolBar->setStyleSheet("background-color:red");
+//    toolBar->setMovable(false);
+//    toolBar->setIconSize(QSize(100,100));
+//    toolBar->setToolButtonStyle(Qt::ToolButtonTextUnderIcon);
+//    toolBar->setOrientation(Qt::Vertical);
+//    //    toolBar->setStyleSheet("background-color:red");
 
-    QAction* spidy_action = toolBar->addAction(spidy,"spidy");  toolBar->addSeparator();
-    QAction* warning_action = toolBar->addAction(warning_icon,"warning_icon");  toolBar->addSeparator();
-    QAction* play_action = toolBar->addAction(play_icon,"play_icon");  toolBar->addSeparator();
-    QAction* bugy_action = toolBar->addAction(bugy,"bugy");  toolBar->addSeparator();
-    QAction* left = toolBar->addAction(left_icon,"left");  toolBar->addSeparator();
+//    QAction* spidy_action = toolBar->addAction(spidy,"spidy");  toolBar->addSeparator();
+//    QAction* warning_action = toolBar->addAction(warning_icon,"warning_icon");  toolBar->addSeparator();
+//    QAction* play_action = toolBar->addAction(play_icon,"play_icon");  toolBar->addSeparator();
+//    QAction* bugy_action = toolBar->addAction(bugy,"bugy");  toolBar->addSeparator();
+//    QAction* left = toolBar->addAction(left_icon,"left");  toolBar->addSeparator();
 
-    connect(toolBar,SIGNAL(actionTriggered(QAction*)),this,SLOT(slot_ray2(QAction*)));
-    connect(spidy_action,SIGNAL(hovered()),this,SLOT(spidy_slot()));
-    this->setCentralWidget(toolBar);
+//    connect(toolBar,SIGNAL(actionTriggered(QAction*)),this,SLOT(slot_ray2(QAction*)));
+//    connect(spidy_action,SIGNAL(hovered()),this,SLOT(spidy_slot()));
+//    this->setCentralWidget(toolBar);
 }
 
 View :: View(QWidget* parent) : QGraphicsView(parent)

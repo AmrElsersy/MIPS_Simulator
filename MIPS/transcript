@@ -1,0 +1,1031 @@
+# //  ModelSim PE Student Edition 10.4a Apr  7 2015 
+# //
+# //  Copyright 1991-2015 Mentor Graphics Corporation
+# //  All Rights Reserved.
+# //
+# //  THIS WORK CONTAINS TRADE SECRET AND PROPRIETARY INFORMATION
+# //  WHICH IS THE PROPERTY OF MENTOR GRAPHICS CORPORATION OR ITS
+# //  LICENSORS AND IS SUBJECT TO LICENSE TERMS.
+# //  THIS DOCUMENT CONTAINS TRADE SECRETS AND COMMERCIAL OR FINANCIAL
+# //  INFORMATION THAT ARE PRIVILEGED, CONFIDENTIAL, AND EXEMPT FROM
+# //  DISCLOSURE UNDER THE FREEDOM OF INFORMATION ACT, 5 U.S.C. SECTION 552.
+# //  FURTHERMORE, THIS INFORMATION IS PROHIBITED FROM DISCLOSURE UNDER
+# //  THE TRADE SECRETS ACT, 18 U.S.C. SECTION 1905.
+# //
+# // NOT FOR CORPORATE OR PRODUCTION USE.
+# // THE ModelSim PE Student Edition IS NOT A SUPPORTED PRODUCT.
+# // FOR HIGHER EDUCATION PURPOSES ONLY
+# //
+# vsim -c -do "run -all" work.MIPS 
+# Start time: 00:52:33 on Dec 03,2019
+# Loading work.MIPS
+# Loading work.tempreg
+# Loading work.CLOCK
+# Loading work.PC
+# Loading work.PC_ADDER
+# Loading work.INS_MEMORY
+# Loading work.Reg_Dst_MUX
+# Loading work.REG_FILE
+# Loading work.CONTROL
+# Loading work.SIGN_EXTEND
+# Loading work.ALU_CONTROL
+# Loading work.ALU
+# Loading work.MUX_32_1
+# Loading work.DATA_MEMORY
+# Loading work.MUX_32_2
+# Loading work.BR_ADDER
+# Loading work.JUMP_ADDRESS
+# run -all
+# SIZE ===          17 
+# ***************** 0 *******************
+#  pcOut=00000000, pcIn:00000001,reg_dest_mux_output : 10 
+# , data_memory_mux_output : 00000001, instruction: 22100001 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:10, instruction[20:16]:10 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000001
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000001, pcIn:00000002,reg_dest_mux_output : 10 
+# , data_memory_mux_output : 00000001, instruction: 22100001 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:10, instruction[20:16]:10 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000002
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000001, pcIn:00000002,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000001, instruction: 22310001 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:11, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000002
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000002, pcIn:00000003,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000001, instruction: 22310001 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:11, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000003
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000002, pcIn:00000003,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000001, instruction: 22520001 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000003
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000003, pcIn:00000004,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000001, instruction: 22520001 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000004
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000003, pcIn:00000004,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000003, instruction: 22940003 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:14, instruction[20:16]:14 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000004
+#  Read_Data_1:00000000, alu_src_mux_Output:00000003, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000004, pcIn:00000005,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000003, instruction: 22940003 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:14, instruction[20:16]:14 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000005
+#  Read_Data_1:00000000, alu_src_mux_Output:00000003, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000004, pcIn:00000005,reg_dest_mux_output : 14 
+# , data_memory_mux_output : fffffffe, instruction: 1214000b 
+#  Read_Data_1:00000001, Read_Data_2:00000003, instruction[25:21]:10, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000005
+#  Read_Data_1:00000001, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: fffffffe
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000005, pcIn:00000006,reg_dest_mux_output : 14 
+# , data_memory_mux_output : fffffffe, instruction: 1214000b 
+#  Read_Data_1:00000001, Read_Data_2:00000003, instruction[25:21]:10, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000006
+#  Read_Data_1:00000001, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: fffffffe
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000005, pcIn:00000006,reg_dest_mux_output : 10 
+# , data_memory_mux_output : 00000002, instruction: 22100001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:10, instruction[20:16]:10 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000006
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000006, pcIn:00000007,reg_dest_mux_output : 10 
+# , data_memory_mux_output : 00000002, instruction: 22100001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:10, instruction[20:16]:10 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000007
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000006, pcIn:00000007,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000001, instruction: 20110001 
+#  Read_Data_1:00000000, Read_Data_2:00000001, instruction[25:21]:00, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000007
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000007, pcIn:00000008,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000001, instruction: 20110001 
+#  Read_Data_1:00000000, Read_Data_2:00000001, instruction[25:21]:00, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000008
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000007, pcIn:00000008,reg_dest_mux_output : 14 
+# , data_memory_mux_output : fffffffe, instruction: 1234fffc 
+#  Read_Data_1:00000001, Read_Data_2:00000003, instruction[25:21]:11, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000008
+#  Read_Data_1:00000001, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: fffffffe
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000008, pcIn:00000009,reg_dest_mux_output : 14 
+# , data_memory_mux_output : fffffffe, instruction: 1234fffc 
+#  Read_Data_1:00000001, Read_Data_2:00000003, instruction[25:21]:11, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000009
+#  Read_Data_1:00000001, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: fffffffe
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000008, pcIn:00000009,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000001, instruction: 20120001 
+#  Read_Data_1:00000000, Read_Data_2:00000001, instruction[25:21]:00, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000009
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000009, pcIn:0000000a,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000001, instruction: 20120001 
+#  Read_Data_1:00000000, Read_Data_2:00000001, instruction[25:21]:00, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000a
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000009, pcIn:0000000a,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000002, instruction: 22310001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:11, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000a
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000002, instruction: 22310001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:11, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000001, instruction: 22730001 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000001, instruction: 22730001 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000002, instruction: 22730001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000002, instruction: 22730001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000003, instruction: 22730001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000003, instruction: 22730001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000002, instruction: 22520001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000002, instruction: 22520001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000f
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1254fff8 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:0000000f
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000f, pcIn:00000010,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1254fff8 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000010
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000f, pcIn:00000010,reg_dest_mux_output : 00 
+# , data_memory_mux_output : 00000000, instruction: 0800000a 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:00, instruction[20:16]:00 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000010
+#  Read_Data_1:00000000, alu_src_mux_Output:00000000, ALU_Src: x, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 00 
+# , data_memory_mux_output : 00000000, instruction: 0800000a 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:00, instruction[20:16]:00 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000000, alu_src_mux_Output:00000000, ALU_Src: x, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000004, instruction: 22730001 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000003, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000004
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000004, instruction: 22730001 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:00000003, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000004
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000005, instruction: 22730001 
+#  Read_Data_1:00000004, Read_Data_2:00000004, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:00000004, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000005
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000005, instruction: 22730001 
+#  Read_Data_1:00000004, Read_Data_2:00000004, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:00000004, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000005
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000006, instruction: 22730001 
+#  Read_Data_1:00000005, Read_Data_2:00000005, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:00000005, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000006
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000006, instruction: 22730001 
+#  Read_Data_1:00000005, Read_Data_2:00000005, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000005, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000006
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000003, instruction: 22520001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000003, instruction: 22520001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000f
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1254fff8 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000007
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000007, pcIn:00000008,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1254fff8 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000000
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000007, pcIn:00000008,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1234fffc 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:11, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000008
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000008, pcIn:00000009,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1234fffc 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:11, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000009
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000008, pcIn:00000009,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000001, instruction: 20120001 
+#  Read_Data_1:00000000, Read_Data_2:00000003, instruction[25:21]:00, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000009
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000009, pcIn:0000000a,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000001, instruction: 20120001 
+#  Read_Data_1:00000000, Read_Data_2:00000003, instruction[25:21]:00, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000a
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000009, pcIn:0000000a,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000003, instruction: 22310001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:11, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000a
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000003, instruction: 22310001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:11, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000007, instruction: 22730001 
+#  Read_Data_1:00000006, Read_Data_2:00000006, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000006, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000007
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000007, instruction: 22730001 
+#  Read_Data_1:00000006, Read_Data_2:00000006, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:00000006, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000007
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000008, instruction: 22730001 
+#  Read_Data_1:00000007, Read_Data_2:00000007, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:00000007, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000008
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000008, instruction: 22730001 
+#  Read_Data_1:00000007, Read_Data_2:00000007, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:00000007, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000008
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000009, instruction: 22730001 
+#  Read_Data_1:00000008, Read_Data_2:00000008, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:00000008, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000009
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000009, instruction: 22730001 
+#  Read_Data_1:00000008, Read_Data_2:00000008, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000008, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000009
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000002, instruction: 22520001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000002, instruction: 22520001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000f
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1254fff8 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:0000000f
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000f, pcIn:00000010,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1254fff8 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000010
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000f, pcIn:00000010,reg_dest_mux_output : 00 
+# , data_memory_mux_output : 00000000, instruction: 0800000a 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:00, instruction[20:16]:00 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000010
+#  Read_Data_1:00000000, alu_src_mux_Output:00000000, ALU_Src: x, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 00 
+# , data_memory_mux_output : 00000000, instruction: 0800000a 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:00, instruction[20:16]:00 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000000, alu_src_mux_Output:00000000, ALU_Src: x, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 0000000a, instruction: 22730001 
+#  Read_Data_1:00000009, Read_Data_2:00000009, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000009, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 0000000a
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 0000000a, instruction: 22730001 
+#  Read_Data_1:00000009, Read_Data_2:00000009, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:00000009, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 0000000a
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 0000000b, instruction: 22730001 
+#  Read_Data_1:0000000a, Read_Data_2:0000000a, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:0000000a, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 0000000b
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 0000000b, instruction: 22730001 
+#  Read_Data_1:0000000a, Read_Data_2:0000000a, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:0000000a, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 0000000b
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 0000000c, instruction: 22730001 
+#  Read_Data_1:0000000b, Read_Data_2:0000000b, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:0000000b, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 0000000c
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 0000000c, instruction: 22730001 
+#  Read_Data_1:0000000b, Read_Data_2:0000000b, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:0000000b, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 0000000c
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000003, instruction: 22520001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000003, instruction: 22520001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000f
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1254fff8 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000007
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000007, pcIn:00000008,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1254fff8 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000000
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000007, pcIn:00000008,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1234fffc 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:11, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000004
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000004, pcIn:00000005,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1234fffc 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:11, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000001
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000004, pcIn:00000005,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1214000b 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:10, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000005
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000005, pcIn:00000006,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1214000b 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:10, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000006
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000005, pcIn:00000006,reg_dest_mux_output : 10 
+# , data_memory_mux_output : 00000003, instruction: 22100001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:10, instruction[20:16]:10 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000006
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000006, pcIn:00000007,reg_dest_mux_output : 10 
+# , data_memory_mux_output : 00000003, instruction: 22100001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:10, instruction[20:16]:10 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000007
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000006, pcIn:00000007,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000001, instruction: 20110001 
+#  Read_Data_1:00000000, Read_Data_2:00000003, instruction[25:21]:00, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000007
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000007, pcIn:00000008,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000001, instruction: 20110001 
+#  Read_Data_1:00000000, Read_Data_2:00000003, instruction[25:21]:00, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000008
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000007, pcIn:00000008,reg_dest_mux_output : 14 
+# , data_memory_mux_output : fffffffe, instruction: 1234fffc 
+#  Read_Data_1:00000001, Read_Data_2:00000003, instruction[25:21]:11, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000008
+#  Read_Data_1:00000001, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: fffffffe
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000008, pcIn:00000009,reg_dest_mux_output : 14 
+# , data_memory_mux_output : fffffffe, instruction: 1234fffc 
+#  Read_Data_1:00000001, Read_Data_2:00000003, instruction[25:21]:11, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000009
+#  Read_Data_1:00000001, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: fffffffe
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000008, pcIn:00000009,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000001, instruction: 20120001 
+#  Read_Data_1:00000000, Read_Data_2:00000003, instruction[25:21]:00, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000009
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000009, pcIn:0000000a,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000001, instruction: 20120001 
+#  Read_Data_1:00000000, Read_Data_2:00000003, instruction[25:21]:00, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000a
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000009, pcIn:0000000a,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000002, instruction: 22310001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:11, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000a
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000002, instruction: 22310001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:11, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 0000000d, instruction: 22730001 
+#  Read_Data_1:0000000c, Read_Data_2:0000000c, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:0000000c, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 0000000d
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 0000000d, instruction: 22730001 
+#  Read_Data_1:0000000c, Read_Data_2:0000000c, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:0000000c, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 0000000d
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 0000000e, instruction: 22730001 
+#  Read_Data_1:0000000d, Read_Data_2:0000000d, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:0000000d, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 0000000e
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 0000000e, instruction: 22730001 
+#  Read_Data_1:0000000d, Read_Data_2:0000000d, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:0000000d, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 0000000e
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 0000000f, instruction: 22730001 
+#  Read_Data_1:0000000e, Read_Data_2:0000000e, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:0000000e, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 0000000f
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 0000000f, instruction: 22730001 
+#  Read_Data_1:0000000e, Read_Data_2:0000000e, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:0000000e, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 0000000f
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000002, instruction: 22520001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000002, instruction: 22520001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000f
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1254fff8 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:0000000f
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000f, pcIn:00000010,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1254fff8 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000010
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000f, pcIn:00000010,reg_dest_mux_output : 00 
+# , data_memory_mux_output : 00000000, instruction: 0800000a 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:00, instruction[20:16]:00 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000010
+#  Read_Data_1:00000000, alu_src_mux_Output:00000000, ALU_Src: x, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 00 
+# , data_memory_mux_output : 00000000, instruction: 0800000a 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:00, instruction[20:16]:00 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000000, alu_src_mux_Output:00000000, ALU_Src: x, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000010, instruction: 22730001 
+#  Read_Data_1:0000000f, Read_Data_2:0000000f, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:0000000f, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000010
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000010, instruction: 22730001 
+#  Read_Data_1:0000000f, Read_Data_2:0000000f, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:0000000f, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000010
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000011, instruction: 22730001 
+#  Read_Data_1:00000010, Read_Data_2:00000010, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:00000010, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000011
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000011, instruction: 22730001 
+#  Read_Data_1:00000010, Read_Data_2:00000010, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:00000010, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000011
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000012, instruction: 22730001 
+#  Read_Data_1:00000011, Read_Data_2:00000011, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:00000011, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000012
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000012, instruction: 22730001 
+#  Read_Data_1:00000011, Read_Data_2:00000011, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000011, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000012
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000003, instruction: 22520001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000003, instruction: 22520001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000f
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1254fff8 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000007
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000007, pcIn:00000008,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1254fff8 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000000
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000007, pcIn:00000008,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1234fffc 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:11, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000008
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000008, pcIn:00000009,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1234fffc 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:11, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000009
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000008, pcIn:00000009,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000001, instruction: 20120001 
+#  Read_Data_1:00000000, Read_Data_2:00000003, instruction[25:21]:00, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000009
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000009, pcIn:0000000a,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000001, instruction: 20120001 
+#  Read_Data_1:00000000, Read_Data_2:00000003, instruction[25:21]:00, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000a
+#  Read_Data_1:00000000, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000001
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000009, pcIn:0000000a,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000003, instruction: 22310001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:11, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000a
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 11 
+# , data_memory_mux_output : 00000003, instruction: 22310001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:11, instruction[20:16]:11 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000013, instruction: 22730001 
+#  Read_Data_1:00000012, Read_Data_2:00000012, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000012, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000013
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000013, instruction: 22730001 
+#  Read_Data_1:00000012, Read_Data_2:00000012, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:00000012, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000013
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000014, instruction: 22730001 
+#  Read_Data_1:00000013, Read_Data_2:00000013, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:00000013, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000014
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000014, instruction: 22730001 
+#  Read_Data_1:00000013, Read_Data_2:00000013, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:00000013, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000014
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000015, instruction: 22730001 
+#  Read_Data_1:00000014, Read_Data_2:00000014, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:00000014, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000015
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000015, instruction: 22730001 
+#  Read_Data_1:00000014, Read_Data_2:00000014, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000014, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000015
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000002, instruction: 22520001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000002, instruction: 22520001 
+#  Read_Data_1:00000001, Read_Data_2:00000001, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000f
+#  Read_Data_1:00000001, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000002
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1254fff8 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:0000000f
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000f, pcIn:00000010,reg_dest_mux_output : 14 
+# , data_memory_mux_output : ffffffff, instruction: 1254fff8 
+#  Read_Data_1:00000002, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:0, Branch:1, branch_or_output:0, pc_branch_mux_output:00000010
+#  Read_Data_1:00000002, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:0, Alu_Result: ffffffff
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000f, pcIn:00000010,reg_dest_mux_output : 00 
+# , data_memory_mux_output : 00000000, instruction: 0800000a 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:00, instruction[20:16]:00 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000010
+#  Read_Data_1:00000000, alu_src_mux_Output:00000000, ALU_Src: x, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 00 
+# , data_memory_mux_output : 00000000, instruction: 0800000a 
+#  Read_Data_1:00000000, Read_Data_2:00000000, instruction[25:21]:00, instruction[20:16]:00 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000000, alu_src_mux_Output:00000000, ALU_Src: x, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000a, pcIn:0000000b,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000016, instruction: 22730001 
+#  Read_Data_1:00000015, Read_Data_2:00000015, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000b
+#  Read_Data_1:00000015, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000016
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000016, instruction: 22730001 
+#  Read_Data_1:00000015, Read_Data_2:00000015, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:00000015, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000016
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000b, pcIn:0000000c,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000017, instruction: 22730001 
+#  Read_Data_1:00000016, Read_Data_2:00000016, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000c
+#  Read_Data_1:00000016, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000017
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000017, instruction: 22730001 
+#  Read_Data_1:00000016, Read_Data_2:00000016, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:00000016, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000017
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000c, pcIn:0000000d,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000018, instruction: 22730001 
+#  Read_Data_1:00000017, Read_Data_2:00000017, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000d
+#  Read_Data_1:00000017, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000018
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 13 
+# , data_memory_mux_output : 00000018, instruction: 22730001 
+#  Read_Data_1:00000017, Read_Data_2:00000017, instruction[25:21]:13, instruction[20:16]:13 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000017, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000018
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000d, pcIn:0000000e,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000003, instruction: 22520001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000e
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 12 
+# , data_memory_mux_output : 00000003, instruction: 22520001 
+#  Read_Data_1:00000002, Read_Data_2:00000002, instruction[25:21]:12, instruction[20:16]:12 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:0000000f
+#  Read_Data_1:00000002, alu_src_mux_Output:00000001, ALU_Src: 1, Zero:0, Alu_Result: 00000003
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=0000000e, pcIn:0000000f,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1254fff8 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000007
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000007, pcIn:00000008,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1254fff8 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:12, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000000
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000007, pcIn:00000008,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1234fffc 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:11, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000004
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000004, pcIn:00000005,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1234fffc 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:11, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000001
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000004, pcIn:00000005,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1214000b 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:10, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:00000010
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000010, pcIn:00000011,reg_dest_mux_output : 14 
+# , data_memory_mux_output : 00000000, instruction: 1214000b 
+#  Read_Data_1:00000003, Read_Data_2:00000003, instruction[25:21]:10, instruction[20:16]:14 
+#  beq_and_output:1, Branch:1, branch_or_output:1, pc_branch_mux_output:0000001c
+#  Read_Data_1:00000003, alu_src_mux_Output:00000003, ALU_Src: 0, Zero:1, Alu_Result: 00000000
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000010, pcIn:00000011,reg_dest_mux_output : xx 
+# , data_memory_mux_output : xxxxxxxx, instruction: xxxxxxxx 
+#  Read_Data_1:xxxxxxxx, Read_Data_2:xxxxxxxx, instruction[25:21]:xx, instruction[20:16]:xx 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000011
+#  Read_Data_1:xxxxxxxx, alu_src_mux_Output:xxxxxxxx, ALU_Src: 0, Zero:x, Alu_Result: xxxxxxxx
+#  ***************************************
+# ***************** 1 *******************
+#  pcOut=00000011, pcIn:00000012,reg_dest_mux_output : xx 
+# , data_memory_mux_output : xxxxxxxx, instruction: xxxxxxxx 
+#  Read_Data_1:xxxxxxxx, Read_Data_2:xxxxxxxx, instruction[25:21]:xx, instruction[20:16]:xx 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000012
+#  Read_Data_1:xxxxxxxx, alu_src_mux_Output:xxxxxxxx, ALU_Src: 0, Zero:x, Alu_Result: xxxxxxxx
+#  ***************************************
+# ***************** 0 *******************
+#  pcOut=00000011, pcIn:00000012,reg_dest_mux_output : xx 
+# , data_memory_mux_output : xxxxxxxx, instruction: xxxxxxxx 
+#  Read_Data_1:xxxxxxxx, Read_Data_2:xxxxxxxx, instruction[25:21]:xx, instruction[20:16]:xx 
+#  beq_and_output:0, Branch:0, branch_or_output:0, pc_branch_mux_output:00000012
+#  Read_Data_1:xxxxxxxx, alu_src_mux_Output:xxxxxxxx, ALU_Src: 0, Zero:x, Alu_Result: xxxxxxxx
+#  ***************************************
+# end_program will save the memory data and exit the verilog program 
+# ** Note: $finish    : data_memory.v(20)
+#    Time: 4371 ns  Iteration: 2  Instance: /MIPS/data_memory
+# End time: 00:52:33 on Dec 03,2019, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0
