@@ -2,7 +2,7 @@
 ## a GUI for Simulating MIPS Processor using Qt C++ Framework
 
 ###### Main GUI
-![GUI](https://i.ibb.co/6N3KRYZ/editor.png)
+![GUI](https://user-images.githubusercontent.com/35613645/78657032-7af6ac00-78c8-11ea-8d51-2f1fe822e39e.png)
 
 ###### Data Acquisition
 ![Memory](https://i.ibb.co/FX4Nrw4/Memory.png)
